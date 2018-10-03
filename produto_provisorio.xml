@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<array>
+    <produto>
+                <tipo>Perecivel</tipo>
+                <imagem>imgs/salsicha.jpg</imagem>
+                <titulo>Salsicha</titulo>
+                <descricao>Salsicha Tradicional Sadia 500g</descricao>
+                <preco>R$ 10,69</preco>
+    </produto> 
+    <produto>
+                <tipo>Perecivel</tipo>
+                <imagem>imgs/frango.jpg</imagem>
+                <titulo>Frango</titulo>
+                <descricao>Filé de Frango Peito Congelado sem Osso Seara 1Kg</descricao>
+                <preco>R$ 13,89</preco>
+    </produto>
+    <produto>
+                <tipo>Perecivel</tipo>
+                <imagem>imgs/bacon.jpg</imagem>
+                <titulo>Bacon</titulo>
+                <descricao>Bacon Fatiado Defumado Sadia 250g</descricao>
+                <preco>R$ 14,99</preco>
+    </produto>
+    
+    <produto>
+                <tipo>Perecivel</tipo>
+                <imagem>imgs/nuggets.jpg</imagem>
+                <titulo>Nuggets</titulo>
+                <descricao>Nuggets de Frango Crocante Sadia 300g</descricao>
+                <preco>R$ 6,79</preco>
+    </produto>
+     <produto>
+                <tipo>Acougue</tipo>
+                <imagem>imgs/costela.jpg</imagem>
+                <titulo>Costela Bovino</titulo>
+                <descricao>Filé de Costela Bovino Resfriado HEREFORD 1kg</descricao>
+                <preco>R$ 58,99</preco>
+    </produto>
+    <produto>
+                <tipo>Acougue</tipo>
+                <imagem>imgs/fraldinha.jpg</imagem>
+                <titulo>Fraldinha Bovina</titulo>
+                <descricao>Fraldinha Bovina Resfriada ANGUS 1kg</descricao>
+                <preco>R$ 51,99</preco>
+    </produto>
+    <produto>
+                <tipo>Acougue</tipo>
+                <imagem>imgs/coxa.jpg</imagem>
+                <titulo>Coxa e Sobrecoxa</titulo>
+                <descricao>Coxa e Sobrecoxa de Frango á Passarinho Congelado SADIA Zip Pacote 1kg</descricao>
+                <preco>R$ 10,79</preco>
+    </produto>
+    <produto>
+                <tipo>Acougue</tipo>
+                <imagem>imgs/lombo.jpg</imagem>
+                <titulo>Lombo Suino</titulo>
+                <descricao>Lombo Suíno Temperado Congelado QUALITÁ 1,1kg</descricao>
+                <preco>R$ 36,23</preco>
+    </produto>
+    <produto>
+                <tipo>Bebidas</tipo>
+                <imagem>imgs/tangerina.jpg</imagem>
+                <titulo>Suco</titulo>
+                <descricao>Suco de Tangerina MAGUARY 1 Litro</descricao>
+                <preco>R$ 4,85</preco>
+    </produto>
+    <produto>
+                <tipo>Bebidas</tipo>
+                <imagem>imgs/pepsi.jpg</imagem>
+                <titulo>Refrigerante</titulo>
+                <descricao>Refrigerante PEPSI Twist Lata 350ml</descricao>
+                <preco>R$ 2,69</preco>
+    </produto>
+    <produto>
+                <tipo>Bebidas</tipo>
+                <imagem>imgs/cha.jpg</imagem>
+                <titulo>Cha</titulo>
+                <descricao>Chá Preto com Limão LIPTON Ice Tea Garrafa 1,5 Litros</descricao>
+                <preco>R$ 6,69</preco>
+    </produto>
+    <produto>
+                <tipo>Bebidas</tipo>
+                <imagem>imgs/suco.jpg</imagem>
+                <titulo>Suco</titulo>
+                <descricao>Suco Orgânico BIO2 Beta 330ml</descricao>
+                <preco>R$ 6,49</preco>
+    </produto>
+    <produto>
+                <tipo>Limpeza</tipo>
+                <imagem>imgs/luva.jpg</imagem>
+                <titulo>Luva</titulo>
+                <descricao>Luva Forrada Multiuso Média SCOTCH BRITE</descricao>
+                <preco>R$ 11,25</preco>
+    </produto>
+    
+    <produto>
+                <tipo>Limpeza</tipo>
+                <imagem>imgs/vanish.jpg</imagem>
+                <titulo>Vanish</titulo>
+                <descricao>Kit com 1 Alvejante sem Cloro VANISH 1,5 Litros + 1 Alvejante sem Cloro VANISH White 1,5 Litros</descricao>
+                <preco>R$ 28,87</preco>
+    </produto>
+    <produto>
+                <tipo>Limpeza</tipo>
+                <imagem>imgs/omo.jpg</imagem>
+                <titulo>Sabao</titulo>
+                <descricao>Sabão em Pó OMO Multiação Caixa Leve 2kg Pague 1,8kg</descricao>
+                <preco>R$ 20,92</preco>
+    </produto>
+    <produto>
+                <tipo>Frutas</tipo>
+                <imagem>imgs/abacaxi.jpg</imagem>
+                <titulo>Abacaxi</titulo>
+                <descricao>Abacaxi Pérola Unidade</descricao>
+                <preco>R$ 2,98</preco>
+    </produto>
+    <produto>
+                <tipo>Frutas</tipo>
+                <imagem>imgs/manga.jpg</imagem>
+                <titulo>Manga</titulo>
+                <descricao>Manga Palmer Bandeja com 2 Unidades</descricao>
+                <preco>R$ 6,37</preco>
+    </produto>
+    <produto>
+                <tipo>Frutas</tipo>
+                <imagem>imgs/abacate.jpg</imagem>
+                <titulo>Abacate</titulo>
+                <descricao>Mini Avocado Bandeja com 2 Unidades</descricao>
+                <preco>R$ 13,19</preco>
+    </produto>
+    <produto>
+                <tipo>Frutas</tipo>
+                <imagem>imgs/goiaba.jpg</imagem>
+                <titulo>Giaba</titulo>
+                <descricao>Goiaba Vermelha Bandeja 1kg</descricao>
+                <preco>R$ 7,58</preco>
+    </produto>
+    <produto>
+                <tipo>Verduras</tipo>
+                <imagem>imgs/cebola.jpg</imagem>
+                <titulo>Cebola</titulo>
+                <descricao>Cebola Orgânica TAEQ 600g</descricao>
+                <preco>R$ 11,19</preco>
+    </produto>
+    <produto>
+                <tipo>Verduras</tipo>
+                <imagem>imgs/tomate.png</imagem>
+                <titulo>Tomate</titulo>
+                <descricao>Tomate Pera Orgânico TAEQ Bandeja 250g</descricao>
+                <preco>R$ 8,49</preco>
+    </produto>
+    <produto>
+                <tipo>Verduras</tipo>
+                <imagem>imgs/chuchu.jpg</imagem>
+                <titulo>Chuchu</titulo>
+                <descricao>Chuchu Extra Bandeja 1kg</descricao>
+                <preco>R$ 2,74</preco>
+    </produto>
+    <produto>
+                <tipo>Verduras</tipo>
+                <imagem>imgs/abobrinha.jpg</imagem>
+                <titulo>Abobrinha</titulo>
+                <descricao>ABOBRINHA ITALIANA 1KG</descricao>
+                <preco>R$ 5,48</preco>
+    </produto>
+    <produto>
+                <tipo>Mercearia</tipo>
+                <imagem>imgs/molho.jpg</imagem>
+                <titulo>Molho</titulo>
+                <descricao>Molho de Tomate com Pedaços Heinz Tradicional 340g</descricao>
+                <preco>R$ 1,89</preco>
+    </produto>
+    <produto>
+                <tipo>Mercearia</tipo>
+                <imagem>imgs/acucar.jpg</imagem>
+                <titulo>Acucar</titulo>
+                <descricao>Açúcar Caravelas Refinado 1kg</descricao>
+                <preco>R$ 1,99</preco>
+    </produto>
+    <produto>
+                <tipo>Mercearia</tipo>
+                <imagem>imgs/cafe.jpg</imagem>
+                <titulo>Cafe</titulo>
+                <descricao>Café Pilão Almofada 500g</descricao>
+                <preco>R$ 9,89</preco>
+    </produto>
+    <produto>
+                <tipo>Mercearia</tipo>
+                <imagem>imgs/macarrao.jpg</imagem>
+                <titulo>Macarrao</titulo>
+                <descricao>Macarrão DIA Instantâneo Galinha Caipira 85g</descricao>
+                <preco>R$ 0,85</preco>
+    </produto>
+</array>

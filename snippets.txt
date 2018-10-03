@@ -1,0 +1,11 @@
+snippets 
+{
+    https://htmlstream.com/preview/unify-v2.6/unify-main/home/home-default.html
+    https://bootsnipp.com/snippets/featured/login-screen-with-form
+    https://bootsnipp.com/snippets/featured/bootstrap-dual-design-registration-form
+    https://bootsnipp.com/snippets/qg70N
+    https://bootsnipp.com/snippets/featured/product-detail-page-ecommerce
+    http://wrapbootstrap.com/preview/WB04C422K
+    //login
+    https://colorlib.com/etc/lf/Login_v3/index.html
+}
