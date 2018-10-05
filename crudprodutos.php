@@ -1,15 +1,29 @@
 <?php  
 include("conexao.php");
-//VERIFICAMOS SE ESTA TENTANDO CADASTRAR UMA FORMA DE PGTO
-if (isset($_POST['nomeproduto'])) {
-	CadastrarProduto($_POST['nomeproduto']);
-}
+//VERIFICAMOS SE ESTA TENTANDO CADASTRAR
+	//if($_FILES){
+	if (isset($_FILES['foto'])) {
+		$destino= "imgs/produtos".$_FILES['foto']['name'];
+		move_uploaded_file($_FILES['foto']['tmp_name'],$destino);
+		CadastrarProduto($_POST['nome'],$destino,$_POST['descricao'],$_POST['barras'],$_POST['estoque'],$_POST['qtminimo'],$_POST['qtmaximo'],$_POST['ncm'],$_POST['custo'],$_POST['valor'],$_POST['fabricante'],$_POST['categoria']);
+				
+	}
+	//}
+	if (isset($_POST['nomefabricante'])) {
+		CadastrarFabricante($_POST['nomefabricante']);
+	}
+	if (isset($_POST['cd'])) {
+		AtualizarProduto($_POST['cd'], $_POST['nome']);
+	}
+
 if (isset($_POST['codigo'])) {
 	ExcluirProduto($_POST['codigo']);
 }
-if (isset($_POST['cd'])) {
-	AtualizarProduto($_POST['cd'], $_POST['nome']);
-}
+
+//if($_FILES){
+		
+		
+//}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -17,7 +31,7 @@ if (isset($_POST['cd'])) {
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>xxxxxx</title>
+<title>MC.com|Crud Produto </title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -289,11 +303,12 @@ $(document).ready(function(){
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
-                    <div class="col-sm-6">
-						<h2>CRUD <b>Formas de Pagamento</b></h2>
+                    <div class="col-sm-4">
+						<h2>CRUD <b>Produto</b></h2>
 					</div>
-					<div class="col-sm-6">
-						<a href="#ModalAdicionar" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Adicionar Forma de Pgto</span></a>
+					<div class="col-sm-8">
+						<a href="#ModalAdicionar" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Adicionar Produtos</span></a>
+						<a href="#ModalFabricante" class="btn btn-warning" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Adicionar Fabricante</span></a>
 						<a href="#ModalExcluir" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Apagar</span></a>						
 					</div>
                 </div>
@@ -308,14 +323,15 @@ $(document).ready(function(){
 							</span>
 						</th>
                         <th>#</th>
-                        <th>NOME</th>						
+                        <th>NOME</th>
+                        <th>Codigo</th>
                         <th>Controles</th>
                     </tr>
                 </thead>
                 <tbody>
                 	<?php 
-                		$formas = ListarFormaPgto();
-                		while ($forma = $formas->fetch_array()){
+                		$produtos = ListarProduto();
+                		while ($produto = $produtos->fetch_array()){
                 	 ?>
                     <tr>
 						<td>
@@ -324,8 +340,9 @@ $(document).ready(function(){
 								<label for="checkbox1"></label>
 							</span>
 						</td>
-                        <td><?php echo $forma['CD_FORMA_PGTO']; ?></td>
-                        <td><?php echo $forma['NM_PGTO']; ?></td>						                        
+                        <td><?php echo $produto['CD_INTERNO']; ?></td>
+                        <td><?php echo $produto['NM_PRODUTO']; ?></td>
+                        <td><?php echo $produto['CD_BARRAS'];  ?></td>
                         <td>
                             <a href="#ModalEditar" id="<?php echo $forma['CD_FORMA_PGTO']; ?>" nome="<?php echo $forma['NM_PGTO']; ?>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
                             <a href="#ModalExcluir" id="<?php  echo($forma['CD_FORMA_PGTO']); ?>" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Excluir">&#xE872;</i></a>
@@ -340,9 +357,9 @@ $(document).ready(function(){
                 <div class="hint-text">Exibindo <b>5</b> de <b>25</b> registros</div>
                 <ul class="pagination">
                     <li class="page-item disabled"><a href="#">Anterior</a></li>
-                    <li class="page-item"><a href="#" class="page-link">1</a></li>
+                    <li class="page-item active"><a href="#" class="page-link">1</a></li>
                     <li class="page-item"><a href="#" class="page-link">2</a></li>
-                    <li class="page-item active"><a href="#" class="page-link">3</a></li>
+                    <li class="page-item"><a href="#" class="page-link">3</a></li>
                     <li class="page-item"><a href="#" class="page-link">4</a></li>
                     <li class="page-item"><a href="#" class="page-link">5</a></li>
                     <li class="page-item"><a href="#" class="page-link">Próximo</a></li>
@@ -354,30 +371,102 @@ $(document).ready(function(){
 	<div id="ModalAdicionar" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form action="crudcadastar.php" method="post">
+				<form action="crudprodutos.php" method="post" enctype='multipart/form-data'>
 					<div class="modal-header">						
 						<h4 class="modal-title">Adicionar Novo</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">					
 						<div class="form-group">
-							<label>Forma de Pagamento:</label>
-							<input type="text" name="nomeproduto" class="form-control" required>
-						</div>
-					<!-- NÃO VAMOS USAR AGORA
-						<div class="form-group">
-							<label>Email</label>
-							<input type="email" class="form-control" required>
+							<label>Nome Do Produto:</label>
+							<input type="text" name="nome" class="form-control" required>
 						</div>
 						<div class="form-group">
-							<label>Descrição</label>
-							<textarea class="form-control" required></textarea>
+							<label>Foto:</label>
+							<input type="file" name="foto" class="form-control" required>
 						</div>
 						<div class="form-group">
-							<label>Telefone</label>
-							<input type="text" class="form-control" required>
-						</div>	
-					-->				
+							<label>Descrição:</label>
+							<textarea class="form-control" rows=10 name="descricao" required></textarea>
+						</div>
+						<div class="form-group">
+							<label>Codigo De Barrras:</label>
+							<input type="number" name="barras" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Quantidade No Estoque:</label>
+							<input type="number" name="estoque" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Quantidade Minima:</label>
+							<input type="number" name="qtminimo" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Quantidade Maxima:</label>
+							<input type="number" name="qtmaximo" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Ncm:</label>
+							<input type="number" name="ncm" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Valor Do Custo:</label>
+							<input type="number" step="0.01" name="custo" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Valor do Produto:</label>
+							<input type="number" step="0.01" name="valor" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Fabricante:</label>
+							<select class="wide form-control" name="fabricante">
+                                <?php
+                                    $fabricantes = ListarFabricante();
+                                        while($f = $fabricantes->fetch_array()){
+                                                echo '<option value="'.$f['CD_FABRICANTE'].'">
+                                                        '.$f['NM_FABRICANTE'].'
+                                                      </option>';
+                                        }
+                                ?>
+                            </select>   
+						</div>
+						<div class="form-group">
+							<label>Categoria:</label>
+							<select class="wide form-control" name="categoria">
+                                <?php
+                                    $categorias = ListarCategoria();
+                                        while($c = $categorias->fetch_array()){
+                                                echo '<option value="'.$c['CD_CATEGORIA'].'">
+                                                        '.$c['NM_CATEGORIA'].'
+                                                      </option>';
+                                        }
+                                ?>
+                            </select>   
+						</div>
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+						<input type="submit" class="btn btn-success" value="Cadastrar">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>	<!-- Edit Modal HTML -->
+	<div id="ModalFabricante" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form action="crudprodutos.php" method="post">
+					<div class="modal-header">						
+						<h4 class="modal-title">Adicionar Novo</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">					
+						<div class="form-group">
+							<label>Nome Do Fabricante:</label>
+							<input type="text" name="nomefabricante" class="form-control" required>
+						</div>
+						
+					
 					</div>
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">

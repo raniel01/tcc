@@ -112,21 +112,22 @@ function ExcluirUsuario($cd){
 // -- crud usuario
 
 //Crud Produtos
-//function CadastrarProduto($nomeproduto,$descricao,$cdbarras,$quantidadeestoque,$quantidademin,$quantidademax,$ncm,$valorcusto,$valorproduto,"' id do Fabricante'","'.Id Da Categoria"){
-	//$sql='INSERT INTO TB_PRODUTO VALUES (null,"'.$nomeproduto.'","'$descricao'","'.$cdbarras.'","'.$quantidadeestoque.'","'.$quantidademin.'","'.$quantidademax.'","'.$ncm.'","'.$valorcusto.'","'.$valorproduto.'","' id do Fabricante'","'.Id Da Categoria.'")';
-	//$res = $GLOBALS['con']->query($sql);
-	//if($res){
-	//	alert(" Produto Cadastrado com sucesso");
-	//}else{
-	//	alert("Erro ao Cadastrar o Produto");
-	//}
-//}
+function CadastrarProduto($nomeproduto,$foto,$descricao,$barras,$quantidadeestoque,$quantidademin,$quantidademax,$ncm,$valorcusto,$valorproduto,$fabricante,$categoria){
+	$sql='INSERT INTO TB_PRODUTO VALUES (null,"'.$nomeproduto.'","'.$foto.'","'.$descricao.'","'.$barras.'","'.$quantidadeestoque.'","'.$quantidademin.'","'.$quantidademax.'","'.$ncm.'","'.$valorcusto.'","'.$valorproduto.'","'.$fabricante.'","'.$categoria.'")';
+	$res = $GLOBALS['con']->query($sql);
+	if($res){
+		alert(" Produto Cadastrado com sucesso");
+	}else{
+		alert("Erro ao Cadastrar o Produto");
+		echo $sql;
+	}
+}
 //Função Listar Produtos
-//function ListarProduto(){
-//	$sql='SELECT * FROM TB_PRODUTO';
-//	$res=$GLOBALS['con']->query($sql);
-//	return $res;
-//}
+function ListarProduto(){
+	$sql='SELECT * FROM TB_PRODUTO';
+	$res=$GLOBALS['con']->query($sql);
+	return $res;
+}
 function ExcluirProduto($cd){
 	$sql = 'DELETE FROM TB_PRODUTO WHERE CD_PRODUTO ='.$cd;
 	$res = $GLOBALS['con']->query($sql);
@@ -138,18 +139,18 @@ function ExcluirProduto($cd){
 }
 //--Crud Produtos
 //--fabricante 
-function CadastrarFabricante($nm_fabricante){
-	$sql = 'INSERT INTO tb_fabricante VALUES (null,"'.$nm_fabricante.'")';
+function CadastrarFabricante($fabricante){
+	$sql = 'INSERT INTO TB_FABRICANTE VALUES (null,"'.$fabricante.'")';
 	$res = $GLOBALS['con']->query($sql);
 	if($res){
 		alert("Cadastrado com sucesso");
 	}else{
-		alert("Erro ao cadastrar");
+		alert("Erro ao cadastrar o fabricante");
 	}
 }
 
 function ExcluirFabricante($cd){
-	$sql = 'DELETE FROM tb_fabricante WHERE cd_fabricante ='.$cd;
+	$sql = 'DELETE FROM TB_FABRICANTE WHERE CD_FABRICANTE ='.$cd;
 	$res = $GLOBALS['con']->query($sql);
 	if($res){
 		alert("Excluido com sucesso");
@@ -159,13 +160,13 @@ function ExcluirFabricante($cd){
 }
 
 function ListarFabricante(){
-	$sql = 'SELECT * FROM tb_fabricante';
+	$sql = 'SELECT * FROM TB_FABRICANTE';
 	$res = $GLOBALS['con']->query($sql);
 	return $res;	
 }
 
 function AtualizarFabricante($cd, $nm_fabricante){
-	$sql= 'UPDATE tb_produto SET NM_PRODUTO = "'.$nm_fabricante.'" WHERE cd_interno ='.$cd;
+	$sql= 'UPDATE TB_PRODUTO SET NM_PRODUTO = "'.$nm_fabricante.'" WHERE CD_INTERNO ='.$cd;
 	$res = $GLOBALS['con']->query($sql);
 	if ($res) {
 		alert("Atualizado!");
@@ -178,7 +179,7 @@ function AtualizarFabricante($cd, $nm_fabricante){
 //--categoria
 
 function CadastrarCategoria($nm_categoria){
-	$sql = 'INSERT INTO tb_categoria VALUES (null,"'.$nm_categoria.'")';
+	$sql = 'INSERT INTO TB_CATEGORIA VALUES (null,"'.$nm_categoria.'")';
 	$res = $GLOBALS['con']->query($sql);
 	if($res){
 		alert("Cadastrado com sucesso");
@@ -188,7 +189,7 @@ function CadastrarCategoria($nm_categoria){
 }
 
 function ExcluirCategoria($nm_categoria){
-	$sql = 'DELETE FROM tb_categoria WHERE cd_categoria int ='.$cd;
+	$sql = 'DELETE FROM TB_CATEGORIA WHERE CD_CATEGORIA INT ='.$cd;
 	$res = $GLOBALS['con']->query($sql);
 	if($res){
 		alert("Excluido com sucesso");
@@ -198,13 +199,13 @@ function ExcluirCategoria($nm_categoria){
 }
 
 function ListarCategoria(){
-	$sql = 'SELECT * FROM tb_categoria';
+	$sql = 'SELECT * FROM TB_CATEGORIA';
 	$res = $GLOBALS['con']->query($sql);
 	return $res;	
 }
 
 function AtualizarCategoria($cd, $nm_categoria){
-	$sql= 'UPDATE tb_categoria SET cd_categoria = "'.$nm_categoria.'" WHERE cd_interno ='.$cd;
+	$sql= 'UPDATE TB_CATEGORIA SET CD_CATEGORIA = "'.$nm_categoria.'" WHERE CD_INTERNO ='.$cd;
 	$res = $GLOBALS['con']->query($sql);
 	if ($res) {
 		alert("Atualizado!");
@@ -217,7 +218,7 @@ function AtualizarCategoria($cd, $nm_categoria){
 //--carrinho
 
 function CadastrarCarrinho($qt_produto, $ds_status){
-	$sql = 'INSERT INTO tb_carrinho VALUES (null,"'.$qt_produto."','".$ds_descricao.'")';
+	$sql = 'INSERT INTO TB_CARRINHO VALUES (null,"'.$qt_produto."','".$ds_descricao.'")';
 	$res = $GLOBALS['con']->query($sql);
 	if($res){
 		alert("Cadastrado com sucesso");
@@ -227,7 +228,7 @@ function CadastrarCarrinho($qt_produto, $ds_status){
 }
 
 function ExcluirCarrinho($qt_produto, $ds_status){
-	$sql = 'INSERT INTO tb_carrinho VALUES (null,"'.$qt_produto."','".$ds_status.'")';
+	$sql = 'INSERT INTO TB_CARRINHO VALUES (null,"'.$qt_produto."','".$ds_status.'")';
 	$res = $GLOBALS['con']->query($sql);
 	if($res){
 		alert("Excluido com sucesso");
@@ -237,7 +238,7 @@ function ExcluirCarrinho($qt_produto, $ds_status){
 }
 
 function ListarCarrinho(){
-	$sql = 'SELECT * FROM tb_carrinho';
+	$sql = 'SELECT * FROM TB_CARRINHO';
 	$res = $GLOBALS['con']->query($sql);
 	return $res;	
 }

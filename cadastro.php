@@ -13,7 +13,6 @@ function formatar(mascara, documento){
 <?php 
 session_start();
 include("conexao.php");
-
 if (isset($_POST['nome'])) {
    
 	CadastrarUsuario($_POST['nome'], $_POST['sobrenome'], $_POST['email'], $_POST['sexo'],"", $_POST['nascimento'],"","","","","","","", $_POST['cel'],"","",0,"", md5($_POST['senha']));
@@ -217,7 +216,6 @@ if (isset($_POST['nome'])) {
     <script type="text/javascript">
         var password = document.getElementById("password")
   , confirm_password = document.getElementById("confirm_password");
-
 function validatePassword(){
   if(password.value != confirm_password.value) {
     confirm_password.setCustomValidity("Senhas diferentes!");
@@ -225,7 +223,6 @@ function validatePassword(){
     confirm_password.setCustomValidity('');
   }
 }
-
 password.onchange = validatePassword;
 confirm_password.onkeyup = validatePassword;
     </script>
