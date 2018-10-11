@@ -152,7 +152,17 @@
             </nav>
                 
             <div class = "container-fluid">
-                
+                <form aciton="finalizarcad.php" metodh="post">
+                   <div class="row">
+                       <div class="col-md-12">
+                           <div class="form-group">
+                              <input type = "text" name = "nome" class = "form-control" placeholder = "Nome *" value = "" required >
+                           </div>
+                       </div>
+                   </div>
+                    
+                </form>    
+            
             </div>
             
         </div>

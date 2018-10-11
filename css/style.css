@@ -7,6 +7,17 @@
 a.busca-bg-card:hover{
 	color: white !important;
 }
+ul.busca-a-pagination a{
+	background-color: #343a40 !important;
+	color:#ff7400 !important;
+	border-radius: 15px;
+}
+ul.busca-a-pagination a:hover{
+	color:white;
+}
+ul.busca-a-pagination{
+	border-radius: 15px;
+}
 /*----------------------------------------------------*/
 
 		.fundo a{

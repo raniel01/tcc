@@ -764,7 +764,7 @@ include('header_navbar.php');
                 <nav aria-label = "Page navigation example">
   
                     <!-- Botões -->
-                    <ul class="pagination">
+                    <ul class="pagination busca-a-pagination">
     
                         <li class = "page-item"><a class = "page-link" href = "#">Anterior</a></li>
                         <li class = "page-item"><a class = "page-link" href="#">1</a></li>
