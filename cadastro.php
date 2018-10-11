@@ -12,22 +12,14 @@ function formatar(mascara, documento){
 <!--Conexão com Banco de Dasdos-->
 <?php 
 session_start();
-include("conexao.php");
-if (isset($_POST['nome'])) {
-   
-	CadastrarUsuario($_POST['nome'], $_POST['sobrenome'], $_POST['email'], $_POST['sexo'],"", $_POST['nascimento'],"","","","","","","", $_POST['cel'],"","",0,"", md5($_POST['senha']));
-         
-   
-}
+//include("conexao.php");
+//funçoes do cadastro passando pelo header_navbar junto com o include de conexao
 ?>
 
 <!--..Conexão com Banco de Dados-->
 
 <!-- Nosso CSS -->
 <link rel = "stylesheet" type = "text/css" href = "cadastro.css">
-
-
-<body class = "pt-4">    
 
     <!-- Header -->
     <?php include('header_navbar.php'); ?>
@@ -116,7 +108,7 @@ if (isset($_POST['nome'])) {
                 
         <div class = "row">
                 
-            <div class = "col-md-3 register-left mt-4">
+            <div class = "col-md-3 register-left">
     
                 <img src = "imgs/logo1.png" no = "Logotipo"/>
                             

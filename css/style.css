@@ -1,3 +1,13 @@
+/*--------------pagina busca---------------------------*/
+/*cards busca*/
+.busca-bg-card{
+	background-color: #343a40 !important;
+	color:#ff7400 !important;
+}
+a.busca-bg-card:hover{
+	color: white !important;
+}
+/*----------------------------------------------------*/
 
 		.fundo a{
 			color:white;
@@ -27,8 +37,8 @@
 		.showcase-img{
 			padding-top:10px;
 		}
-		 body{
-            background-color:white;
+		  body{
+          background-color:white;
         }
         .texto{
         	color:#ed3136;
@@ -90,7 +100,7 @@
         	z-index:1;
         }
         .navbar{
-        	z-index:9999;
+        	/*z-index:9999;*/
         	position:0;
         }
         .conteudo{
@@ -99,10 +109,5 @@
 		#perfil_usuario_fundo{
 			
 			background-image: url('imgs/foto.jpg');
-			
-		}
-		.vazio{
-			
-			height: 4.2rem%;
 			
 		}

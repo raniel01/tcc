@@ -15,13 +15,13 @@
         
     </head>
     
-    <body class = "pt-5">
+    <body>
         
     <?php include('header_navbar.php') ?>
     
     <div class = "container-fluid mb-3">
         
-        <div class = "row pt-5">
+        <div class = "row">
                 
             <div class = "col-md-5 col-sm-12 offset-md-1">
                     

@@ -1,27 +1,43 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Meu Carrinho | Aqui sua compra fica mais facil!</title>
-	<!-- imgs carrousel wrapper :250x200 -->
-		<!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    	<!--css-->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script type="text/javascript" src="https://raw.githubusercontent.com/frexy/svg-icon-webcomponent/master/build/iconwc.js"></script>
-    	<!--css off-->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    
-    	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	
-</head> 
+<?php include('header_navbar.php'); ?>
 <body>
 	<div class="container-fluid">
-		<?php include('header.php'); ?>
+			<!-- Tirando carrossel-->
+		<div class="container-fluid">
+	            
+				<div class="col-md-12 slide  rounded text-center">
+					<!--carrosel-->
+					<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+					  <ol class="carousel-indicators">
+					    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+					    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+					    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+					  </ol>
+					  <!--imagens do carrosel-->
+					  <div class="carousel-inner">
+					    <div class="carousel-item active">
+					      <img class="d-block w-100" src="imgs/Banner2-1.jpg" alt="Primeiro slide">
+					    </div>
+					    <div class="carousel-item">
+					      <img class="d-block w-100" src="imgs/Banner2-2.jpg" alt="Segundo slide">
+					    </div>
+					    <div class="carousel-item">
+					      <img class="d-block w-100" src="imgs/Banner2-3.jpg" alt="Terceiro slide">
+					    </div>
+					  </div>
+					  <!--indicadores do carrosel-->
+					  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+					    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					    <span class="sr-only">Previous</span>
+					  </a>
+					  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+					    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+					    <span class="sr-only">Next</span>
+					  </a>
+					</div>
+				</div>
+		</div>
+	
 		<!--index
 		<div class="span8 text-center">
 			<h1 class='texto'><b>Meu Carrinho.com</b></h1>
@@ -162,10 +178,10 @@
 					<p class="text-center">Categorias dos Produtos</p>
 				</div>
 			</div>
-					<div class="col-md-8 offset-2">
+					<div class="col-md-8 offset-2 d-none d-md-block">
 						<h2 class="texto">Ofertas</h2>
 						<br>
-						<img  class="rounded" src="imgs/banner2.jpg" style="height:50%; width:100%;"></img>
+						<img  class="rounded img-thumbnail" src="imgs/banner2.jpg" style="height:50%; width:100%;"></img>
 			
 					</div>
 				<br><br>

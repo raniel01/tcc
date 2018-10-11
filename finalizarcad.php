@@ -30,12 +30,13 @@
     
     <div class = "wrapper">
         
-        <!-- Sidebar  -->
-        
+        <!-- Sidebar -->
         <nav id = "sidebar">
             
             <div class = "sidebar-header">
+                
                 <h3>Perfil de usuário</h3>
+                                    
             </div>
             
             <div class = "media">
@@ -126,6 +127,7 @@
             </ul>
         
         </nav>
+        <!-- Sidebar -->
 
         <!-- Page Content  -->
         
@@ -137,15 +139,20 @@
 
                     <button type = "button" id = "sidebarCollapse" class = "mb-2 m-md-0 btn btn-outline-warning"><img src = "https://image.flaticon.com/icons/svg/181/181549.svg" width = "27" height = "25"></button>
 
-                    <form class = "form-inline" action="finalizarcad" method="post">
-                		
-                            
-                    </form>
+                    <form class = "form-inline">
                         
-                    </div>
+                        <input class = "form-control mr-2 mr-sm-2" type = "search" placeholder = "Pesquisar no Carrinho...">
+                        
+                        <button class = "d-none d-sm-block btn btn-outline-warning my-2" type = "submit"><img src = "https://image.flaticon.com/icons/svg/34/34097.svg" height = "27" widht = "25"></button>
+                        
+                    </form>
                     
                 </div>
-    
+                
+            </nav>
+                
+            <div class = "container-fluid">
+                
             </div>
             
         </div>
@@ -164,6 +171,16 @@
         $(document).ready(function(){
             
             $('#sidebarCollapse').on('click', function(){
+                
+                $('#sidebar').toggleClass('active');
+                
+            });
+            
+        });
+        
+        $(document).ready(function(){
+            
+            $('#sidebarCollapse2').on('click', function(){
                 
                 $('#sidebar').toggleClass('active');
                 

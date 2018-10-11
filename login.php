@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("conexao.php");
+//include("conexao.php");
 ?> 
 <!DOCTYPE html>
 <html>
@@ -30,8 +30,8 @@ include("conexao.php");
   <body>
     
     <?php include('header_navbar.php') ?>
-  <div class="container-login" style="background-image: url('/imgs/fundocarrinho.jpg');">
-    ::before
+  <div class="container-login" style="background-image: url('/imgs/fundocarrinho.jpg'); padding-top:50px;">
+    
     <div class="row login">
       <div class="col-md-6 offset-3 mx-auto">
         <form action="login.php" method="post">

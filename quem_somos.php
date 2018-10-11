@@ -16,13 +16,9 @@
         
     </head>
     
-    <body class = "pt-5">
+    <body>
         
-        <div class = "container-fluid">
-            
-		    <?php include('header_navbar.php'); ?>
-		    
-		</div>
+        <?php include('header_navbar.php'); ?>
         
         <div class = "container">
             

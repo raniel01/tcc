@@ -45,7 +45,7 @@
 			            
 			            <li class = "nav-item">
 			            	
-			            	<a class = "nav-link text-white" href = "#">Produtos</a>
+			            	<a class = "nav-link text-white" href = "busca.php">Produtos</a>
 			            
 			            </li>
 			            
@@ -91,41 +91,7 @@
 		    
 		</nav>
 				
-		<!-- Tirando carrossel-->
-		<div class="container-fluid">
-	            
-				<div class="col-md-12 slide  rounded text-center">
-					<!--carrosel-->
-					<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-					  <ol class="carousel-indicators">
-					    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-					    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-					    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-					  </ol>
-					  <!--imagens do carrosel-->
-					  <div class="carousel-inner">
-					    <div class="carousel-item active">
-					      <img class="d-block w-100" src="imgs/Banner2-1.jpg" alt="Primeiro slide">
-					    </div>
-					    <div class="carousel-item">
-					      <img class="d-block w-100" src="imgs/Banner2-2.jpg" alt="Segundo slide">
-					    </div>
-					    <div class="carousel-item">
-					      <img class="d-block w-100" src="imgs/Banner2-3.jpg" alt="Terceiro slide">
-					    </div>
-					  </div>
-					  <!--indicadores do carrosel-->
-					  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-					    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					    <span class="sr-only">Previous</span>
-					  </a>
-					  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-					    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-					    <span class="sr-only">Next</span>
-					  </a>
-					</div>
-				</div>
-		</div>
+	
 				
 		<div class="container conteudo">
 			

@@ -30,12 +30,13 @@
     
     <div class = "wrapper">
         
-        <!-- Sidebar  -->
-        
+        <!-- Sidebar -->
         <nav id = "sidebar">
             
             <div class = "sidebar-header">
+                
                 <h3>Perfil de usuário</h3>
+                                    
             </div>
             
             <div class = "media">
@@ -126,6 +127,7 @@
             </ul>
         
         </nav>
+        <!-- Sidebar -->
 
         <!-- Page Content  -->
         
@@ -215,20 +217,7 @@
                                 
                                 <div class = "row">
                                     
-                                    <select class = "custom-select col-4 ml-3" id = "inlineFormCustomSelectPref">
-    
-                                        <option selected value = "1">1</option>
-                                        <option value = "2">2</option>
-                                        <option value = "3">3</option>
-                                        <option value = "4">4</option>
-                                        <option value = "5">5</option>
-                                        <option value = "6">6</option>
-                                        <option value = "7">7</option>
-                                        <option value = "8">8</option>
-                                        <option value = "9">9</option>
-                                        <option value = "10">10</option>
-                                    
-                                    </select>
+                                    <input type = "number" class = "form-control col-4 ml-3" value = "1">
                                     
                                     <button type="button" class="btn btn-danger col-5 ml-4">Remover</button>
                                     
@@ -254,20 +243,7 @@
                                 
                                 <div class = "row">
                                     
-                                    <select class = "custom-select col-4 ml-3" id = "inlineFormCustomSelectPref">
-    
-                                        <option selected value = "1">1</option>
-                                        <option value = "2">2</option>
-                                        <option value = "3">3</option>
-                                        <option value = "4">4</option>
-                                        <option value = "5">5</option>
-                                        <option value = "6">6</option>
-                                        <option value = "7">7</option>
-                                        <option value = "8">8</option>
-                                        <option value = "9">9</option>
-                                        <option value = "10">10</option>
-                                    
-                                    </select>
+                                    <input type = "number" class = "form-control col-4 ml-3" value = "1">
                                     
                                     <button type="button" class="btn btn-danger col-5 ml-4">Remover</button>
                                     
@@ -293,20 +269,7 @@
                                 
                                 <div class = "row">
                                     
-                                    <select class = "custom-select col-4 ml-3" id = "inlineFormCustomSelectPref">
-    
-                                        <option selected value = "1">1</option>
-                                        <option value = "2">2</option>
-                                        <option value = "3">3</option>
-                                        <option value = "4">4</option>
-                                        <option value = "5">5</option>
-                                        <option value = "6">6</option>
-                                        <option value = "7">7</option>
-                                        <option value = "8">8</option>
-                                        <option value = "9">9</option>
-                                        <option value = "10">10</option>
-                                    
-                                    </select>
+                                    <input type = "number" class = "form-control col-4 ml-3" value = "1">
                                     
                                     <button type="button" class="btn btn-danger col-5 ml-4">Remover</button>
                                     
@@ -332,20 +295,7 @@
                                 
                                 <div class = "row">
                                     
-                                    <select class = "custom-select col-4 ml-3" id = "inlineFormCustomSelectPref">
-    
-                                        <option selected value = "1">1</option>
-                                        <option value = "2">2</option>
-                                        <option value = "3">3</option>
-                                        <option value = "4">4</option>
-                                        <option value = "5">5</option>
-                                        <option value = "6">6</option>
-                                        <option value = "7">7</option>
-                                        <option value = "8">8</option>
-                                        <option value = "9">9</option>
-                                        <option value = "10">10</option>
-                                    
-                                    </select>
+                                    <input type = "number" class = "form-control col-4 ml-3" value = "1">
                                     
                                     <button type="button" class="btn btn-danger col-5 ml-4">Remover</button>
                                     
@@ -417,6 +367,16 @@
         $(document).ready(function(){
             
             $('#sidebarCollapse').on('click', function(){
+                
+                $('#sidebar').toggleClass('active');
+                
+            });
+            
+        });
+        
+        $(document).ready(function(){
+            
+            $('#sidebarCollapse2').on('click', function(){
                 
                 $('#sidebar').toggleClass('active');
                 

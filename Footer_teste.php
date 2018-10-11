@@ -140,6 +140,8 @@
     <div class = "footer-copyright text-center pb-3">© 2018 Copyright:
     </div>
     <!-- Copyright -->
-
+    
+     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+     <script src="js/function.js"></script>
 </footer>
 <!-- Footer -->
