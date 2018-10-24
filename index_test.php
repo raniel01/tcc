@@ -606,13 +606,13 @@
 		<!-- Row Imagens -->
 		<div class = "d-none d-lg-block">
 		    
-    		<div class = "row align-items-center bg-light" style = "height: 40em;">
+    		<div class = "row bg-light" style = "height: 100%;">
     		    
     		    <!-- Tamanho -->
     		    <div class = "col-6 px-0">
     		        
     		        <!-- Div -->
-    		        <div class = "py-5" style = "padding-left: 14em;">
+    		        <div class = "py-5" style = "padding-left: 15%;">
     		            
     		            <h1 class = "text-dark">Título</h3>
     		            <p class = "text-dark">Text simples para exemplificar o conteúdo presente nesta div.</p>
