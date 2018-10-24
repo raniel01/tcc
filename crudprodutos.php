@@ -528,7 +528,17 @@ $(document).ready(function(){
 					
 					</div>
 					<div class="modal-footer">
-						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+							<label>Categoria:</label>
+							<select class="wide form-control" name="categoria">
+                                <?php
+                                    $categorias = ListarCategoria();
+                                        while($c = $categorias->fetch_array()){
+                                                echo '<option value="'.$c['CD_CATEGORIA'].'">
+                                                        '.$c['NM_CATEGORIA'].'
+                                                      </option>';
+                                        }
+                                ?>
+                            </select>   
 						<input type="submit" class="btn btn-success" value="Buscar">
 					</div>
 				</form>

@@ -93,3 +93,8 @@ input{
   color:black;
 }
  /* -- Página de login*/
+ /*imagem perfil*/
+ .foto-perfil{
+  object-fit: cover; 
+ }
+ /* -- imagem perfil */

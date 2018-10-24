@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<?php include('header_navbar.php'); ?>
+<?php
+$title = "";
+include('header_navbar.php'); ?>
 <body>
-	<div class="container-fluid">
+
 			<!-- Tirando carrossel-->
-		<div class="container-fluid">
 	            
-				<div class="col-md-12 slide  rounded text-center">
+				<div class="col-12 col-md-12 slide">
 					<!--carrosel-->
 					<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 					  <ol class="carousel-indicators">
@@ -36,8 +37,7 @@
 					  </a>
 					</div>
 				</div>
-		</div>
-	
+		<div class="container-fluid">
 		<!--index
 		<div class="span8 text-center">
 			<h1 class='texto'><b>Meu Carrinho.com</b></h1>
@@ -155,29 +155,29 @@
 				<!--imagens das categorias-->
 				<div class="col-md-12">
 					<div class="row">
-						<div class="col-md-4">
+						<div class="col-md-4 col-6">
 							<a href="buscador_produto_xml.php?cat=Mercearia"><img  class ="img-thumbnail" src="imgs/cat1.jpg" alt=""></a>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-4 col-6">
 							<a href="buscador_produto_xml.php?cat=Limpeza"><img  class ="img-thumbnail" src="imgs/cat2.jpg" alt=""></a>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-4 col-6">
 							<a href="buscador_produto_xml.php?cat=Frutas"><img  class ="img-thumbnail" src="imgs/cat3.jpg" alt=""></a>
 						</div>
-						<div class="col-12">&nbsp;</div>
-						<div class="col-md-4">
+						<div class="col-12 d-none d-lg-block">&nbsp;</div>
+						<div class="col-md-4 col-6">
 							<a href="buscador_produto_xml.php?cat=Bebidas"><img  class ="img-thumbnail" src="imgs/cat4.jpg" alt=""></a>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-4 col-6">
 							<a href="buscador_produto_xml.php?cat=Perecivel"><img  class ="img-thumbnail" src="imgs/cat5.jpg" alt=""></a>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-4 col-6">
 							<a href="buscador_produto_xml.php?cat=Limpeza"><img  class ="img-thumbnail" src="imgs/cat2.jpg" alt=""></a>
 						</div>
 					</div>
 					<p class="text-center">Categorias dos Produtos</p>
 				</div>
-			</div>
+			
 					<div class="col-md-8 offset-2 d-none d-md-block">
 						<h2 class="texto">Ofertas</h2>
 						<br>
@@ -185,7 +185,7 @@
 			
 					</div>
 				<br><br>
-				<div class="col-md-8 offset-2">
+				<div class="col-md-8 offset-md-2 col-12">
 					 <h2 class="texto">As Maiores Marcas Estão Aqui!</h2>
 				</div>
 			
@@ -250,10 +250,10 @@
 				                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 				                    <div class="showcase-block">
 				                        <div class="display-logo ">
-				                            <a href="#"><img src="imgs/dia.png" class="img-fluid" alt=""></a>
+				                            <a href="#"><img src="imgs/sadialogo.png" class="img-fluid" alt=""></a>
 				                        </div>
 				                        <div class="showcase-img">
-				                            <a href="#">    <img src="imgs/diaprodutos.png" class="img-fluid" alt=""></a>
+				                            <a href="#">    <img src="imgs/sadia.png" class="img-fluid" alt=""></a>
 				                        </div>
 				                    </div>
 				                </div>
@@ -268,6 +268,7 @@
 				                    </div>
 				                </div>
 				              </div>
+				              
 				    </div>
 				    <div class="col-md-8 offset-2">
 					<br>

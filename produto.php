@@ -1,52 +1,46 @@
-<html>
-    
-    <head>
-        
-        <meta charset = "utf-8">
-        <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
-        <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
-    
-        <title>Nome do Produto</title>
-    
-        <!-- Bootstrap CSS CDN -->
-        <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity = "sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin = "anonymous">
-        <!-- Our Custom CSS -->
-        <link rel = "stylesheet" href = "style-slidenav.css">
-        
-    </head>
-    
-    <body>
-        
-    <?php include('header_navbar.php') ?>
-    
-    <div class = "container-fluid mb-3">
+<?php 
+include('header_navbar.php') ?>
+<body>
+    <div class = "pt-5 container-fluid mb-3">
         
         <div class = "row">
-                
-            <div class = "col-md-5 col-sm-12 offset-md-1">
+                 <?php
+              //$unitarios = ListaUnitaria($buscaunitaria);
+
+            		$buscaunitaria=$_GET['cd'];
+            		$produto = ListaUnitaria($buscaunitaria);
+            	
+
+              while($unitario = $produto->fetch_array()){
+             
+              
+              ?>      
+            <div class = "col-md-5 col-sm-12 offset-md-1 text-center d-block">
                     
-                <img src = "imgs/fundo.png" class = "rounded float-right responsive w-100" alt = "imagem do produto">
+                <img src = "<?php echo $unitario['DS_FOTO_PRODUTO']; ?>" class = "rounded float-right responsive w-100" alt = "imagem do produto">
                     
             </div>
                 
             <div class = "col-md-5 col-sm-12 mt-4 mt-md-0">
-                    
+                     
                 <div class = "card">
                     
                     <div class = "card-body">
                         
-                        <h3 class = "card-title">Nome do Produto</h3>
+                        <h3 class = "card-title"><?php echo $unitario['NM_PRODUTO']; ?></h3>
                         
-                        <p class = "card-text mt-4">Isso é uma descição breve sobre o produto.</p>
+                        <p class = "card-text mt-4"><?php echo $unitario['DS_DESCRIÇÃO']; ?></p>
                         
-                        <p class = "font-weight-bold mt-5"><h3 = class = "text-danger">Preço</h3></p>
+                        <p class = "font-weight-bold mt-5"><h3 = class = "text-danger"><?php echo $unitario['VL_PRECO']; ?></h3></p>
                         
                         <button type = "button" class = "btn btn-primary mt-4">Adicionar ao Carrinho</button>
 
                     </div>
                     
                 </div>
-                    
+                <?php    
+                }
+                ?>
             </div>
             
         </div>
@@ -63,5 +57,3 @@
     <?php include('Footer_teste.php') ?>
         
     </body>
-    
-</html>

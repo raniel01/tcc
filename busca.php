@@ -16,13 +16,20 @@ include('header_navbar.php');
     <div class = "container-fluid">
         
         <!-- Row principal da página -->
-        <div class = "row">
+        <div class = "row pt-2">
             
+            <?php
+                    if($busca == ""){
+                        echo '<h5 class="text-center col-md-12">Exibindo Todos Os Resultados</h5>';
+                    }else{
+                        echo '<h5 class="text-center col-md-12">Exibindo Os Resultados em <b>'.$busca.'</b></h5>';
+                    } 
+            ?>
             <!-- Formulário de busca -->
-            <div class = "col-md-3 pt-3">
+            <div class = "col-lg-3 pt-3">
                 
                 <!-- div para espaçamento - NÃO MEXER -->
-                <div class = "pb-3 d-none d-md-block">
+                <div class = "pb-3 d-none d-lg-block">
             
                     <!-- Card de busca(usado para organizar dentro de um bloco) -->
                     <div class = "card">
@@ -93,144 +100,35 @@ include('header_navbar.php');
                 	            
                             </div>
                             <!-- Row Buscador -->
-                            
+                           
                             <!-- Row Checkbox -->
                             <div class = "row">
                                 
                                 <!-- Tamanho -->
                                 <div class = "col-md-12">
+                                    <!--puxando as categorias do banco de dados-->
+                                    <?php
+                                    $categorias =ListarCategoria();
+                                    while ($categoria = $categorias->fetch_array()){
                                     
+                                    
+                                    ?>
                                     <!-- Checkbox - Alimentos Básicos -->
                                     <div class = "form-group form-check">
                                         
                                         <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
+                                        <input type = "checkbox" class = "form-check-input" id = "<?php echo $categoria['CD_CATEGORIA']; ?>">
                                         
                                         <!-- Nome -->
-                                        <label class = "form-check-label" for = "Alimentos Básicos">Alimentos Básicos</label>
+                                        <label class = "form-check-label" for = "<?php echo $categoria['NM_CATEGORIA']; ?>"><?php echo $categoria['NM_CATEGORIA']; ?></label>
                                         
                                     </div>
-                                    <!-- Checkbox - Alimentos Básicos -->
+                                    <?php
+                                    }
+                                    ?>
+                                   
                                     
-                                    <!-- Checkbox - Carnes, aves e peixes -->
-                                    <div class = "form-group form-check">
-                                        
-                                        <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
-                                        
-                                        <!-- Nome -->
-                                        <label class = "form-check-label" for = "Carnes, aves e peixes">Carnes, aves e peixes</label>
-                                        
-                                    </div>
-                                    <!-- Checkbox - Carnes, aves e peixes -->
                                     
-                                    <!-- Checkbox - Bebidas -->
-                                    <div class = "form-group form-check">
-                                        
-                                        <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
-                                        
-                                        <!-- Nome -->
-                                        <label class = "form-check-label" for = "Bebidas">Bebidas</label>
-                                        
-                                    </div>
-                                    <!-- Checkbox - Bebidas -->
-                                    
-                                    <!-- Checkbox - bebidas alcoólicas -->
-                                    <div class = "form-group form-check">
-                                        
-                                        <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
-                                        
-                                        <!-- Nome -->
-                                        <label class = "form-check-label" for = "Bebidas alcoólicas">Bebidas alcoólicas</label>
-                                        
-                                    </div>
-                                    <!-- Checkbox - Bebidas alcoólicas -->
-                                    
-                                    <!-- Checkbox - Padaria -->
-                                    <div class = "form-group form-check">
-                                        
-                                        <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
-                                        
-                                        <!-- Nome -->
-                                        <label class = "form-check-label" for = "Padaria">Padaria</label>
-                                        
-                                    </div>
-                                    <!-- Checkbox - Padaria -->
-                                    
-                                    <!-- Checkbox - Hortifruti -->
-                                    <div class = "form-group form-check">
-                                        
-                                        <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
-                                        
-                                        <!-- Nome -->
-                                        <label class = "form-check-label" for = "Hortfruti">Hortifruti</label>
-                                        
-                                    </div>
-                                    <!-- Checkbox - Hortfruti -->
-                                    
-                                    <!-- Checkbox - Higiene -->
-                                    <div class = "form-group form-check">
-                                        
-                                        <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
-                                        
-                                        <!-- Nome -->
-                                        <label class = "form-check-label" for = "Higiene">Higiene</label>
-                                        
-                                    </div>
-                                    <!-- Checkbox - Higiene -->
-                                    
-                                    <!-- Checkbox - Limpeza -->
-                                    <div class = "form-group form-check">
-                                        
-                                        <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
-                                        
-                                        <!-- Nome -->
-                                        <label class = "form-check-label" for = "Limpeza">Limpeza</label>
-                                        
-                                    </div>
-                                    <!-- Checkbox - Limpeza -->
-                                    
-                                    <!-- Checkbox - Sobremesas -->
-                                    <div class = "form-group form-check">
-                                        
-                                        <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
-                                        
-                                        <!-- Nome -->
-                                        <label class = "form-check-label" for = "Sobremesas">Sobremesas</label>
-                                        
-                                    </div>
-                                    <!-- Checkbox - Sobremesas -->
-                                    
-                                    <!-- Checkbox - Farinhas e grãos -->
-                                    <div class = "form-group form-check">
-                                        
-                                        <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
-                                        
-                                        <!-- Nome -->
-                                        <label class = "form-check-label" for = "Farinhas e grãos">Farinhas e grãos</label>
-                                        
-                                    </div>
-                                    <!-- Checkbox - Farinhas e grãos -->
-                                    
-                                    <!-- Checkbox - Crianças -->
-                                    <div class = "form-group form-check">
-                                        
-                                        <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
-                                        
-                                        <!-- Nome -->
-                                        <label class = "form-check-label" for = "Crianças">Crianças</label>
-                                        
-                                    </div>
-                                    <!-- Checkbox - Crianças -->
                                     
                                 </div>
                                 <!--Tamanho -->
@@ -241,17 +139,52 @@ include('header_navbar.php');
                             <!-- Row Subtítulo - Preço -->
                             <div class = "row pt-3">
                                     
+                               
+                                <!-- tamanho -->
+                                    
+                            </div>
+                            <!-- Row Subtítulo - Preço -->
+                            
+                            <!-- Row Buscador -->
+                            <div class = "row">
+                                    
+                
+                	            
+                            </div>
+                            <!-- Row Buscador -->
+                            
+                            <!-- Row Checkbox -->
+                            <div class = "row">
+                                
+                                <!-- Tamanho -->
+                                <div class = "col-md-12">
+                                    
+                                    
+                                    
+                                    
+                                    
+                                  
+                                    
+                                </div>
+                                <!--Tamanho -->
+                                
+                            </div>
+                            <!-- Row Checkbox -->
+                            
+                            <!-- Row Subtítulo - FABRICANTE -->
+                            <div class = "row pt-3">
+                                    
                                 <!-- Tamanho -->
                                 <div class = "col-md-12">
                                 
                                     <!-- Subtítulo -->
-                                    <h5 class = "text-center">Preço</h5>
+                                    <h5 class = "text-center">Fabricante</h5>
                                     
                                 </div>
                                 <!-- tamanho -->
                                     
                             </div>
-                            <!-- Row Subtítulo - Preço -->
+                            <!-- Row Subtítulo - Marca -->
                             
                             <!-- Row Buscador -->
                             <div class = "row">
@@ -266,7 +199,7 @@ include('header_navbar.php');
                             			<div class = "input-group mx-auto">
                             				
                             				<!-- Campo de pesquisa -->
-                              			    <input type = "number" class = "form-control" placeholder = "Pesquisar preço">
+                              			    <input type = "text" class = "form-control" placeholder = "Fabricante">
                               			  
                                             <!-- Botão -->
                               				<div class = "input-group-append">
@@ -292,151 +225,36 @@ include('header_navbar.php');
                                 
                                 <!-- Tamanho -->
                                 <div class = "col-md-12">
-                                    
-                                    <!-- Checkbox - Até R$20 -->
-                                    <div class = "form-group form-check">
+                                     <div class = "form-group form-check">
                                         
                                         <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
+                                        <input type = "checkbox" class = "form-check-input" id = "0">
                                         
                                         <!-- Nome -->
-                                        <label class = "form-check-label" for = "Até R$20">Até R$20</label>
+                                        <label class = "form-check-label" for = "Todos Os Fabricantes">Todos</label>
                                         
                                     </div>
-                                    <!-- Checkbox - Até R$20 -->
+                                    <?php
+                                    $fabricantes = ListarFabricanteBusca();
+                                    while($fabricante = $fabricantes->fetch_array()){
                                     
-                                    <!-- Checkbox - De R$20 a R$50 -->
-                                    <div class = "form-group form-check">
-                                        
-                                        <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
-                                        
-                                        <!-- Nome -->
-                                        <label class = "form-check-label" for = "De R$20 a R$50">De R$20 a R$50</label>
-                                        
-                                    </div>
-                                    <!-- Checkbox - De R$20 a R$50 -->
-                                    
-                                    <!-- Checkbox - De R$50 a R$100 -->
-                                    <div class = "form-group form-check">
-                                        
-                                        <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
-                                        
-                                        <!-- Nome -->
-                                        <label class = "form-check-label" for = "De R$50 a R$100">De R$50 a R$100</label>
-                                        
-                                    </div>
-                                    <!-- Checkbox - De R$50 a R$100 -->
-                                    
-                                    <!-- Checkbox - Mais de R$100 -->
-                                    <div class = "form-group form-check">
-                                        
-                                        <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
-                                        
-                                        <!-- Nome -->
-                                        <label class = "form-check-label" for = "Mais de R$100">Mais de R$100</label>
-                                        
-                                    </div>
-                                    <!-- Checkbox - Mais de R$100 -->
-                                    
-                                </div>
-                                <!--Tamanho -->
-                                
-                            </div>
-                            <!-- Row Checkbox -->
-                            
-                            <!-- Row Subtítulo - Marca -->
-                            <div class = "row pt-3">
-                                    
-                                <!-- Tamanho -->
-                                <div class = "col-md-12">
-                                
-                                    <!-- Subtítulo -->
-                                    <h5 class = "text-center">Marca</h5>
-                                    
-                                </div>
-                                <!-- tamanho -->
-                                    
-                            </div>
-                            <!-- Row Subtítulo - Marca -->
-                            
-                            <!-- Row Buscador -->
-                            <div class = "row">
-                                    
-                                <!-- Tamanho -->
-                                <div class = "col-md-12">
-                                    
-                                    <!-- Buscador -->
-                                    <form class = "form-inline pt-2">
-                    		          	
-                    		          	<!-- Conteúdo Form -->
-                            			<div class = "input-group mx-auto">
-                            				
-                            				<!-- Campo de pesquisa -->
-                              			    <input type = "text" class = "form-control" placeholder = "Pesquisar marca">
-                              			  
-                                            <!-- Botão -->
-                              				<div class = "input-group-append">
-                              				
-                                			  <button class = "btn btn-secondary" type = "button" id = "button-addon2">Busca</button>
-                                			  
-                              				</div>
-                              				<!-- Botão -->
-                              				
-                            			</div>
-                            			<!-- Conteúdo Form -->
-                            			
-                                    </form>
-                                    <!-- Buscador -->
-                                    
-                                </div>
-                	            
-                            </div>
-                            <!-- Row Buscador -->
-                            
-                            <!-- Row Checkbox -->
-                            <div class = "row">
-                                
-                                <!-- Tamanho -->
-                                <div class = "col-md-12">
-                                    
+                                    ?>
                                     <!-- Checkbox - Mais famosas -->
                                     <div class = "form-group form-check">
                                         
                                         <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
+                                        <input type = "checkbox" class = "form-check-input" id = "<?php echo $fabricante['CD_FABRICANTE']; ?>">
                                         
                                         <!-- Nome -->
-                                        <label class = "form-check-label" for = "Mais famosas">Mais famosas</label>
+                                        <label class = "form-check-label" for = "<?php echo $fabricante['NM_FABRICANTE']; ?>"><?php echo $fabricante['NM_FABRICANTE']; ?></label>
                                         
                                     </div>
+                                    <?php
+                                    }
+                                    ?>
                                     <!-- Checkbox - Mais famosas -->
-                                    
-                                    <!-- Checkbox - Melhores avaliações -->
-                                    <div class = "form-group form-check">
-                                        
-                                        <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
-                                        
-                                        <!-- Nome -->
-                                        <label class = "form-check-label" for = "Melhores avaliações">Melhores avaliações</label>
-                                        
-                                    </div>
-                                    <!-- Checkbox - Melhores avaliações -->
-                                    
-                                    <!-- Checkbox - Melhor custo-benefício -->
-                                    <div class = "form-group form-check">
-                                        
-                                        <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
-                                        
-                                        <!-- Nome -->
-                                        <label class = "form-check-label" for = "Melhor custo-benefício">Melhor custo-benefício</label>
-                                        
-                                    </div>
-                                    <!-- Checkbox - Melhor custo-benefício -->
+                                   
+            
                                     
                                 </div>
                                 <!--Tamanho -->
@@ -454,7 +272,7 @@ include('header_navbar.php');
                 <!-- div para espaçamento - não mexer -->
                 
                 <!-- Versão Mobile do formulário de Busca - "Essa versão é mais simples que a versão de PC para não ficar algo massante e enorme na tela do usuário" -->
-                <div class = "d-md-none">
+                <div class = "d-lg-none">
                     
                     <!-- Navbar -->
                     <nav class = "navbar navbar-expand-lg navbar-light">
@@ -512,138 +330,29 @@ include('header_navbar.php');
                                 
                                 <!-- Tamanho -->
                                 <div class = "col-md-12">
+                                      <!--puxando as categorias do banco de dados-->
+                                    <?php
+                                    $categorias =ListarCategoria();
+                                    while ($categoria = $categorias->fetch_array()){
                                     
+                                    
+                                    ?>
                                     <!-- Checkbox - Alimentos Básicos -->
                                     <div class = "form-group form-check">
                                         
                                         <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
+                                        <input type = "checkbox" class = "form-check-input" id = "<?php echo $categoria['CD_CATEGORIA']; ?>">
                                         
                                         <!-- Nome -->
-                                        <label class = "form-check-label" for = "Alimentos Básicos">Alimentos Básicos</label>
+                                        <label class = "form-check-label" for = "<?php echo $categoria['NM_CATEGORIA']; ?>"><?php echo $categoria['NM_CATEGORIA']; ?></label>
                                         
                                     </div>
-                                    <!-- Checkbox - Alimentos Básicos -->
+                                    <?php
+                                    }
+                                    ?>
                                     
-                                    <!-- Checkbox - Carnes, aves e peixes -->
-                                    <div class = "form-group form-check">
-                                        
-                                        <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
-                                        
-                                        <!-- Nome -->
-                                        <label class = "form-check-label" for = "Carnes, aves e peixes">Carnes, aves e peixes</label>
-                                        
-                                    </div>
-                                    <!-- Checkbox - Carnes, aves e peixes -->
                                     
-                                    <!-- Checkbox - Bebidas -->
-                                    <div class = "form-group form-check">
-                                        
-                                        <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
-                                        
-                                        <!-- Nome -->
-                                        <label class = "form-check-label" for = "Bebidas">Bebidas</label>
-                                        
-                                    </div>
-                                    <!-- Checkbox - Bebidas -->
-                                    
-                                    <!-- Checkbox - bebidas alcoólicas -->
-                                    <div class = "form-group form-check">
-                                        
-                                        <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
-                                        
-                                        <!-- Nome -->
-                                        <label class = "form-check-label" for = "Bebidas alcoólicas">Bebidas alcoólicas</label>
-                                        
-                                    </div>
-                                    <!-- Checkbox - Bebidas alcoólicas -->
-                                    
-                                    <!-- Checkbox - Padaria -->
-                                    <div class = "form-group form-check">
-                                        
-                                        <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
-                                        
-                                        <!-- Nome -->
-                                        <label class = "form-check-label" for = "Padaria">Padaria</label>
-                                        
-                                    </div>
-                                    <!-- Checkbox - Padaria -->
-                                    
-                                    <!-- Checkbox - Hortifruti -->
-                                    <div class = "form-group form-check">
-                                        
-                                        <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
-                                        
-                                        <!-- Nome -->
-                                        <label class = "form-check-label" for = "Hortfruti">Hortifruti</label>
-                                        
-                                    </div>
-                                    <!-- Checkbox - Hortfruti -->
-                                    
-                                    <!-- Checkbox - Higiene -->
-                                    <div class = "form-group form-check">
-                                        
-                                        <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
-                                        
-                                        <!-- Nome -->
-                                        <label class = "form-check-label" for = "Higiene">Higiene</label>
-                                        
-                                    </div>
-                                    <!-- Checkbox - Higiene -->
-                                    
-                                    <!-- Checkbox - Limpeza -->
-                                    <div class = "form-group form-check">
-                                        
-                                        <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
-                                        
-                                        <!-- Nome -->
-                                        <label class = "form-check-label" for = "Limpeza">Limpeza</label>
-                                        
-                                    </div>
-                                    <!-- Checkbox - Limpeza -->
-                                    
-                                    <!-- Checkbox - Sobremesas -->
-                                    <div class = "form-group form-check">
-                                        
-                                        <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
-                                        
-                                        <!-- Nome -->
-                                        <label class = "form-check-label" for = "Sobremesas">Sobremesas</label>
-                                        
-                                    </div>
-                                    <!-- Checkbox - Sobremesas -->
-                                    
-                                    <!-- Checkbox - Farinhas e grãos -->
-                                    <div class = "form-group form-check">
-                                        
-                                        <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
-                                        
-                                        <!-- Nome -->
-                                        <label class = "form-check-label" for = "Farinhas e grãos">Farinhas e grãos</label>
-                                        
-                                    </div>
-                                    <!-- Checkbox - Farinhas e grãos -->
-                                    
-                                    <!-- Checkbox - Crianças -->
-                                    <div class = "form-group form-check">
-                                        
-                                        <!-- Checkbox -->
-                                        <input type = "checkbox" class = "form-check-input" id = "#">
-                                        
-                                        <!-- Nome -->
-                                        <label class = "form-check-label" for = "Crianças">Crianças</label>
-                                        
-                                    </div>
-                                    <!-- Checkbox - Crianças -->
+                                  
                                     
                                 </div>
                                 <!--Tamanho -->
@@ -664,40 +373,35 @@ include('header_navbar.php');
             <!-- Formulário de busca -->
             
             <!-- Exibiçao dos resultados da busca -->
-            <div class = "col-md-9 pt-3">
-                
+            <div class = "col-lg-9 pt-2">
+               
+               <form action="produto.php" method="get" >   
                 <!-- Row dos cards de exibição dos produtos -->
                 <div class = "row">
-                <?php
-                    if($busca == ""){
-                        echo '<h5 class="text-center col-md-12">Exibindo Todos Os Resultados</h5>';
-                    }else{
-                        echo '<h5 class="text-center col-md-12">Exibindo Os Resultados em <b>'.$busca.'</b></h5>';
-                    }
-                ?>
+              
                     <!-- Tamanho do Card -->
                      <?php 
                 		$pesquisas = BuscaProduto($busca);
                 		while ($pesquisa = $pesquisas->fetch_array()){
                 	 ?>
-                    <div class = "col-md-4">
+                    <div class = "col-md-3 col-sm-4 col-12">
                         
                         <!-- Card -->
-                        <div class = "card">
+                        <div class = "card mt-2">
                             
                             <!-- Imagem do Card -->
-                            <img class = "card-img-top" src = "<?php echo $pesquisa['DS_FOTO_PRODUTO']; ?>">
+                            <img class = "card-img-top img-fluid" src = "<?php echo $pesquisa['DS_FOTO_PRODUTO']; ?>">
                             
                             <!-- Corpo do Card -->
                             <div class = "card-body">
                                 
                                 <!-- Título do Card -->
-                                <h5 class = "card-title"> <?php
+                                <h5 class = "card-title text-center"> <?php
                                     // Descrição do Produto
                                     $texto = $pesquisa['NM_PRODUTO'];
                                     
                                     // Limite de texto do titulo                                    
-                                    $limite = 60;
+                                    $limite = 15;
                                     $tamanho = strlen($texto);
                                     
                                     if($tamanho <= $limite){
@@ -709,27 +413,17 @@ include('header_navbar.php');
                                     ?></h5>
                                 
                                 <!-- Descrição do Produto -->
-                                <p class = "card-text">
+                                <p class = "card-text div-card">
                                     <?php
                                     //  limite de Descrição do Produto
-                                    $texto = $pesquisa['DS_DESCRIÇÃO'];
-                                    
-                                    // Limite de texto                                    
-                                    $limite = 80;
-                                    $tamanho = strlen($texto);
-                                    
-                                    if($tamanho <= $limite){
-                                        echo $texto;
-                                    }else{
-                                        $resumo = trim(substr($texto, 0, $limite))."...";
-                                        echo $resumo;
-                                    }
+                                    echo '<p class="text-center">R$ '.$pesquisa['VL_PRODUTO'].'</p>';
+                            
                                     ?>
                                 </p>
                                 <!-- Descrição do produto -->
                                 
                                 <!-- Botão -->
-                                <a href = "#" class = "btn busca-bg-card">Ver Mais...</a>
+                                <a href = "<?php echo 'produto.php?cd='.$pesquisa['CD_INTERNO'];?>" class = "btn-block btn busca-bg-card">Ver Mais...</a>
                                 
                             </div>
                             <!-- Corpo do Card -->
@@ -740,14 +434,14 @@ include('header_navbar.php');
                    
                     </div>
                     <!-- Tamanho do Card -->
-                     
+               
                     <?php  
                			 } 
                 	?>
-                   
+              
                 </div>
                 <!-- Row dos cards de exibição dos produtos -->
-                
+                 </form> 
             </div>
             <!-- exibição dos resultados da Busca -->
             
@@ -758,7 +452,7 @@ include('header_navbar.php');
         <div class = "row">
                     
             <!-- tamanho -->
-            <div class = "col-md-auto mx-auto pt-2">
+            <div class = "col-auto mx-auto pt-2">
                         
                 <!-- Paginação -->
                 <nav aria-label = "Page navigation example">
@@ -766,11 +460,11 @@ include('header_navbar.php');
                     <!-- Botões -->
                     <ul class="pagination busca-a-pagination">
     
-                        <li class = "page-item"><a class = "page-link" href = "#">Anterior</a></li>
+                        <li class = "page-item"><a class = "page-link border-radius-pagination-left" href = "#">Anterior</a></li>
                         <li class = "page-item"><a class = "page-link" href="#">1</a></li>
                         <li class = "page-item"><a class = "page-link" href="#">2</a></li>
                         <li class = "page-item"><a class = "page-link" href="#">3</a></li>
-                        <li class = "page-item"><a class = "page-link" href="#">Próximo</a></li>
+                        <li class = "page-item"><a class = "page-link border-radius-pagination-right" href="#">Próximo</a></li>
                             
                     </ul>
                     <!-- Botões -->

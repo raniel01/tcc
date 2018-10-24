@@ -1,8 +1,3 @@
-<!-- Fechando containers do header -->
-</div>
-</div>
-<!-- Fechando containers do header -->
-
 <!-- style -->
 <style>
     
@@ -21,16 +16,14 @@
 <!-- style -->
 
 <!-- Footer -->
-<footer class = "page-footer font-small bg-dark pt-4">
-
+<footer class = "page-footer font-small bg-dark pt-4" style = "background-image: linear-gradient(to bottom, #343a40, #020202 75%);">
     <!-- Footer Links -->
-    <div class = "container text-center text-md-left">
-
+    <div class = "container text-center text-lg-left">
       <!-- Grid row -->
       <div class="row">
 
         <!-- Grid column -->
-        <div class="col-md-2 mx-auto d-none d-md-block">
+        <div class="col text-center d-none d-lg-block">
 
           <!-- Links -->
           <h5 class="font-weight-bold text-uppercase mt-3 mb-4" id = "h5_links">Ajuda</h5>
@@ -57,7 +50,7 @@
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-md-2 mx-auto d-none d-md-block">
+        <div class="col text-center">
 
           <!-- Links -->
           <h5 class="font-weight-bold text-uppercase mt-3 mb-4" id = "h5_links">Navegação</h5>
@@ -84,7 +77,7 @@
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-md-2 mx-auto">
+        <div class="col text-center  d-none d-lg-block">
 
           <!-- Links -->
           <h5 class="font-weight-bold text-uppercase mt-3 mb-4" id = "h5_links">Redes Sociais</h5>

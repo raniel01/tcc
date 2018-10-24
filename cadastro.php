@@ -1,14 +1,3 @@
-<script type="text/javascript">
-function formatar(mascara, documento){
-  var i = documento.value.length;
-  var saida = mascara.substring(0,1);
-  var texto = mascara.substring(i)
-  
-  if (texto.substring(0,1) != saida){
-    documento.value += texto.substring(0,1);
-   }
-}
-</script>
 <!--Conexão com Banco de Dasdos-->
 <?php 
 session_start();
@@ -20,7 +9,7 @@ session_start();
 
 <!-- Nosso CSS -->
 <link rel = "stylesheet" type = "text/css" href = "cadastro.css">
-
+	
     <!-- Header -->
     <?php include('header_navbar.php'); ?>
     
@@ -139,9 +128,9 @@ session_start();
                     
                     <div class = "tab-pane fade show active" id = "login" role = "tabpanel" aria-labelledby = "login-tab">
                         
-                        <h3 class = "register-heading">Cadastre-se</h3>
+                        <h3 class = "register-heading" style=" color:white"><b>Cadastre-se</b></h3>
                         
-                            <form name="forms" action="cadastro.php" method = "post">
+                            <form name="forms" action="cadastro.php" method = "post" class="form-signin">
                                     
                                 <div class = "row register-form container-fluid">
                                         
@@ -160,23 +149,18 @@ session_start();
                                         <div class="row">
                                         <div class = "form-group col-md-6">
                                             
-                                            <input type = "password" name = "senha" class = "form-control" id="password" placeholder = "Senha *" value = ""  required>
+                                            <input type = "password" name = "senha" class = "form-control" id="password" placeholder = "Senha *" value = ""  required autofocus>
                                             
                                         </div>
                                         <div class="form-group col-md-6">
                                                 <input type="password" name="confirmacao" class="form-control" id="confirm_password" placeholder="Confirme sua senha*" value="" required />
-                                            </div>
+                                        </div>
                                         </div> 
-                                        <div class = "form-group">
-                                            
-                                            <div class = "maxl">
-                                                
-                                                <div class = "form-group">
-                                                    
-                                                    *  <input type="radio" name="sexo" value="M"> Masculino &nbsp;&nbsp;&nbsp;<input type="radio" name="sexo" value="F"> Feminino
-                                                    </div>
-                                                </div>
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <div id="medida" class="progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%; color: white; font-weight:bold;">&nbsp;</div>
                                             </div>
+                                        </div>
                                         </div>
                                        
                                         <div class="col-md-6">
@@ -186,13 +170,23 @@ session_start();
                                             </div>
                                             
                                             <div class="form-group">
-                                                <input type="tel" name="cel" class="form-control" placeholder="Celular *" maxlength="13" OnKeyPress="formatar('##-#####-####', this)" value="" required/>
+                                                <input type="text" name="cel" class="form-control" placeholder="Celular *" id="celular" maxlength="16" value="" required/>
                                             </div>
                                           <div class="row">
-                                          <div class="form-group col-md-4"> Data de Nascimento:</div>
+                                          <div class="form-group col-md-4" style="color: white; font-weight:bold;"> Data de Nascimento:</div>
                                           <div class="form-group col-md-8">
                                                <input type="date" name="nascimento"  class="form-control" required/>
                                             </div>
+                                            </div>
+                                            <div class = "form-group">
+                                            
+                                            <div class = "maxl">
+                                                
+                                                <div class = "form-group">
+                                                    
+                                                   <span style="color: white; font-weight:bold;"> * </span> <input type="radio" name="sexo" value="M"><span style="color: white; font-weight:bold;"> Masculino</span> &nbsp;&nbsp;&nbsp;<input type="radio" name="sexo" value="F"> <span style="color: white; font-weight:bold;">Feminino</span>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <input type="submit" class="btnRegister btn-dark float-right"  value="Register" />
                                             </form>
@@ -205,7 +199,14 @@ session_start();
                         </div>
                     </div>
     </div>
+    <script type="text/javascript" src="js/function.js"></script>
     <script type="text/javascript">
+    jQuery(document).ready(function(){
+    	jQuery("#password").keyup(function() {
+    	  forcaSenha(jQuery(this).val());
+    	});
+    });
+    
         var password = document.getElementById("password")
   , confirm_password = document.getElementById("confirm_password");
 function validatePassword(){
@@ -218,5 +219,8 @@ function validatePassword(){
 password.onchange = validatePassword;
 confirm_password.onkeyup = validatePassword;
     </script>
+    
+
+   
 </body>
 <?php include('Footer_teste.php')?>

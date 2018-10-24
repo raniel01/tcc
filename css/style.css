@@ -1,3 +1,30 @@
+@charset "UTF-8";
+/*New Carrousel index------------------------------*/
+* {
+  box-sizing: border-box;
+}
+
+.carrosel-text {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.carrosel-text img {
+vertical-align: middle;
+}
+
+.carrosel-text .carrosel-text-responsive-text {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+/*--------------algo util--------------------------*/
+
 /*--------------pagina busca---------------------------*/
 /*cards busca*/
 .busca-bg-card{
@@ -10,15 +37,21 @@ a.busca-bg-card:hover{
 ul.busca-a-pagination a{
 	background-color: #343a40 !important;
 	color:#ff7400 !important;
-	border-radius: 15px;
+	border: none;
+}
+.border-radius-pagination-right{
+	border-radius: 0px 10px 10px 0px !important;
+}
+.border-radius-pagination-left{
+	border-radius: 10px 0px 0px 10px !important;
 }
 ul.busca-a-pagination a:hover{
-	color:white;
+	color:white !important;
 }
-ul.busca-a-pagination{
-	border-radius: 15px;
+.hover-none a:hover{
+	color: none;
 }
-/*----------------------------------------------------*/
+/*----------------footer---------------------------------*/
 
 		.fundo a{
 			color:white;
@@ -106,10 +139,6 @@ ul.busca-a-pagination{
 		box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.10); 
 			
 		}
-        .slide{
-        	margin-top:0px;
-        	z-index:1;
-        }
         .navbar{
         	/*z-index:9999;*/
         	position:0;
@@ -122,3 +151,33 @@ ul.busca-a-pagination{
 			background-image: url('imgs/foto.jpg');
 			
 		}
+		
+/* Categorias */
+
+	a.hover-orange{ 
+        text-decoration: none;
+        color: #1c1e1e; 
+        transition: all 0.5s;
+    }
+    .hover-orange:hover{
+		border: 1px solid #ff7400;
+		color: #ff7400;
+	}
+	.texto{
+		color:black;
+		text-align:center; 
+	}
+ 
+/* Categorias */
+
+/*Index_test*/
+
+.bg-gradient{
+	background-image: linear-gradient(to left, #343a40, #ea6701cc); /*Amtiga cor: #020202*/
+}
+.box-shadow{
+			box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+}
+.bg-transparent{
+	background-color: transparent;
+}

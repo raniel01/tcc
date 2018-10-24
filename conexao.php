@@ -179,7 +179,7 @@ function AtualizarFabricante($cd, $nm_fabricante){
 }
 //------------------------------------------------------------------------------
 function AtualizarCategoria($cd, $nm_categoria){
-	$sql= 'UPDATE TB_CATEGORIA SET CD_CATEGORIA = "'.$nm_categoria.'" WHERE CD_INTERNO ='.$cd;
+	$sql= 'UPDATE TB_CATEGORIA SET NM_CATEGORIA = "'.$nm_categoria.'" WHERE CD_INTERNO ='.$cd;
 	$res = $GLOBALS['con']->query($sql);
 	if ($res) {
 		alert("Atualizado!");
@@ -187,6 +187,39 @@ function AtualizarCategoria($cd, $nm_categoria){
 		alert("Erro ao atualizar");
 	}
 }
+//------------------------------------------------------------------------------
+function AtualizarUsuario($cd, $nome, $sobrenome, $email, $cpf,   $nascimento, $sexo, $endereco, $bairro, $cidade, $cep, $estado, $ponto, $telefone, $celular){
+	$sql='UPDATE TB_USUARIO SET  NM_USUARIO="'.$nome.'", NM_SOBRENOME="'.$sobrenome.'", DS_EMAIL="'.$email.'", DS_SEXO="'.$sexo.'", NR_CPF="'.$cpf.'", DT_NASCIMENTO="'.$nascimento.'", NM_ENDERECO="'.$endereco.'", NM_BAIRRO="'.$bairro.'", NM_CIDADE="'.$cidade.'", CD_CEP="'.$cep.'", SG_ESTADO="'.$estado.'", NM_PONTO_REFERENCIA="'.$ponto.'", NR_TELEFONE="'.$telefone.'", NR_CELULAR="'.$celular.'" WHERE CD_USUARIO = '.$cd;
+	$res = $GLOBALS['con']->query($sql);
+		if ($res) {
+			alert("Atualizado!");
+		}else{
+			alert("Erro ao atualizar");
+		}
+		
+}
+//------------------------------------------------------------------------------
+function AtualizarSenha($cd, $senha){
+	$sql='UPDATE TB_USUARIO SET  DS_SENHA="'.$senha.'" WHERE CD_USUARIO='. $cd;
+	$res = $GLOBALS['con']->query($sql);
+		if ($res) {
+			alert("Senha atualizada com sucesso");
+		}else{
+			alert("Erro ao atualizar");
+		}
+}
+//------------------------------------------------------------------------------
+function AtualizarFotoPerfil($cd, $foto){
+	$sql='UPDATE TB_USUARIO SET  DS_FOTO="'.$foto.'" WHERE CD_USUARIO='. $cd;
+	$res = $GLOBALS['con']->query($sql);
+		if ($res) {
+			alert("Foto atualizada com sucesso");
+				echo '<script> window.location="perfil.php";</script>';
+		}else{
+			alert("Erro ao atualizar");
+		}
+}
+
 
 /*==============================================================================
 						FIM DAS FUNÇÕES DE ATUALIZAR
@@ -208,6 +241,13 @@ function ListarUsuario(){
  	return $res;
  	  }
 //------------------------------------------------------------------------------
+function ListarUsuarioCerto($cd){
+	$sql='SELECT * FROM TB_USUARIO WHERE CD_USUARIO LIKE '.$cd;
+	$res= $GLOBALS['con']->query($sql);
+	return $res;
+}
+
+//------------------------------------------------------------------------------
 function ListarProduto(){
 	$sql='SELECT * FROM TB_PRODUTO';
 	$res=$GLOBALS['con']->query($sql);
@@ -216,6 +256,13 @@ function ListarProduto(){
 //------------------------------------------------------------------------------
 function ListarFabricante(){
 	$sql = 'SELECT * FROM TB_FABRICANTE';
+	$res = $GLOBALS['con']->query($sql);
+	return $res;	
+}
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+function ListarFabricanteBusca(){
+	$sql = 'SELECT * FROM TB_FABRICANTE ORDER BY TB_FABRICANTE.CD_FABRICANTE ASC limit 0,5';
 	$res = $GLOBALS['con']->query($sql);
 	return $res;	
 }
@@ -264,14 +311,38 @@ function Sair(){
 }
 //------------------------------------------------------------------------------
 function BuscaProduto($busca){
-	$sql='SELECT * FROM TB_PRODUTO WHERE NM_PRODUTO LIKE "%'.$busca.'%" limit 0,9';
+	$sql='SELECT * FROM TB_PRODUTO WHERE NM_PRODUTO LIKE "%'.$busca.'%" order by CD_INTERNO DESC limit 0,12 ';
 	$res=$GLOBALS['con']->query($sql);
 	//echo ($sql);
 	//echo '<script> window.location="busca.php?busca="'.$busca.'"";</script>';
 	return $res;
-	
 }
 //------------------------------------------------------------------------------
+function BuscaCategoria($busca_categoria){
+	$sql='SELECT * FROM TB_PRODUTO WHERE ID_CATEGORIA ="'.$categoria.'" order by CD_INTERNO DESC limit 0,12';
+	$res=$GLOBALS['con']->query($sql);
+	//echo ($sql);
+	//echo '<script> window.location="busca.php?busca="'.$busca.'"";</script>';
+	return $res;
+}
+//------------------------------------------------------------------------------
+function ListaUnitaria($buscaunitaria){
+	$sql='SELECT * FROM TB_PRODUTO WHERE CD_INTERNO ='.$buscaunitaria;
+	$res=$GLOBALS['con']->query($sql);
+	return $res;
+}
+//------------------------------------------------------------------------------
+function ListaCategoriaProduto($idcategoria){
+	$sql='SELECT * FROM TB_PRODUTO WHERE ID_CATEGORIA ='.$idcategoria.' order by CD_INTERNO DESC limit 0,15';
+	$res=$GLOBALS['con']->query($sql);
+	return $res;
+}
+//------------------------------------------------------------------------------
+function ListaFabricanteProduto($idfabricante){
+	$sql='SELECT * FROM TB_PRODUTO WHERE ID_FABRICANTE ='.$idfabricante.' order by CD_INTERNO DESC limit 0,15';
+	$res=$GLOBALS['con']->query($sql);
+	return $res;
+}
 function alert($msg){
 	echo '<script>alert("'.$msg.'");</script>';
 }

@@ -1,6 +1,7 @@
 {
+  "convertGET": "1",
   "lang":"pt-BR",
-  "short_name": "mc.com",
+  "short_name": "Carrinho",
   "name": "MeuCarrinho",
   "description": "Aqui Sua Compra Fica Mais Fácil!",
   "icons": [
@@ -12,7 +13,7 @@
   ],
   "start_url": "index.php",
   "background_color": "#ff7400",
-  "Theme_color": "#fff",
+  "theme_color": "#fff",
   "orientation": "portrait-primary",
-  "display": "minimal-ui"
+  "display": "standalone"
 }
