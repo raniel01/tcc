@@ -606,7 +606,7 @@
 		<!-- Row Imagens -->
 		<div class = "d-none d-lg-block">
 		    
-    		<div class = "row bg-light" style = "height: 100%;">
+    		<div class = "row align-items-center bg-light" style = "height: 40em;">
     		    
     		    <!-- Tamanho -->
     		    <div class = "col-6 px-0">
@@ -615,7 +615,7 @@
     		        <div class = "py-5" style = "padding-left: 15%;">
     		            
     		            <h1 class = "text-dark">Título</h3>
-    		            <p class = "text-dark">Text simples para exemplificar o conteúdo presente nesta div.</p>
+    		            <p class = "text-dark">Texto simples para exemplificar o conteúdo presente nesta div.</p>
     		            
     		        </div>
     		        <!-- Div -->
@@ -639,7 +639,7 @@
 		<!-- Row Imagens -->
 		<div class = "d-none d-lg-block">
 		    
-    		<div class = "row align-items-center bg-dark" style = "height: 40em;">
+    		<div class = "row align-items-center bg-dark" style = "height: 40em; box-shadow: 0 -10px 25px 2px rgba(0,0,0,0.5); background-image: linear-gradient(to top, #343a40, #020202);">
     		    
     		    
     		    <!-- Tamanho -->
@@ -654,10 +654,10 @@
     		    <div class = "col-6 px-0">
     		        
     		        <!-- Div -->
-    		        <div class = "py-5" style = "padding-left: 10em;">
+    		        <div class = "py-5" style = "padding-left: 20%;">
     		            
     		            <h1 class = "text-white">Título</h3>
-    		            <p class = "text-white">Text simples para exemplificar o conteúdo presente nesta div.</p>
+    		            <p class = "text-white">Texto simples para exemplificar o conteúdo presente nesta div.</p>
     		            
     		        </div>
     		        <!-- Div -->
