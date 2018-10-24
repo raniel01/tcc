@@ -510,7 +510,9 @@
         
             <div class = "col-8 offset-2 pt-4 pb-3">
 					 
-			    <h3 class = "text-center">As Maiores Fabricantes Estão Aqui!</h3>
+			    <h3 class = "text-center d-none d-lg-block text-center">As Maiores Fabricantes Estão Aqui!</h3>
+			    
+			    <h5 class = "d-lg-none text-center">As Maiores Fabricantes Estão Aqui!</h5>
 				
 		    </div>
 		
