@@ -99,7 +99,7 @@ session_start();
                 
             <div class = "col-md-3 register-left">
     
-                <img src = "imgs/logo1.png" no = "Logotipo"/>
+                <img src = "imgs/logo1.png" nome = "Logotipo"/>
                             
                 <h3>Bem Vindo!</h3>
                     

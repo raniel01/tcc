@@ -44,7 +44,7 @@ include('header_navbar.php');
                                 <div class = "col-md-12">
                                 
                                     <!-- Título -->
-                                    <h3 class = "card-title text-center">Busca Avançada</h3>
+                                    <h3 class = "card-title text-center pt-1">Busca Avançada</h3>
                                     
                                 </div>
                                 <!-- Tamanho -->
@@ -59,7 +59,7 @@ include('header_navbar.php');
                                 <div class = "col-md-12">
                                 
                                     <!-- Subtítulo -->
-                                    <h5 class = "text-center">Categoria</h5>
+                                    <h5 class = "text-center pb-2">Categoria</h5>
                                     
                                 </div>
                                 <!-- tamanho -->
@@ -178,7 +178,7 @@ include('header_navbar.php');
                                 <div class = "col-md-12">
                                 
                                     <!-- Subtítulo -->
-                                    <h5 class = "text-center">Fabricante</h5>
+                                    <h5 class = "text-center pb-2">Fabricante</h5>
                                     
                                 </div>
                                 <!-- tamanho -->
@@ -396,7 +396,7 @@ include('header_navbar.php');
                             <div class = "card-body">
                                 
                                 <!-- Título do Card -->
-                                <h5 class = "card-title text-center"> <?php
+                                <h5 class = "card-title text-center" style = "min-height: 2.3em; max-height: 2.3em;"> <?php
                                     // Descrição do Produto
                                     $texto = $pesquisa['NM_PRODUTO'];
                                     

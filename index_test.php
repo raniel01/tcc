@@ -10,7 +10,7 @@
         <div class = "row">
             
             <!-- Tamanho "Sempre col-12" -->
-            <div class = "col-12 p-0 box-shadow">
+            <div class = "col-12 p-0 box-shadow-bottom">
                 
                 <!-- Indicadores -->
                 <div id = "carouselExampleIndicators" class = "carousel slide" data-ride = "carousel">
@@ -26,18 +26,17 @@
                     <!-- Indicadores de páginas -->
 
                     <!-- Imagens do Carrossel -->
-                    <div class="carousel-inner" style = "border: none;">
+                    <div class="carousel-inner border-none">
                         
                         <!-- Imagem 01 -->
                         <div class = "carousel-item active">
                             
-                            <img class = "w-100" src = "imgs/Banner2-1.jpg" alt = "First slide">
+                            <img class = "w-100" src = "imgs/Banner2-1.jpg" alt = "Primeiro slide">
                                 
-                            <div class = "d-none d-lg-block" style = "position: absolute; bottom: 0%; background: rgba(0, 0, 0, 0.5);
-                            color: white; width: 100%; min-height: 25%; max-height: 50%;">
+                            <div class = "d-none d-lg-block div-text-slide">
                                     
-                                <h1 style = "padding: 2% 0 1% 1%;">Teste</h1>
-                                <p class = "h6" style = "padding: 0 1% 5% 1%;">Isto é apenas um teste de uma possível coisa que não deveria existir...</p>
+                                <h1 class = "title-slide">Teste</h1>
+                                <p class = "h6 text-slide">Isto é apenas um teste de uma possível coisa que não deveria existir...</p>
                                     
                             </div>
     
@@ -47,13 +46,12 @@
                         <!-- Imagem 02 -->
                         <div class = "carousel-item">
                             
-                            <img class = "d-block w-100" src = "imgs/Banner2-2.jpg" alt = "Second slide">
+                            <img class = "d-block w-100" src = "imgs/Banner2-2.jpg" alt = "Segundo slide">
                             
-                             <div class = "d-none d-lg-block" style = "position: absolute; bottom: 0%; background: rgba(0, 0, 0, 0.5);
-                            color: white; width: 100%; min-height: 25%; max-height: 50%;">
+                             <div class = "d-none d-lg-block div-text-slide">
                                     
-                                <h1 style = "padding: 2% 0 1% 1%;">Teste</h1>
-                                <p class = "h6" style = "padding: 0 1% 5% 1%;">Isto é apenas um teste de uma possível coisa que não deveria existir...</p>
+                                <h1 class = "title-slide">Teste</h1>
+                                <p class = "h6 text-slide">Isto é apenas um teste de uma possível coisa que não deveria existir...</p>
                                     
                             </div>
         
@@ -63,14 +61,13 @@
                         <!-- Imagem 03 -->
                         <div class = "carousel-item">
                             
-                            <img class = "d-block w-100" src = "imgs/Banner2-3.jpg" alt = "Third slide">
+                            <img class = "d-block w-100" src = "imgs/Banner2-3.jpg" alt = "Terceiro slide">
                             
                             
-                             <div class = "d-none d-lg-block" style = "position: absolute; bottom: 0%; background: rgba(0, 0, 0, 0.5);
-                            color: white; width: 100%; min-height: 25%; max-height: 50%;">
+                             <div class = "d-none d-lg-block div-text-slide">
                                     
-                                <h1 style = "padding: 2% 0 1% 1%;">Teste</h1>
-                                <p class = "h6" style = "padding: 0 1% 5% 1%;">Isto é apenas um teste de uma possível coisa que não deveria existir...</p>
+                                <h1 class = "title-slide">Teste</h1>
+                                <p class = "h6 text-slide">Isto é apenas um teste de uma possível coisa que não deveria existir...</p>
                                     
                             </div>
         
@@ -121,7 +118,7 @@
                     <div class = "col-12 col-md-6 col-lg-3 text-center">
                         
                         <!-- Ícone -->
-                        <span style = "font-size: 5em; color: #ff5400;">
+                        <span class = "icon">
                         
                             <i class="fas fa-mobile-alt"></i>
                         
@@ -158,7 +155,7 @@
                     <div class = "col-12 col-md-6 col-lg-3 text-center">
                         
                         <!-- Ícone -->
-                        <span style = "font-size: 5em; color: #ff5400;">
+                        <span class = "icon">
                         
                             <i class="fas fa-list-alt"></i>
                         
@@ -195,7 +192,7 @@
                     <div class = "col-12 col-md-6 col-lg-3 text-center">
                         
                         <!-- Ícone -->
-                        <span style = "font-size: 5em; color: #ff5400;">
+                        <span class = "icon">
                         
                             <i class = "far fa-clock"></i>
                         
@@ -232,7 +229,7 @@
                     <div class = "col-12 col-md-6 col-lg-3 text-center">
                         
                         <!-- Ícone -->
-                        <span style = "font-size: 5em; color: #ff5400;">
+                        <span class = "icon">
                         
                            <i class="fas fa-truck"></i>
                         
@@ -275,7 +272,7 @@
         <!-- Row Info -->
         
         <!-- Row Título -->
-        <div class = "row pt-2 bg-gradient" style = "box-shadow: 0px -10px 15px 2px rgba(0, 0, 0, 0.2);">
+        <div class = "row bg-gradient box-shadow-top">
             
             <!-- Tamanho "col-12 para todas as telas" -->
             <div class = "col-12 py-3">
@@ -293,7 +290,7 @@
         <!-- Row Título -->
         
         <!-- Row Categorias Principais -->
-        <div class = "row pt-4 pb-4 px-lg-5 bg-gradient" style = "box-shadow: 0px 10px 15px 2px rgba(0, 0, 0, 0.2);">
+        <div class = "row py-4 px-lg-5 bg-gradient box-shadow-bottom">
             
             <!-- Categoria 01 -->
             <div class = "col-6 col-md-6 col-lg-3 mt-0">
@@ -606,13 +603,13 @@
 		<!-- Row Imagens -->
 		<div class = "d-none d-lg-block">
 		    
-    		<div class = "row align-items-center bg-light" style = "height: 40em;">
+    		<div class = "row align-items-center bg-light h-40">
     		    
     		    <!-- Tamanho -->
     		    <div class = "col-6 px-0">
     		        
     		        <!-- Div -->
-    		        <div class = "py-5" style = "padding-left: 15%;">
+    		        <div class = "py-5 padding-left-15">
     		            
     		            <h1 class = "text-dark">Título</h3>
     		            <p class = "text-dark">Texto simples para exemplificar o conteúdo presente nesta div.</p>
@@ -626,7 +623,7 @@
     		    <!-- Tamanho -->
     		    <div class = "col-6 p-0">
     		        
-    		        <div class = "bg-success" style = "background-image: url('imgs/box/mercado1.jpg'); height: 40em; border-radius: 50% 0% 0% 50%;"></div>
+    		        <div class = "bg-success img-background-1"></div>
     		        
     		    </div>
     		    <!-- Tamanho -->
@@ -639,13 +636,13 @@
 		<!-- Row Imagens -->
 		<div class = "d-none d-lg-block">
 		    
-    		<div class = "row align-items-center bg-dark" style = "height: 40em; box-shadow: 0 -10px 25px 2px rgba(0,0,0,0.5); background-image: linear-gradient(to top, #343a40, #020202);">
+    		<div class = "row align-items-center bg-dark box-shadow-large-top h-40 bg-gradient-top-black">
     		    
     		    
     		    <!-- Tamanho -->
     		    <div class = "col-6 p-0">
     		        
-    		        <div class = "" style = "background-image: url('imgs/Banner2-4.jpg'); height: 40em;  border-radius: 0% 50% 50% 0%;"></div>
+    		        <div class = "bg-success img-background-2"></div>
     		        
     		    </div>
     		    <!-- Tamanho -->
@@ -654,7 +651,7 @@
     		    <div class = "col-6 px-0">
     		        
     		        <!-- Div -->
-    		        <div class = "py-5" style = "padding-left: 20%;">
+    		        <div class = "py-5 padding-left-20">
     		            
     		            <h1 class = "text-white">Título</h3>
     		            <p class = "text-white">Texto simples para exemplificar o conteúdo presente nesta div.</p>

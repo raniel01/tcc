@@ -178,11 +178,7 @@ if(isset($_POST['senha_antiga'])){
                             </center>
                         </li>
                         
-                        <li>
-                            
-                            <a href = "#">Configuração</a>
-                        
-                        </li>
+                       
                     
                     </ul>
                     

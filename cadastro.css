@@ -40,6 +40,19 @@
     0% { transform: translateY(0); }
     100% { transform: translateY(-20px); }
 }
+.register-left h3{
+    animation-name: texto;
+    -webkit-animation: texto 2s infinite  alternate;
+    animation: texto 1s infinite  alternate;
+}
+@-webkit-keyframes texto {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+@keyframes texto {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
 .register-left p{
     font-weight: lighter;
     padding: 12%;
