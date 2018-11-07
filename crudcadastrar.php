@@ -17,7 +17,7 @@ if (isset($_POST['cd'])) {
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>xxxxxx</title>
+<title>Crud Fabricante</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -290,10 +290,10 @@ $(document).ready(function(){
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-						<h2>CRUD <b>Formas de Pagamento</b></h2>
+						<h2>CRUD <b>Fabricantes</b></h2>
 					</div>
 					<div class="col-sm-6">
-						<a href="#ModalAdicionar" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Adicionar Forma de Pgto</span></a>
+						<a href="#ModalAdicionar" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Adicionar Fabricante</span></a>
 						<a href="#ModalExcluir" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Apagar</span></a>						
 					</div>
                 </div>
@@ -307,15 +307,15 @@ $(document).ready(function(){
 								<label for="SelecionarTudo"></label>
 							</span>
 						</th>
-                        <th>#</th>
-                        <th>NOME</th>						
+                        <th>Nome</th>
+                        <th>Quantidade de item</th>						
                         <th>Controles</th>
                     </tr>
                 </thead>
                 <tbody>
                 	<?php 
-                		$formas = ListarFormaPgto();
-                		while ($forma = $formas->fetch_array()){
+                		$fabricantes = ListarFabricante();
+                		while ($fabricante = $fabricantes->fetch_array()){
                 	 ?>
                     <tr>
 						<td>
@@ -324,11 +324,11 @@ $(document).ready(function(){
 								<label for="checkbox1"></label>
 							</span>
 						</td>
-                        <td><?php echo $forma['CD_FORMA_PGTO']; ?></td>
-                        <td><?php echo $forma['NM_PGTO']; ?></td>						                        
+                        <td><?php echo $fabricante['CD_FABRICANTE']; ?></td>
+                        <td><?php echo $fabricante['NM_FABRICANTE']; ?></td>						                        
                         <td>
-                            <a href="#ModalEditar" id="<?php echo $forma['CD_FORMA_PGTO']; ?>" nome="<?php echo $forma['NM_PGTO']; ?>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
-                            <a href="#ModalExcluir" id="<?php  echo($forma['CD_FORMA_PGTO']); ?>" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Excluir">&#xE872;</i></a>
+                            <a href="#ModalEditar" id="<?php echo $fabricante['CD_FABRICANTE']; ?>" nome="<?php echo $fabricante['NM_FABRICANTE']; ?>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
+                            <a href="#ModalExcluir" id="<?php  echo($fabricante['CD_FORMA_PGTO']); ?>" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Excluir">&#xE872;</i></a>
                         </td>
                     </tr>
                 	<?php  

@@ -1,17 +1,15 @@
 <?php
-//conexão
-$user = "xtranx";
-$pass= "";
-$server = "localhost";
-$banco = "MEUCARRINHO";
-$con = new mysqli($server,$user,$pass,$banco);
-//Codificação de caracteres em UTF-8
-$con->query("SET NAMES 'utf8'");
-$con->query('SET character_set_connection=utf8');
-$con->query('SET character_set_client=utf8');
-$con->query('SET character_set_results=utf8');
-// -- Codificação de caracteres em UTF-8
-
+include('con.php');
+session_start();
+$func = $_GET['func'];
+/*seletor de função*/
+switch($func){
+	/*caso selecionado session*/
+	case 'session':
+			PaginaCarrinho($_GET['carrinho']);
+	break;
+	
+}
 //--conexao
 /*
 
@@ -34,7 +32,7 @@ $con->query('SET character_set_results=utf8');
 }*/
 //------------------------------------------------------------------------------
 function CadastrarUsuario($nome, $sobrenome, $email, $sexo, $cpf, $nascimento, $endereco, $bairro, $cidade, $cep, $estado, $referencia, $telefone, $celular, $nivel, $foto, $saldo=0, $status="", $senha){
-	$sql = 'INSERT INTO TB_USUARIO (NM_USUARIO, NM_SOBRENOME, DS_EMAIL, DS_SEXO, DT_NASCIMENTO, NR_CELULAR, DS_SENHA ) VALUES ("'.$nome.'", "'.$sobrenome.'", "'.$email.'", "'.$sexo.'", "'.$nascimento.'", "'.$celular.'","'.$senha.'")';
+	$sql = 'INSERT INTO TB_USUARIO (NM_USUARIO, NM_SOBRENOME, DS_EMAIL, DS_SEXO, DT_NASCIMENTO, NR_CELULAR, DS_FOTO, DS_SENHA ) VALUES ("'.$nome.'", "'.$sobrenome.'", "'.$email.'", "'.$sexo.'", "'.$nascimento.'", "'.$celular.'","'.$foto.'","'.$senha.'")';
 	$res = $GLOBALS['con']->query($sql);
 	if($res){
 		alert("Cadastrado com sucesso");
@@ -43,8 +41,8 @@ function CadastrarUsuario($nome, $sobrenome, $email, $sexo, $cpf, $nascimento, $
 	}
 }
 //------------------------------------------------------------------------------
-function CadastrarProduto($nomeproduto,$foto,$descricao,$barras,$quantidadeestoque,$quantidademin,$quantidademax,$ncm,$valorcusto,$valorproduto,$fabricante,$categoria){
-	$sql='INSERT INTO TB_PRODUTO VALUES (null,"'.$nomeproduto.'","'.$foto.'","'.$descricao.'","'.$barras.'","'.$quantidadeestoque.'","'.$quantidademin.'","'.$quantidademax.'","'.$ncm.'","'.$valorcusto.'","'.$valorproduto.'","'.$fabricante.'","'.$categoria.'")';
+function CadastrarProduto($nomeproduto,$foto,$descricao,$barras,$quantidadeestoque,$quantidademin,$quantidademax,$ncm,$valorcusto,$valorproduto,$fabricante,$categoria,$usuario){
+	$sql='INSERT INTO TB_PRODUTO VALUES (null,"'.$nomeproduto.'","'.$foto.'","'.$descricao.'","'.$barras.'","'.$quantidadeestoque.'","'.$quantidademin.'","'.$quantidademax.'","'.$ncm.'","'.$valorcusto.'","'.$valorproduto.'","'.$fabricante.'","'.$categoria.'","'.$usuario.'")';
 	$res = $GLOBALS['con']->query($sql);
 	if($res){
 		alert(" Produto Cadastrado com sucesso");
@@ -164,7 +162,7 @@ function AtualizarFormaPgto($cd, $nome){
 	if ($res) {
 		alert("Atualizado!");
 	}else{
-		alert("Erro ao atualizar");
+		alert("Erro ao atualizar forma de pagamento");
 	}
 }
 //------------------------------------------------------------------------------
@@ -174,7 +172,7 @@ function AtualizarFabricante($cd, $nm_fabricante){
 	if ($res) {
 		alert("Atualizado!");
 	}else{
-		alert("Erro ao atualizar");
+		alert("Erro ao atualizar fabricante");
 	}
 }
 //------------------------------------------------------------------------------
@@ -184,7 +182,7 @@ function AtualizarCategoria($cd, $nm_categoria){
 	if ($res) {
 		alert("Atualizado!");
 	}else{
-		alert("Erro ao atualizar");
+		alert("Erro ao atualizar categoria");
 	}
 }
 //------------------------------------------------------------------------------
@@ -194,7 +192,7 @@ function AtualizarUsuario($cd, $nome, $sobrenome, $email, $cpf,   $nascimento, $
 		if ($res) {
 			alert("Atualizado!");
 		}else{
-			alert("Erro ao atualizar");
+			alert("Erro ao atualizar usuario");
 		}
 		
 }
@@ -205,7 +203,7 @@ function AtualizarSenha($cd, $senha){
 		if ($res) {
 			alert("Senha atualizada com sucesso");
 		}else{
-			alert("Erro ao atualizar");
+			alert("Erro ao atualizar senha");
 		}
 }
 //------------------------------------------------------------------------------
@@ -216,7 +214,7 @@ function AtualizarFotoPerfil($cd, $foto){
 			alert("Foto atualizada com sucesso");
 				echo '<script> window.location="perfil.php";</script>';
 		}else{
-			alert("Erro ao atualizar");
+			alert("Erro ao atualizar foto");
 		}
 }
 
@@ -240,6 +238,15 @@ function ListarUsuario(){
 	$res= $GLOBALS['con']->query($sql);
  	return $res;
  	  }
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+function ListarUsuarioAdm(){
+	$sql='SELECT * FROM TB_USUARIO 
+WHERE  DS_NIVEL = "USU"
+ORDER BY TB_USUARIO.CD_USUARIO DESC limit 0,7';
+	$res= $GLOBALS['con']->query($sql);
+ 	return $res;
+}
 //------------------------------------------------------------------------------
 function ListarUsuarioCerto($cd){
 	$sql='SELECT * FROM TB_USUARIO WHERE CD_USUARIO LIKE '.$cd;
@@ -295,10 +302,31 @@ function Login($email,$senha){
 		$usuario = $res->fetch_array();
 		$_SESSION['id']=$usuario['CD_USUARIO'];
 		$_SESSION['nome']=$usuario['NM_USUARIO'];
+		$_SESSION['foto']=$usuario['DS_FOTO'];
 		echo '<script> window.location="perfil.php";</script>';
 		
 	}else{
-		echo "Dados Incorretos";
+		echo '<div class = "alert alert-danger mt-5">
+					Dados Incorretos
+			  </div>';
+	}
+	
+}
+//------------------------------------------------------------------------------
+function LoginAdm($email,$senha){
+	$sql ='SELECT * FROM  TB_USUARIO WHERE DS_EMAIL =  "'.$email.'"
+		   AND DS_SENHA =  "'.md5($senha).'" AND DS_NIVEL =  "ADM" ';
+	$res = $GLOBALS['con']->query($sql);
+	//alert($sql);
+	if($res->num_rows > 0){
+		$usuario = $res->fetch_array();
+		$_SESSION['id']=$usuario['CD_USUARIO'];
+		$_SESSION['nome']=$usuario['NM_USUARIO'];
+		$_SESSION['foto']=$usuario['DS_FOTO'];
+		echo '<script> window.location="index.php";</script>';
+		
+	}else{
+		alert("Dados Incorretos");
 	}
 	
 }
@@ -307,6 +335,12 @@ function Sair(){
 	if(isset($_GET['Sair'])){
 		session_destroy();
 			echo '<script> window.location="index.php";</script>';
+	}
+}
+function SairAdm(){
+	if(isset($_GET['Sair'])){
+		session_destroy();
+			echo '<script> window.location="loginadm.php";</script>';
 	}
 }
 //------------------------------------------------------------------------------
@@ -338,14 +372,172 @@ function ListaCategoriaProduto($idcategoria){
 	return $res;
 }
 //------------------------------------------------------------------------------
+function QtdRegistrosUsuario(){
+	$sql ='SELECT COUNT(CD_USUARIO) FROM TB_USUARIO';
+	$res = $GLOBALS['con']->query($sql);
+	return $res;
+}
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+function QtdRegistrosFabricante(){
+	$sql ='SELECT COUNT(CD_FABRICANTE) FROM TB_FABRICANTE';
+	$res = $GLOBALS['con']->query($sql);
+	return $res;
+}
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+function QtdRegistrosProdutos(){
+	$sql ='SELECT COUNT(CD_INTERNO) FROM TB_PRODUTO';
+	$res = $GLOBALS['con']->query($sql);
+	return $res;
+	
+}
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+function QtdRegistrosCategorias(){
+	$sql ='SELECT COUNT(CD_CATEGORIA) FROM TB_CATEGORIA';
+	$res = $GLOBALS['con']->query($sql);
+	return $res;
+	
+}
+//------------------------------------------------------------------------------
+
 function ListaFabricanteProduto($idfabricante){
 	$sql='SELECT * FROM TB_PRODUTO WHERE ID_FABRICANTE ='.$idfabricante.' order by CD_INTERNO DESC limit 0,15';
 	$res=$GLOBALS['con']->query($sql);
 	return $res;
+	function toArray($str){
+		$aux = explode("]",explode("[",$str)[1])[0];
+	}
 }
+//------------------------------------------------------------------------------
 function alert($msg){
 	echo '<script>alert("'.$msg.'");</script>';
 }
+//------------------------------------------------------------------------------
+function NomeUsuario($id){
+		$sql = "SELECT * FROM TB_USUARIO WHERE CD_USUARIO=".$id;
+		$res = $GLOBALS['con']->query($sql);
+		$reserva = $res->fetch_array();
+		return $reserva['NM_USUARIO'];
+	}
+//------------------------------------------------------------------------------
+function PaginacaoProdutos($inicio,$porpagina){
+	 //mostrando todos os produtos
+        $sql = "SELECT * FROM TB_PRODUTO ORDER BY CD_INTERNO, NM_PRODUTO DESC";
+        $produtos  = $GLOBALS['con']->query($sql);
+        
+        $total = $produtos->num_rows;
+        
+        $porpagina = 12;
+        
+        $total_pagina = ceil($total/$porpagina);
+        
+        $pagina = isset($_GET['p']) ? $_GET['p'] : 1;
+        $inicio = ($pagina * $porpagina) - $porpagina;
+        
+        $sql = "SELECT * FROM TB_PRODUTO ORDER BY CD_INTERNO, NM_PRODUTO DESC LIMIT $inicio, $porpagina";
+        $res = $GLOBALS['con']->query($sql);
+        
+}
+//------------------------------------------------------------------------------
+function SessionCar(){
+	$car= $_POST['sessaoCar'];
+	$id_produto = toArray($car);
+	$_SESSION['car'] = $id_produto;
+	
+	echo "foi";
+}
+//------------------------------------------------------------------------------
+function toArray($str){
+	//deixando o array em forma de lista 
+	$aux = explode("]",explode("[",$str)[1])[0];
+	return explode(",",$aux);
+}
+
+function PaginaCarrinho($carrinho){
+	session_start();
+	
+	$carrinho = str_replace('[', '', $carrinho);
+	$carrinho = str_replace(']', '', $carrinho);
+	$carrinho =explode(",", $carrinho);
+	
+	
+	if(count($carrinho>0)){
+			foreach($carrinho as $id){
+					
+							$sql = 'SELECT * FROM TB_PRODUTO WHERE  CD_INTERNO='.$id;
+							$res = $GLOBALS['con']->query($sql);
+							$mostrar = $res->fetch_array();
+							$cd = $mostrar['CD_INTERNO'];
+							$qtd = $mostrar['QT_ESTOQUE'];
+							$nome = $mostrar['NM_PRODUTO'];
+							$img = $mostrar['DS_FOTO_PRODUTO'];
+							$valor = $mostrar['VL_PRODUTO'];
+							
+							echo '<div class = "col-md-4 col-lg-3 col-sm-12 mt-3 mt-md-0" id='.$id.'>
+			         <div class = "card">
+			            <img class = "card-img-top" src = "'.$img.'" alt = "Card image cap">
+			            <div class = "card-body">
+			               <h5 class = "card-title">'.$nome.'</h5>
+			               <p class = "card-text">'.$valor.'</p>
+			               <p class = "card-text">'.$qtd.'</p>
+			            </div>
+			         </div>
+			      </div>
+			</div>';
+					
+				
+			}
+	}else{
+		echo $carrinho;
+	}
+}
+					/*Adicionar item a lista*/
+function AdicionarItem($cd, $conteudo){
+	$sql = 'INSERT INTO TB_LISTA VALUES (null,"'.$conteudo.'", "'.$cd.'")';
+	$res = $GLOBALS['con']->query($sql);
+	if($res){
+			echo '<script> window.location="lista.php";</script>';
+	}else{
+		("Erro ao cadastrar");
+	}
+}
+					/*Visualizar item da lista*/
+function ListarItemLista($cd){
+	$sql='SELECT * FROM TB_LISTA WHERE ID_USUARIO LIKE '.$cd;
+	$res= $GLOBALS['con']->query($sql);
+	return $res;
+}
+				   /*Excluir Item da lista */
+function ExcluirItemLista($cd){
+	$sql = 'DELETE FROM TB_LISTA WHERE CD_LISTA ='.$cd;
+	$res = $GLOBALS['con']->query($sql);
+	if($res){
+		alert("Excluido com sucesso");
+	}else{
+		alert("Erro ao excluir");
+		echo $res;
+	}
+}
+/*function AdicionarAoCarrinho()
+$sql = */
+					/*Excluir VARIOS Item da lista (CONSTRUÇÃO DO COMANDO)*/
+					
+/*function ExcluirItensLista($itens){
+	$sql = 'DELETE FROM TB_LISTA WHERE CD_LISTA IN ('.$itens.')';
+	$res = $GLOBALS['con']->query($sql);
+	if($res){
+		alert("Excluido com sucesso itens");
+	}else{
+		alert("Erro ao excluir");
+	}
+	
+	
+}
+//------------------------------------------------------------------------------
 
 /*==============================================================================
 						FIM FUNÇÕES ÚTEIS

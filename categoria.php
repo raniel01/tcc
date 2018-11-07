@@ -31,7 +31,7 @@
             <div class = "col-6 col-md-6 col-lg-3 mt-0">
                 
                 <!-- imagem -->
-                <a href = "produtoscategoria.php?p=1">
+                <a href = "produtoscategoria.php?p=1&c=1">
                 <img src = "imgs/vetor_alimentos.jpg" class = "mx-auto d-block rounded-circle col-9 col-md-6 col-lg-6">
                 </a>
                 <!-- texto "telas grandes" -->
@@ -47,7 +47,7 @@
             <div class = "col-6 col-md-6 col-lg-3 mt-0">
                 
                 <!-- imagem -->
-                <a href = "produtoscategoria.php?p=14">
+                <a href = "produtoscategoria.php?p=14&c=1">
                 <img src = "imgs/vetor_bebidas.jpg" class = "mx-auto d-block rounded-circle col-9 col-md-6 col-lg-6">
                 </a>
                 <!-- texto "telas grandes" -->
@@ -63,7 +63,7 @@
             <div class = "col-6 col-md-6 col-lg-3  mt-3 mt-lg-0">
                 
                 <!-- imagem -->
-                <a href = "produtoscategoria.php?p=7">
+                <a href = "produtoscategoria.php?p=7&c=1">
                 <img src = "imgs/vetor_carnes.jpg" class = "mx-auto d-block rounded-circle col-9 col-md-6 col-lg-6">
                  </a>
                 <!-- texto "telas grandes" -->
@@ -79,7 +79,7 @@
             <div class = "col-6 col-md-6 col-lg-3  mt-3 mt-lg-0">
                 
                 <!-- imagem -->
-                <a href = "produtoscategoria.php?p=4">
+                <a href = "produtoscategoria.php?p=4&c=1">
                 <img src = "imgs/vetor_limpeza.jpg" class = "mx-auto d-block rounded-circle col-9 col-md-6 col-lg-6">
                 </a>
                 <!-- texto "telas grandes" -->
@@ -140,7 +140,7 @@
                 <div class = "form-group"> 
                     
                     <!-- Link -->
-                    <a href = "produtoscategoria.php?p=2" class = "form-control text-center hover-orange">Cuidados para seu bebê</a>
+                    <a href = "produtoscategoria.php?p=2&c=1" class = "form-control text-center hover-orange">Cuidados para seu bebê</a>
                     
                 </div>
                 
@@ -153,7 +153,7 @@
                 <div class = "form-group"> 
                     
                     <!-- Link -->
-                    <a href = "produtoscategoria.php?p=12" class = "form-control text-center hover-orange">Frios</a>
+                    <a href = "produtoscategoria.php?p=12&c=1" class = "form-control text-center hover-orange">Frios</a>
                     
                 </div>
                 
@@ -172,7 +172,7 @@
                 <div class = "form-group"> 
                     
                     <!-- Link -->
-                    <a href = "produtoscategoria.php?p=16" class = "form-control text-center hover-orange">Farinhas e grãos</a>
+                    <a href = "produtoscategoria.php?p=16&c=1" class = "form-control text-center hover-orange">Farinhas e grãos</a>
                     
                 </div>
                 
@@ -185,7 +185,7 @@
                 <div class = "form-group"> 
                     
                     <!-- Link -->
-                    <a href = "produtoscategoria.php?p=8" class = "form-control text-center hover-orange">Hortifruti</a>
+                    <a href = "produtoscategoria.php?p=8&c=1" class = "form-control text-center hover-orange">Hortifruti</a>
                     
                 </div>
                 
@@ -204,7 +204,7 @@
                 <div class = "form-group"> 
                     
                     <!-- Link -->
-                    <a href = "produtoscategoria.php?p=17" class = "form-control text-center hover-orange">Sobremesas</a>
+                    <a href = "produtoscategoria.php?p=17&c=1" class = "form-control text-center hover-orange">Sobremesas</a>
                     
                 </div>
                 
@@ -217,7 +217,7 @@
                 <div class = "form-group"> 
                     
                     <!-- Link -->
-                    <a href = "produtoscategoria.php?p=10" class = "form-control text-center hover-orange">Higiene</a>
+                    <a href = "produtoscategoria.php?p=10&c=1" class = "form-control text-center hover-orange">Higiene</a>
                     
                 </div>
                 
@@ -236,7 +236,7 @@
                 <div class = "form-group"> 
                     
                     <!-- Link -->
-                    <a href = "produtoscategoria.php?p=14" class = "form-control text-center hover-orange">Bebidas Alcoólicas</a>
+                    <a href = "produtoscategoria.php?p=14&c=1" class = "form-control text-center hover-orange">Bebidas Alcoólicas</a>
                     
                 </div>
                 
@@ -249,7 +249,7 @@
                 <div class = "form-group"> 
                     
                     <!-- Link -->
-                    <a href = "produtoscategoria.php?p=4" class = "form-control text-center hover-orange">Limpeza</a>
+                    <a href = "produtoscategoria.php?p=4&c=1" class = "form-control text-center hover-orange">Limpeza</a>
                     
                 </div>
                 
@@ -304,10 +304,10 @@
                 <ul class = "list-group list-group-flush">
                     
                     <!-- Links -->
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=1">Alimentos</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=2">Bebês</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=3">Perfumaria</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=4">Limpeza</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=1&c=1">Alimentos</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=2&c=1">Bebês</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=3&c=1">Perfumaria</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=4&c=1">Limpeza</a></li>
                     <!-- Links -->
                 
                 </ul>
@@ -321,10 +321,10 @@
                 <!-- Lista -->
                 <ul class = "list-group list-group-flush">
                 
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=6">Bebidas</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=7">Carnes</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=8">Feira</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=9">Congelados</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=6&c=1">Bebidas</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=7&c=1">Carnes</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=8&c=1">Feira</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=9&c=1">Congelados</a></li>
                 
                 </ul>
                 
@@ -336,10 +336,10 @@
                 <!-- Lista -->
                 <ul class = "list-group list-group-flush">
                 
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=10">Higiene Bucal</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=11">Condimentos e Reservas</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=12">Frios</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=13">Resfriados</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=10&c=1">Higiene Bucal</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=11&c=1">Condimentos e Reservas</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=12&c=1">Frios</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=13&c=1">Resfriados</a></li>
             
                 </ul>
             
@@ -351,10 +351,10 @@
                 <!-- Lista -->
                 <ul class = "list-group list-group-flush">
                 
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=14">Bebidas Alcóolicas</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=15">Bomboniere</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=16">Farinhas e Grãos</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=17">Sobremesas</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=14&c=1">Bebidas Alcóolicas</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=15&c=1">Bomboniere</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=16&c=1">Farinhas e Grãos</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=17&c=1">Sobremesas</a></li>
             
                 </ul>
             
@@ -371,14 +371,14 @@
                 <ul class = "list-group list-group-flush text-center">
                     
                     <!-- Links -->
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=1">Alimentos</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=2">Bebês</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=3">Perfumaria</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=4">Limpeza</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=6">Bebidas</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=7">Carnes</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=8">Feira</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=9">Congelados</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=1&c=1">Alimentos</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=2&c=1">Bebês</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=3&c=1">Perfumaria</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=4&c=1">Limpeza</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=6&c=1">Bebidas</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=7&c=1">Carnes</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=8&c=1">Feira</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=9&c=1">Congelados</a></li>
                     <!-- Links -->
                 
                 </ul>
@@ -392,14 +392,14 @@
                 <ul class = "list-group list-group-flush text-center">
                 
                     <!-- Links -->
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=10">Higiene Bucal</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=11">Condimentos e Reservas</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=12">Frios</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=13">Resfriados</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=14">Bebidas Alcóolicas</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=15">Bomboniere</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=16">Farinhas e Grãos</a></li>
-                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=17">Sobremesas</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=10&c=1">Higiene Bucal</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=11&c=1">Condimentos e Reservas</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=12&c=1">Frios</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=13&c=1">Resfriados</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=14&c=1">Bebidas Alcóolicas</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=15&c=1">Bomboniere</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=16&c=1">Farinhas e Grãos</a></li>
+                    <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=17&c=1">Sobremesas</a></li>
                     <!-- Links -->
             
                 </ul>
@@ -441,22 +441,22 @@
                             <ul class = "list-group list-group-flush pt-3">
                                 
                                 <!-- Links -->
-                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=1">Alimentos</a></li>
-                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=2">Bebês</a></li>
-                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=3">Perfumaria</a></li>
-                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=4">Limpeza</a></li>
-                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=6">Bebidas</a></li>
-                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=7">Carnes</a></li>
-                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=8">Feira</a></li>
-                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=9">Congelados</a></li>
-                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=10">Higiene Bucal</a></li>
-                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=11">Condimentos e Reservas</a></li>
-                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=12">Frios</a></li>
-                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=13">Resfriados</a></li>
-                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=14">Bebidas Alcóolicas</a></li>
-                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=15">Bomboniere</a></li>
-                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=16">Farinhas e Grãos</a></li>
-                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=17">Sobremesas</a></li>
+                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=1&c=1">Alimentos</a></li>
+                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=2&c=1">Bebês</a></li>
+                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=3&c=1">Perfumaria</a></li>
+                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=4&c=1">Limpeza</a></li>
+                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=6&c=1">Bebidas</a></li>
+                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=7&c=1">Carnes</a></li>
+                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=8&c=1">Feira</a></li>
+                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=9&c=1">Congelados</a></li>
+                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=10&c=1">Higiene Bucal</a></li>
+                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=11&c=1">Condimentos e Reservas</a></li>
+                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=12&c=1">Frios</a></li>
+                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=13&c=1">Resfriados</a></li>
+                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=14&c=1">Bebidas Alcóolicas</a></li>
+                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=15&c=1">Bomboniere</a></li>
+                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=16&c=1">Farinhas e Grãos</a></li>
+                                <li class = "list-group-item"><a class = "texto" href = "produtoscategoria.php?p=17&c=1">Sobremesas</a></li>
                                 <!-- Links -->
                             
                             </ul>

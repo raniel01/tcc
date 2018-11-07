@@ -1,6 +1,8 @@
 ;(function($){
      "use strict"
     var nav_offset_top = $('.header').height()+50; 
+    var carrinho = localStorage.car;
+    var session = $('.header').data('sessao');
     /*-------------------------------------------------------------------------------
 	  Navbar 
 	-------------------------------------------------------------------------------*/
@@ -19,7 +21,19 @@
         };
     };
     navbarFixed();
+     /*-------------------------------------------------------------------------
+      /*-------------------------------------------------------------------------------
+	  carrinho
+	-------------------------------------------------------------------------------*/
+      function MostrarCarrinho(){
+            $('#produto').load('conexao.php?func=session&carrinho='+carrinho);
+      };
+    MostrarCarrinho();
      /*-------------------------------------------------------------------------------
+	  icon
+	---------------------------------------------------------------------------
+     /*------------------------------------------------------------------------
+     ------
 	  Input 
 	-------------------------------------------------------------------------------*/
 })(jQuery)
@@ -32,7 +46,7 @@
  $("#cpf").mask("000.000.000-00");
 //------------------------------------------------------------------------------
 
-/* Password strength indicator */
+//Indicador de força da senha
 function forcaSenha(password) {
 
 	var desc = [{'width':'0px'}, {'width':'20%'}, {'width':'40%'}, {'width':'60%'}, {'width':'80%'}, {'width':'100%'}];
@@ -41,23 +55,25 @@ function forcaSenha(password) {
 
 	var score = 0;
 
-	//if password bigger than 6 give 1 point
+	//se a senha for maior que 6 caracteres dê 1 ponto
 	if (password.length > 6) score++;
 
-	//if password has both lower and uppercase characters give 1 point	
+	//se a senha tiver caracteres maiúsculos e minúsculos, dê 1 ponto	
 	if ((password.match(/[a-z]/)) && (password.match(/[A-Z]/))) score++;
 
-	//if password has at least one number give 1 point
+	//se a senha tiver pelo menos um número, dê 1 ponto
 	if (password.match(/\d+/)) score++;
 
-	//if password has at least one special caracther give 1 point
+	//se a senha tiver pelo menos uma caracther especial, dê 1 ponto
 	if ( password.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/) )	score++;
 
-	//if password bigger than 12 give another 1 point
+	//se a senha for maior que 12 caracteres, dê outro ponto
 	if (password.length > 10) score++;
 	
-	// display indicator
+	// indicador de exibição
 	$("#medida").removeClass(descClass[score-1]).addClass(descClass[score]).css(desc[score]);
+
+
 }
 //------------------------------------------------------------------------------
 

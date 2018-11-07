@@ -26,7 +26,7 @@
                 
                 <div class = "col-lg-4 col-md-8 mx-md-auto col-12">
                     
-                    <img class = "w-100 rounded" src = "imgs/logo.png" alt = "logotipo">
+                    <img class = "w-100 rounded" src = "imgs/logoNome.png" alt = "logotipo">
                     
                 </div>
                 

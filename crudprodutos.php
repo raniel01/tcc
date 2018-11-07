@@ -1,4 +1,5 @@
 <?php  
+session_start();
 include("conexao.php");
 //VERIFICAMOS SE ESTA TENTANDO CADASTRAR
 	if (isset($_REQUEST['busca'])) {
@@ -13,7 +14,7 @@ include("conexao.php");
 	if (isset($_FILES['foto'])) {
 		$destino= "imgs/produtos/".$_FILES['foto']['name'];
 		move_uploaded_file($_FILES['foto']['tmp_name'],$destino);
-		CadastrarProduto($_POST['nome'],$destino,$_POST['descricao'],$_POST['barras'],$_POST['estoque'],$_POST['qtminimo'],$_POST['qtmaximo'],$_POST['ncm'],$_POST['custo'],$_POST['valor'],$_POST['fabricante'],$_POST['categoria']);
+		CadastrarProduto($_POST['nome'],$destino,$_POST['descricao'],$_POST['barras'],$_POST['estoque'],$_POST['qtminimo'],$_POST['qtmaximo'],$_POST['ncm'],$_POST['custo'],$_POST['valor'],$_POST['fabricante'],$_POST['categoria'],$_SESSION['id']);
 				
 	}
 	//}
@@ -333,7 +334,7 @@ $(document).ready(function(){
 						</th>
                         <th>#</th>
                         <th>NOME</th>
-                        <th>Codigo</th>
+                        <th>User</th>
                         <th>Controles</th>
                     </tr>
                 </thead>
@@ -351,7 +352,7 @@ $(document).ready(function(){
 						</td>
                         <td><?php echo $pesquisa['CD_INTERNO']; ?></td>
                         <td><?php echo $pesquisa['NM_PRODUTO']; ?></td>
-                        <td><?php echo $pesquisa['CD_BARRAS'];  ?></td>
+                        <td><?php echo NomeUsuario($pesquisa['ID_USUARIO']) ; ?></td>
                         <td>
                             <a href="#ModalEditar" id="<?php echo $forma['CD_FORMA_PGTO']; ?>" nome="<?php echo $forma['NM_PGTO']; ?>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
                             <a href="#ModalExcluir" id="<?php  echo($forma['CD_FORMA_PGTO']); ?>" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Excluir">&#xE872;</i></a>

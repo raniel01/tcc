@@ -13,7 +13,6 @@ a.hover-none:hover{
 }
 a.font-hover-white:hover{
     color: white !important;
-    border: 2px solid red !important;
 }
 /*Perfil*/
 

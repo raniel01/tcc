@@ -34,11 +34,6 @@ vertical-align: middle;
 a.busca-bg-card:hover{
 	color: white !important;
 }
-ul.busca-a-pagination a{
-	background-color: #343a40 !important;
-	color:#ff7400 !important;
-	border: none;
-}
 .border-radius-pagination-right{
 	border-radius: 0px 10px 10px 0px !important;
 }
@@ -212,6 +207,9 @@ ul.busca-a-pagination a:hover{
 .box-shadow-bottom{
 	box-shadow: 0px 10px 15px 2px rgba(0, 0, 0, 0.2);
 }
+.shadow{
+	box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
 .h-40{
 	height: 40em;
 }
@@ -232,3 +230,11 @@ ul.busca-a-pagination a:hover{
 }
 
 /* Index_test */
+
+/*index pagina adm*/
+.white-box{
+	width: 100%;
+	background-color: white;
+	padding-top: 1rem;
+}
+/*index pagina adm*/

@@ -40,3 +40,9 @@ hospedagem[https://www.hostinger.com.br/hospedagem-gratis#gref]
           [https://www.000webhost.com/]
           [http://freehostingnoads.net/]
           [https://byet.host/]
+
+painel administrador[https://colorlib.com/wp/free-bootstrap-admin-dashboard-templates/] 
+                    [https://medialoot.com/preview/lumino/index.html]
+                    [https://wrappixel.com/demos/free-admin-templates/nice-admin-lite/nice-html/ltr/pages-profile.html]
+                    https://stackoverflow.com/questions/3596089/how-to-remove-specific-value-from-array-using-jquery
+                    

@@ -1,16 +1,27 @@
 {
   "convertGET": "1",
   "lang":"pt-BR",
-  "short_name": "Carrinho",
+  "short_name": "MeuCarrinho",
   "name": "MeuCarrinho",
   "description": "Aqui Sua Compra Fica Mais Fácil!",
   "icons": [
     {
+      "platform": "android",
+      "purpose": "badge",
       "src":"imgs/logonova.png",
       "sizes": "192x192",
       "type": "image/png"
+    },{
+    "purpose": "badge",
+    "src": "imgs/logonova.png",
+    "type": "image/png"
     }
   ],
+   "serviceworker": {
+    "src": "serviceworker.js",
+    "scope": "/",
+    "update_via_cache": "none"
+  },
   "start_url": "index.php",
   "background_color": "#ff7400",
   "theme_color": "#fff",
