@@ -1,5 +1,7 @@
 $(document).ready(function(){
      var sessao = $('.addCar').data('session');
+     /*var remover = parseInt($('.rCar').data('codigo'));
+     console.log(remover+" ALGO DE ERRADO NAO ESTA CERTO");*/
             if(sessao == ''){
                  $(".addCar").on("click",function(){
                     $('.modallogin').modal('show');
@@ -22,24 +24,29 @@ $(document).ready(function(){
                             return false;
                         }else{
                              alert(produto+" Adicionado No Carrinho");
-                       
                         }
                         /*adicionando itens*/
                         car.push(id);
-                        
                         localStorage.setItem('car',JSON.stringify(car));
-                                        
-                                      
-                    //     $.post({
-                    //         url:'../conexao.php?func=session',
-                    //         data: {'sessaoCar': JSON.stringify(car)},
-                    //         success: function(data){
-                    //             alert(data);
-                    //         console.log('entrou..');
-                    //     }
-                    // });  
                 });
             }
+          
+  
 });
-
-    
+$(document).on("click",".rCar",function(){
+     /*cria um json e verifica a sessao*/
+    let car = JSON.parse(localStorage.getItem('car')) || [];
+    /*pegando id*/
+    let id = parseInt($(this).data('codigo'));
+    /*pegando o nome do produto*/
+    let produto = $(this).data('produto');
+    /*pegando em array produto no local storage*/
+    let pr = $.inArray(id,car);
+    /*removendo itens no array*/
+    car.splice(pr,1);
+    localStorage.setItem('car',JSON.stringify(car));
+    alert(produto+" Removido do carrinho");
+    $('#produto'+id).slideUp(600).clear();
+  
+});
+     

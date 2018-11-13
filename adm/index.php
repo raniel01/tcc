@@ -8,6 +8,10 @@ if(isset($_SESSION['id'])){
    }else{
        	echo '<script> window.location="loginadm.php";</script>';
    }
+if(isset($_SESSION['nivel'])!= "ADM"){ 
+    alert("Acesso restrito, por favor entre como administrador!");
+    echo '<script> window.location="loginadm.php";</script>';
+}else{   
 ?>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -33,8 +37,23 @@ if(isset($_SESSION['id'])){
     <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
     <link rel="stylesheet" href="assets/scss/style.css">
     <link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
-
+    
+    
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+     <script  type="text/javascript">
+             $.noConflict();
+                jQuery(document).ready(function(){
+                    var value = $("#myInput").val().toLowerCase();
+                jQuery("#myInput").on("keyup", function() {
+                    jQuery("#myTable tr").filter(function() {
+                      jQuery(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+    </script>
 
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 
@@ -62,64 +81,30 @@ if(isset($_SESSION['id'])){
                         <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Inicio </a>
                     </li>
                     <h3 class="menu-title">Cruds</h3><!-- /.menu-title -->
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Produtos</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">Buttons</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Badges</a></li>
-                            <li><i class="fa fa-bars"></i><a href="ui-tabs.html">Tabs</a></li>
-                            <li><i class="fa fa-share-square-o"></i><a href="ui-social-buttons.html">Social Buttons</a></li>
-                            <li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">Cards</a></li>
-                            <li><i class="fa fa-exclamation-triangle"></i><a href="ui-alerts.html">Alerts</a></li>
-                            <li><i class="fa fa-spinner"></i><a href="ui-progressbar.html">Progress Bars</a></li>
-                            <li><i class="fa fa-fire"></i><a href="ui-modals.html">Modals</a></li>
-                            <li><i class="fa fa-book"></i><a href="ui-switches.html">Switches</a></li>
-                            <li><i class="fa fa-th"></i><a href="ui-grids.html">Grids</a></li>
-                            <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">Typography</a></li>
-                        </ul>
+                    <li>
+                        <a href="#"><i class="menu-icon fa fa-laptop"></i>Produtos</a>
                     </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Fabricantes</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="tables-basic.html">Basic Table</a></li>
-                            <li><i class="fa fa-table"></i><a href="tables-data.html">Data Table</a></li>
-                        </ul>
+                    <li>
+                        <a href="#"> <i class="menu-icon fa fa-table"></i>Fabricantes</a>
                     </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Categorias</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Basic Form</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Advanced Form</a></li>
-                        </ul>
+                    <li>
+                        <a href="#"> <i class="menu-icon fa fa-th"></i>Categorias</a>
                     </li>
 
                     <h3 class="menu-title">Redes Sociais</h3><!-- /.menu-title -->
 
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Icons</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-fort-awesome"></i><a href="font-fontawesome.html">Font Awesome</a></li>
-                            <li><i class="menu-icon ti-themify-logo"></i><a href="font-themify.html">Themefy Icons</a></li>
-                        </ul>
+                    <li>
+                        <a href="#"> <i class="menu-icon fa fa-tasks"></i>Icons</a>
                     </li>
                     <li>
-                        <a href="widgets.html"> <i class="menu-icon ti-email"></i>Widgets </a>
+                        <a href="#"> <i class="menu-icon ti-email"></i>Widgets </a>
                     </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Charts</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-line-chart"></i><a href="charts-chartjs.html">Chart JS</a></li>
-                            <li><i class="menu-icon fa fa-area-chart"></i><a href="charts-flot.html">Flot Chart</a></li>
-                            <li><i class="menu-icon fa fa-pie-chart"></i><a href="charts-peity.html">Peity Chart</a></li>
-                        </ul>
+                    <li>
+                        <a href="#"> <i class="menu-icon fa fa-bar-chart"></i>Charts</a>
                     </li>
 
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-area-chart"></i>Maps</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-map-o"></i><a href="maps-gmap.html">Google Maps</a></li>
-                            <li><i class="menu-icon fa fa-street-view"></i><a href="maps-vector.html">Vector Maps</a></li>
-                        </ul>
+                    <li>
+                        <a href="#"> <i class="menu-icon fa fa-area-chart"></i>Maps</a>
                     </li>
                     <h3 class="menu-title">Contato</h3><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
@@ -379,7 +364,7 @@ if(isset($_SESSION['id'])){
 
             <div class="col-lg-3 col-md-6">
                 <div class="social-box google-plus">
-                    <i class="fa fa-google-plus"></i>
+                    <i class="fa fa-youtube-play"></i>
                     <ul>
                         <li>
                             <strong><span class="count">94</span> k</strong>
@@ -523,7 +508,7 @@ if(isset($_SESSION['id'])){
                 }
                 .table-title{
                     width: 100%;
-                    background-color: #ff7400;
+                    background-color: #ff8000;
                     height: 60px;
                     color: white;
                     font-weight: bold;
@@ -534,37 +519,79 @@ if(isset($_SESSION['id'])){
                     font-size: 25px;
                     padding-right: 0.5rem;
                 }
+                .btn-input{
+                    border-radius: 0px 5px 5px 0px;
+                }
+                .form-control:focus{
+                    box-shadow: 0px 0px 5px 1px #ff7400;
+                    border: 1px solid #ff7400;
+                }
              </style>
             
             <div class="col-12 ">
                 <div class = "table-title text-center">
                     <span><i class="fas fa-table"></i>Tabela de Produtos</span>
                 </div>
+                
                 <div class="white-box ">
+                    
+                <!-- Form -->
+                <form>
+                    
+                    <!-- Div Input -->
+                    <div class = "input-group pt-2 pb-1">
+                        
+                        <!-- Input Pesquisa -->
+                        <input id="myInput" type = "text" class = "form-control" placeholder = "Pesquisar">
+                        
+                        <!-- Botão 
+                        <div class = "input-group-append">
+                            
+                            <button class = "btn btn-success btn-input" type = "button">Buscar</button>
+                            
+                        </div>
+                        <!-- /Botão -->
+                        
+                    </div>
+                    <!-- /Div Input -->
+                        
+                </form>
+                <!-- /Form -->
                   
-                    <div class="table-responsive  pt-2">
-                        <table class="table">
+                    <div class="table-responsive pt-2">
+                        <table  class="table text-center">
+                            <thead>  
                                 <tr>
                                     <th class="col-auto">#</th>
                                     <th class="col-auto">Nome</th>
                                     <th class="col-auto">Sobrenome</th>
-                                    <th class="col-auto">Endereço</th>
+                                    <th class="col-auto">Email</th>
                                 </tr>
-                                  <?php
-                    $listar = ListarUsuarioAdm();
-                    while($a = $listar->fetch_array()){
-                    
-                    ?>
-                                <tr>
-                                    <td><?php echo $a['CD_USUARIO'];?></th>
-                                    <td><?php echo $a['NM_USUARIO'];?></th>
-                                    <td><?php echo $a['NM_SOBRENOME'];?></th>
-                                    <td><?php echo $a['DS_EMAIL'];?></th>
-                                </tr>
-                                <?php
-                        
-                    }
-                    ?>
+                            </thead>
+                            <tbody id="myTable">
+                            <?php
+                            $listar = ListarUsuarioAdm();
+                            while($a = $listar->fetch_array()){
+                            ?>
+                                        <tr>
+                                            <td>
+                                            <?php echo $a['CD_USUARIO'];?>
+                                            </td>
+                                            <td>
+                                            <?php echo $a['NM_USUARIO'];?>
+                                            </td>
+                                            <td>
+                                            <?php echo $a['NM_SOBRENOME'];?>
+                                            </td>
+                                            <td>
+                                            <?php echo $a['DS_EMAIL'];?>
+                                            </td>
+                                        </tr>
+                            <?php
+                                
+                            }
+                            ?>
+                            </tbody>
                         </table>
                     </div>
                     
@@ -600,8 +627,10 @@ if(isset($_SESSION['id'])){
                     while($a = $listar->fetch_array()){
                     
                     ?>
-                        <div class="user">
-                            <img src = "../<?php echo $a['DS_FOTO'];?>">
+                        <div  class="user" >
+                             <a id="info" titulo="<?php echo $a['NM_USUARIO']; ?>"  data-sobrenome="<?php echo $a['NM_SOBRENOME']; ?>"  data-email="<?php echo $a['DS_EMAIL']; ?>">
+                                  <img  src = "../<?php echo $a['DS_FOTO'];?>" > 
+                              </a>
                             <label class="name-user"><?php echo $a['NM_USUARIO'];?></label>
                         </div>
                       <?php
@@ -616,21 +645,54 @@ if(isset($_SESSION['id'])){
 
         </div> <!-- .content -->
             
-    </div><!-- /#right-panel -->
+</div><!-- /#right-panel -->
 <!--  Modal usuario -->
-  <div class="modal fade" id="myModal">
-    <div class="modal-dialog modal-sm">
+  <div class="modal fade modalinfo" id = "exampleModal" tabindex = "-1" role = "dialog" aria-labelledby = "exampleModalLabel" aria-hidden = "true">
+    <div class="modal-dialog" role = "document">
       <div class="modal-content">
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Modal Heading</h4>
+          <h4 class="modal-title">Mais Informações</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         
         <!-- Modal body -->
         <div class="modal-body">
-          Modal body..
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><p id="nome"></p></td>
+                      </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th>Sobrenome</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><p id="sobrenome"></p></td>
+                      </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><p id="email"></p></td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         
         <!-- Modal footer -->
@@ -640,39 +702,19 @@ if(isset($_SESSION['id'])){
         
       </div>
     </div>
+  <div>
     <!-- Right Panel -->
 
-    <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
+ 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
 
-
     <script src="assets/js/lib/chart-js/Chart.bundle.js"></script>
     <script src="assets/js/dashboard.js"></script>
     <script src="assets/js/widgets.js"></script>
-    <script src="assets/js/lib/vector-map/jquery.vmap.js"></script>
-    <script src="assets/js/lib/vector-map/jquery.vmap.min.js"></script>
-    <script src="assets/js/lib/vector-map/jquery.vmap.sampledata.js"></script>
-    <script src="assets/js/lib/vector-map/country/jquery.vmap.world.js"></script>
-    <script>
-        ( function ( $ ) {
-            "use strict";
-
-            jQuery( '#vmap' ).vectorMap( {
-                map: 'world_en',
-                backgroundColor: null,
-                color: '#ffffff',
-                hoverOpacity: 0.7,
-                selectedColor: '#1de9b6',
-                enableZoom: true,
-                showTooltip: true,
-                values: sample_data,
-                scaleColors: [ '#1de9b6', '#03a9f5' ],
-                normalizeFunction: 'polynomial'
-            } );
-        } )( jQuery );
-    </script>
-
+  
+   
 </body>
 </html>
+<?php } ?>

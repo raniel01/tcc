@@ -254,7 +254,6 @@ $(document).on('click','.edit, .info', function(){
 	var local = $(this).attr('bairro');
 	var referencia= $(this).attr('ponto');
 	$('#cd').val(cd);
-	alert(ender);
 	$('#nome').val(forma);
 	$('#cdr').val(cd);
 	$('#nomer').html(forma);

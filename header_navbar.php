@@ -1,6 +1,8 @@
 <?php
    //verificando se o usuario fez uma busca
    include('conexao.php');
+   session_start();
+   Sair();
    	if (isset($_REQUEST['busca'])) {
    		$busca=$_GET['busca'];
    		BuscaProduto($busca);
@@ -41,14 +43,6 @@
       <link rel = "stylesheet" type = "text/css" href = "css/style.css">
       
       <style>
-         .foto-perfil{
-         object-fit: cover;
-         border-radius: 50%;
-         }
-         .foto-perfil{
-               width: 50px;
-               height: 50px;
-         }
          @media only screen and (max-width: 425px){
 
             .foto-perfil{
@@ -57,31 +51,47 @@
             }
          
          }
-         .dropy-cont{
+        .dropdown-content {
             display: none;
-             position: ;
-             right: 0;
-             width: 100px;
-             height: 100px;
-             top: 100px;
-             background-color: #f9f9f9;
-             min-width: 160px;
-             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-             z-index: 1111;
-         }
-         .dropy:hover .drop-cont{
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            padding: 0px;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
             display: block;
-         }
-         
+        }
+        
+        .dropdown-content a:hover {background-color: #f1f1f1}
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .foto-perfil{
+            height: 40px;
+            width: 40px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .dropdown{
+           float: left;
+        }
+        @media only screen and (max-width: 992px){
+           
+        }
       </style>
       
    </head>
    <header class = "header">
       <!--nav-->
       <nav class = "navbar navbar-expand-lg bg-dark navbar-dark rounded-0 navbar-transparent">
+         <div class="container">
          <!-- Brand/logo -->
-         <div class = "container">
-            
             <!-- <div class="dropdown">
                  <button class="btn btn-danger dropdown-toggle drop" type="button" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
                  <div class="dropdown-menu drop-menu" aria-labelledby="dropdownMenuButton">
@@ -90,20 +100,24 @@
                    <a class="dropdown-item" href="#">Something else here</a>
                  </div>
                </div> -->
-
-            <a class = "navbar-brand " href = "#"><img class="foto-perfil dropy" id="imagem" src = "<?php
-            $foto = (isset($_SESSION['foto'])) ? $_SESSION['foto'] : "imgs/logo1.png";
-            echo $foto;
-            ?>" alt = "logo">
-            
-               <div class = "dropy-cont">
-                  <a href="">Teste</a>
-                  <a href="">Teste</a>
-                  <a href="">Teste</a>
-                  <a href="">Teste</a>
+            <div class="dropdown" data-sessao="<?php
+               $foto = (isset($_SESSION['foto']));
+               echo $foto; ?>">
+               <a class = "navbar-brand" href = "#">
+               <img src = "<?php
+               $foto = (isset($_SESSION['foto'])) ? $_SESSION['foto'] : "imgs/logo1.png";
+               echo $foto;
+               ?>" id="imagem" class="foto-perfil" alt="logo">
+               </a>
+               <div id="nada" class="dropdown-content d-none d-lg-none d-md-none">
+                   <a href="perfil.php">Perfil</a>
+                   <a href="carrinho.php">Carrinho</a>
+                   <a href="?Sair">Sair</a>
                </div>
-            
-            </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="#navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
             <div class = "collapse navbar-collapse" id = "navbarsExample07">
                <ul class = "navbar-nav mr-auto">
                   <li class = "nav-item">

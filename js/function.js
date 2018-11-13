@@ -2,7 +2,7 @@
      "use strict"
     var nav_offset_top = $('.header').height()+50; 
     var carrinho = localStorage.car;
-    var session = $('.header').data('sessao');
+    var session = $('.dropdown').data('sessao');
     /*-------------------------------------------------------------------------------
 	  Navbar 
 	-------------------------------------------------------------------------------*/
@@ -30,12 +30,26 @@
       };
     MostrarCarrinho();
      /*-------------------------------------------------------------------------------
-	  icon
+	  mostrar usuario
 	---------------------------------------------------------------------------
+	*/
+	  function Drop(){
+	      if(session == ''){
+	         $("#nada").removeClass("dropdown-content");
+	      }
+	      else{
+	           $("#nada").addClass("dropdown-content");
+	           $("#nada").removeClass("d-none d-lg-none d-md-none");
+	      }
+	     
+	  };
+	    Drop();
+	    
      /*------------------------------------------------------------------------
      ------
 	  Input 
 	-------------------------------------------------------------------------------*/
+
 })(jQuery)
 /*------------------------------------------------------------------------------
                             MASCARA DE CPF/TELEFONE/CEP
@@ -72,8 +86,14 @@ function forcaSenha(password) {
 	
 	// indicador de exibição
 	$("#medida").removeClass(descClass[score-1]).addClass(descClass[score]).css(desc[score]);
-
-
+   $('#atualizar').attr('disabled','disabled');
+    if(score >= 4){
+        var f = "valida";
+        $('#atualizar').removeAttr("disabled");
+    }else{
+        var f= "invalida";
+    }
+    $("#forca").val(f);
 }
 //------------------------------------------------------------------------------
 

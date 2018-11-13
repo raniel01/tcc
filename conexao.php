@@ -298,6 +298,7 @@ function Login($email,$senha){
 		   AND DS_SENHA =  "'.md5($senha).'"';
 	$res = $GLOBALS['con']->query($sql);
 	//alert($sql);
+	// SELECT * FROM tb_desejos WHERE id_produto = 17,
 	if($res->num_rows > 0){
 		$usuario = $res->fetch_array();
 		$_SESSION['id']=$usuario['CD_USUARIO'];
@@ -323,6 +324,7 @@ function LoginAdm($email,$senha){
 		$_SESSION['id']=$usuario['CD_USUARIO'];
 		$_SESSION['nome']=$usuario['NM_USUARIO'];
 		$_SESSION['foto']=$usuario['DS_FOTO'];
+		$_SESSION['nivel']=$usuario['DS_NIVEL'];
 		echo '<script> window.location="index.php";</script>';
 		
 	}else{
@@ -408,10 +410,10 @@ function ListaFabricanteProduto($idfabricante){
 	$sql='SELECT * FROM TB_PRODUTO WHERE ID_FABRICANTE ='.$idfabricante.' order by CD_INTERNO DESC limit 0,15';
 	$res=$GLOBALS['con']->query($sql);
 	return $res;
-	function toArray($str){
-		$aux = explode("]",explode("[",$str)[1])[0];
-	}
 }
+/*function toArray($str){
+		$aux = explode("]",explode("[",$str)[1])[0];
+	}*/
 //------------------------------------------------------------------------------
 function alert($msg){
 	echo '<script>alert("'.$msg.'");</script>';
@@ -423,6 +425,18 @@ function NomeUsuario($id){
 		$reserva = $res->fetch_array();
 		return $reserva['NM_USUARIO'];
 	}
+function NomeFabricante($id){
+		$sql = "SELECT * FROM TB_FABRICANTE WHERE CD_FABRICANTE=".$id;
+		$res = $GLOBALS['con']->query($sql);
+		$reserva = $res->fetch_array();
+		return $reserva['NM_FABRICANTE'];
+	}
+function NomeCategoria($id){
+		$sql = "SELECT * FROM TB_CATEGORIA WHERE CD_CATEGORIA=".$id;
+		$res = $GLOBALS['con']->query($sql);
+		$reserva = $res->fetch_array();
+		return $reserva['NM_CATEGORIA'];
+	}	
 //------------------------------------------------------------------------------
 function PaginacaoProdutos($inicio,$porpagina){
 	 //mostrando todos os produtos
@@ -477,13 +491,14 @@ function PaginaCarrinho($carrinho){
 							$img = $mostrar['DS_FOTO_PRODUTO'];
 							$valor = $mostrar['VL_PRODUTO'];
 							
-							echo '<div class = "col-md-4 col-lg-3 col-sm-12 mt-3 mt-md-0" id='.$id.'>
+							echo '<div class = "col-md-4 col-lg-3 col-sm-12 mt-3 mt-md-0" id="produto'.$id.'">
 			         <div class = "card">
 			            <img class = "card-img-top" src = "'.$img.'" alt = "Card image cap">
 			            <div class = "card-body">
 			               <h5 class = "card-title">'.$nome.'</h5>
-			               <p class = "card-text">'.$valor.'</p>
-			               <p class = "card-text">'.$qtd.'</p>
+			               <p class = "card-text text-center">'.$valor.'</p>
+			               <button id ="remove" class = "rCar btn btn-danger"
+			               data-codigo="'.$cd.'" data-produto="'.$nome.'">Remover do carrinho</button>
 			            </div>
 			         </div>
 			      </div>

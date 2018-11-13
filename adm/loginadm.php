@@ -7,55 +7,67 @@
     }
                     
 ?>
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
- <!--chamamando materalize-->
-  <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
- 
-<style type="text/css">
-  body{
-    background-color:#fff;
-  }
-  .form-adm{
-    margin-top:10%;
-  }
-  .col{
-    background-color: white;
-    border-radius: 10px;
-  }
-</style>
- 
-<div class="container">
- <div class="form-adm row">
-    <form method="post" action ="loginadm.php" class=" col s8 offset-s2 hoverable">
-      <div class="row">
-        <div class="col s12">
-          <h2 class="center-align">Login</h2>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Loding font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" type="text/css" href="assets/css/stylesL.css">
+
+    <title>Login Área Administrativa</title>
+  </head>
+  <body>
+
+    <!-- Backgrounds -->
+
+    <div id="login-bg" class="container-fluid">
+
+      <div class="bg-img"></div>
+      <div class="bg-color"></div>
+    </div>
+
+    <!-- End Backgrounds -->
+
+    <div class="container" id="login">
+        <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="login">
+
+            <h1>Login </h1>
+            <h4>Área Administrativa</h4>
+            
+            <!-- Loging form -->
+                  <form method="post" action ="loginadm.php" class=" col s8 offset-s2 hoverable">
+                    <div class="form-group">
+                      <input type="email" name = "email" class="form-control validate" id="email" aria-describedby="emailHelp" placeholder="E-mail">
+                      
+                    </div>
+                    <div class="form-group">
+                      <input type="password" name = "senha" class="form-control validate" id="password" placeholder="Senha">
+                  
+                    </div>
+
+                      
+                  
+                    <br>
+                    <button type="submit" class="btn btn-lg btn-block btn-warning">Entrar</button>
+                  </form>
+             <!-- End Loging form -->
+
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input name = "email" id="email" type="email" class="validate">
-          <label   for="email">Email</label>
         </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input name = "senha" id="password" type="password" class="validate">
-          <label for="password">Password</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col s6">
-          <button class="btn-large waves-effect waves-light" type="submit">
-            Enviar
-          </button>
-          
-        </div>
-      </div>
-    </form>
-  </div>
-</div>  
+    </div>
+
+
+  </body>
+</html>

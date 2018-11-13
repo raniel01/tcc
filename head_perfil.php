@@ -20,8 +20,9 @@
    if(isset($_POST['senha_antiga'])){
       $senha_antiga= md5($_POST['senha_antiga']);
       if ( $senha_antiga == $verificacao){
+         if(isset($_POST['forca']) == "valida"){
           AtualizarSenha($_POST['cd'], md5($_POST['senha']));
-      
+         }
       }else{
           alert("Erro ao atualizar, verifique se digitou corretamente os campos");
       }
@@ -99,7 +100,7 @@
          .lista{
          font-size: 18pt;
          }
-      </style>
+         </style>
       <!-- Font Awesome JS -->
       <script defer src = "https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity = "sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin = "anonymous"></script>
       <script defer src = "https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity = "sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin = "anonymous"></script>
@@ -203,6 +204,7 @@
                      <br>
                      <div class="row">
                         <div class = "form-group col-md-6">
+                           <input type="hidden" name="forca" id="forca"  value="">        
                            <input type="hidden" name="cd" id="cd"  value="<?php echo $a; ?>">        
                            <input type = "password" name = "senha" class = "form-control" id="password" placeholder = "Nova senha *" value = ""  required autofocus>
                         </div>
@@ -215,10 +217,15 @@
                            <div id="medida" class="progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%; color: white; font-weight:bold;">&nbsp;</div>
                         </div>
                      </div>
+                     <div class="row">
+                        <div class="col-md-12" style="text-align: justify;">
+                           <span class="obrigatorio ">Lembre-se</span> A senha deve conter de 6 á 20 caracteres, sendo letras maisculas e minusculas, números e caracteres especiais.
+                        </div>
+                     </div>
                </div>
                <div class="modal-footer">
                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-               <button type="submit" class="btn btn-primary">Atualizar</button>
+               <button type="submit" id="atualizar" class="btn btn-primary">Atualizar</button>
                </form>
                </div>
             </div>

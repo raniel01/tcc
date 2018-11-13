@@ -49,7 +49,7 @@ $idcategoria = $_GET['p'];
                         
                         
                         ?>
-                     <div class = "col-md-6 col-lg-3 col-sm-4 col-12">
+                     <div class = "col-md-4 col-lg-3 col-sm-6 col-12">
                         <!-- Card -->
                         <div class = "card mt-2 shadow border-none">
                            <!-- Imagem do Card -->

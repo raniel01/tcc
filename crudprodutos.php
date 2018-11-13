@@ -29,6 +29,10 @@ if (isset($_POST['codigo'])) {
 	ExcluirProduto($_POST['codigo']);
 }
 
+if(isset($_SESSION['nivel'])!= "ADM"){ 
+    alert("Acesso restrito, por favor entre como administrador!");
+    echo '<script> window.location="adm/loginadm.php";</script>';
+}else{
 //if($_FILES){
 		
 		
@@ -594,4 +598,4 @@ $(document).ready(function(){
 	</div>
 </body>
 </html>  
-                            		          
+<?php } ?>                            		          
