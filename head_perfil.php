@@ -4,7 +4,9 @@
       Sair();
      
    if(isset($_POST['cd1'])){
+      
       AtualizarUsuario($_POST['cd1'], $_POST['nome'], $_POST['sobrenome'], $_POST['email'], $_POST['cpf'], $_POST['data_nasc'], $_POST['sexo'], $_POST['endereco'], $_POST['bairro'], $_POST['cidade'], $_POST['cep'], $_POST['estado'], $_POST['ponto'], $_POST['telefone'], $_POST['celular']);
+
    }
    
    if(isset($_SESSION['id'])){

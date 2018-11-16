@@ -1,4 +1,4 @@
-<?php
+<?php include('header_navbar.php');
    session_start();
    //include("conexao.php");
    ?> 
@@ -25,7 +25,6 @@
    </head>
    <!--colocar uma imagem de fundo grande com carrinhos de fundo-->
    <body>
-      <?php include('header_navbar.php') ?>
       <div class="container-fluid" style="background-image: url('/imgs/fundocarrinho.jpg'); padding-top:50px;">
          <div class="row login">
             <div class="col-md-6 offset-3 mx-auto">
@@ -57,45 +56,47 @@
                      </div>
                      <div class="form-group text-center">
                         <br>
-                        <button type="submit" class="btn btn-outline-dark float-right" style="border:2px solid black"> Esqueci minha senha</a></button>
+                        <button type="button" class="btn btn-outline-dark float-right" style="border:2px solid black" data-toggle="modal" data-target="#recuperacao" data-whatever="@mdo" > Esqueci minha senha</a></button>
                         <?php 
                            if (isset($_POST['email'])) {
                            	Login($_POST['email'],$_POST['senha']);
                            }
                            ?>
-                        
                      </div>
-                     </div>
-               </form>
-               </div>
+                  </div>
                </form>
             </div>
-            <!--pré cadastro
-               <div class="col-md-6">
-                 <div class="jumbotron">
-                   <div class="text-center">  
-                     <img src="logo.png" class="logotipo1" alt="logotipo"> 
-                     <div class="row"><br></div>
-                     <h4>Não é cadastrado?</h4>
-                   </div>
-                <!-- <div class="form-group">
-                     <input type="text" class="form-control" placeholder="Nome de usuário">
-                   </div>
-                   <div class="form-group">
-                     <form action="cadastro.php" method="post">
-                    <input type="email" class="form-control" placeholder="E-mail">
-                   </div>
-                   <div class="form-group">
-                     <input type="text" name="cpf" class="form-control"  maxlength="14" OnKeyPress="formatar('###.###.###-##', this)" placeholder="CPF"  required="Por favor digite seu cpf">
-                   </div>
-                   <div class="form-group">
-                     <button type="submit" class="btn btn-outline-dark config_btn a transition" style="border:2px solid black">Cadastrar</button>
-                      </form>
-                   </div>
-                 </div>
-               </div>-->
+            </form>
          </div>
+         <!-- Modal para recuperação de senha -->
+         <div class="modal fade" id="recuperacao" tabindex="-1" role="dialog" aria-labelledby="recuperacao" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title" id="recuperacao">Recuperação de Senha</h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                     </button>
+                  </div>
+                  <div class="modal-body">
+                     <form action="gestao/geradorsenha/gerarSenha.php" method="post">
+                        <div class="row">
+                           <div class="form-group col-12">
+                              <input type="email" name="email-rec" placeholder="Digite o e-mail cadastrado." class="form-control"/>
+                           </div>
+                        </div>
+                  </div>
+                  <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Enviar</button>
+                  </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- Fim recuperação de senha-->
       </div>
-    </body>
-  <?php include('Footer_teste.php') ?>
+      </div>
+   </body>
+   <?php include('Footer_teste.php') ?>
 </html>

@@ -14,6 +14,10 @@ nicolas{
 https://www.estantevirtual.com.br/estante
 http://wmdemos.com/silvius/silvius-light/
 
+fotos
+https://i.ytimg.com/vi/B8Wf5ab6amU/maxresdefault.jpg
+https://isistem.com.br/public/images/mostra-1.png
+
 http://trystack.mediumra.re/home-landing-3.html#start
 http://wrapbootstrap.com/preview/WB04C422K
 }

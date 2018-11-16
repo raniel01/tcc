@@ -36,8 +36,10 @@
                </div>
                <div class="col-md-5">
                   <div class="form-group">
-                     <label for="cpf">CPF <span class="obrigatorio">*</span> :</label><br>
-                     <input type = "text" name = "cpf" class = "form-control"  maxlength="14" id="cpf" placeholder="000.000.000-00"value = "<?php  echo($usuario['NR_CPF']); ?>" required >
+                     <label for="cpf">CPF <span class="obrigatorio">*</span> :</label>&nbsp;<span id="cpfResponse"></span><br>
+                    <!--<input type="hidden" name="cpf-valida" id="valida" value=""/>-->
+                     <input type = "text" name = "cpf" class = "form-control"  maxlength="14" id="cpf" onkeyup="cpfCheck(this)" placeholder="000.000.000-00"value = "<?php  echo($usuario['NR_CPF']); ?>" required >
+                     
                   </div>
                </div>
             </div>
@@ -144,7 +146,7 @@
                <div class="col-md-4">
                   <div class="form-group">
                      <button  class="btn btn-lg btn-pill btn-warning" type="reset">Limpar</button>
-                     <button class="btn btn-lg btn-pill btn-primary" type="submit">Atualizar</button>
+                     <button id="atualizarCad" class="btn btn-lg btn-pill btn-primary" type="submit">Atualizar</button>
                   </div>
                </div>
             </div>

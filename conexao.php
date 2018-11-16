@@ -253,7 +253,12 @@ function ListarUsuarioCerto($cd){
 	$res= $GLOBALS['con']->query($sql);
 	return $res;
 }
-
+//------------------------------------------------------------------------------
+function ListarEmailRecuperacao($email_rec){
+	$sql='SELECT * FROM TB_USUARIO WHERE DS_EMAIL LIKE "'.$email_rec.'"';
+	$res= $GLOBALS['con']->query($sql);
+	return $res;
+}
 //------------------------------------------------------------------------------
 function ListarProduto(){
 	$sql='SELECT * FROM TB_PRODUTO';
