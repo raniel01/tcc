@@ -48,7 +48,7 @@
    $email_password = "meu1212carrinho";
    $the_subject = "Recuperação de Senha";
    $address_to = $a;
-   $from_name = "Equipe de recuperação de senha.";
+   $from_name = "Meu Carrinho.com";
    $phpmailer = new PHPMailer();
    // ---------- datos de la cuenta de Gmail -------------------------------
    $phpmailer->Username = $email_user;
@@ -108,12 +108,12 @@
    				<h2 style="color: #FF4500; text-align: center;">Equipe Meu Carrinho.com</h2>
    			
    				
-   				<h1 style="text-align: center;">RECUPERÇÃO DE SENHA</h1>
+   				<h1 style="text-align: center;">RECUPERAÇÃO DE SENHA</h1>
    			
-   			<p style="text-align: center;"><b><i>Leia as instrções com ateção</i></b></p>
+   			<p style="text-align: center;"><b><i>Leia as instruções com atenção</i></b></p>
    			</div>	
    				<p>Senha Temporária:<span style="color: #FF4500;"> <b>'.$senha.'</b></span><br>
-       Faça login com a senha provisória, depois vá em conficurações, click em atualizar senha, no campo senha antiga digite a senha provisória, depois preencha sua nova senha, confirme a digitando novamente a senha, depois click no botão atualizar.</p>
+       Faça login com a senha provisória, depois vá em configurações, click em atualizar senha, no campo senha antiga digite a senha provisória, depois preencha sua nova senha, confirme a digitando novamente a senha, depois click no botão atualizar.</p>
       
    			</div>		
    		</div>

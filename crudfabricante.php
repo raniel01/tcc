@@ -17,7 +17,7 @@ if (isset($_POST['cd'])) {
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>xxxxxx</title>
+<title>CRUD-FABRICANTE</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -301,7 +301,7 @@ $(document).ready(function(){
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-						<h2>CRUD <b>DELIVERY</b></h2>
+						<h2>CRUD <b>FABRICANTE</b></h2>
 					</div>
 					<div class="col-sm-6">
 						<a href="#ModalAdicionar" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Adicionar Usuario</span></a>
@@ -320,14 +320,13 @@ $(document).ready(function(){
 						</th>
                         <th>#</th>
                         <th>NOME</th>
-                        <th>ENDEREÇO</th>
                         <th>CONTROLES </th>
                     </tr>
                 </thead>
                 <tbody>
                 	<?php 
-                		$formas = ListarUsuario();
-                		while ($forma = $formas->fetch_array()){
+                		$fabricantes = ListarFabricante();
+                		while ($fabricante = $fabricantes->fetch_array()){
                 	 ?>
                     <tr>
 						<td>
@@ -336,13 +335,12 @@ $(document).ready(function(){
 								<label for="checkbox1"></label>
 							</span>
 						</td>
-                        <td><?php echo $forma['CD_USUARIO']; ?></td>
-                        <td><?php echo $forma['NM_USUARIO']; ?></td>
-                        <td><?php echo $forma['NM_ENDERECO']; ?></td>
+                        <td><?php echo $fabricante['CD_FABRICANTE']; ?></td>
+                        <td><?php echo $fabricante['NM_FABRICANTE']; ?></td>
                         <td>
-                            <a href="#ModalEditar" id="<?php echo $forma['CD_USUARIO']; ?>" nome="<?php echo $forma['NM_USUARIO']; ?>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
-                            <a href="#ModalRegistros" id="<?php  echo ($forma['CD_USUARIO']); ?>" nome="<?php echo $forma['NM_USUARIO']; ?>" endereco="<?php echo $forma['NM_ENDERECO']; ?>" bairro="<?php echo $forma['NM_BAIRRO']; ?>" ponto="<?php echo $forma['NM_PONTO_REFERENCIA']; ?>" class="info" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Info">info</i></a>
-                            <a href="#ModalExcluir" id="<?php  echo($forma['CD_USUARIO']); ?>" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Excluir">&#xE872;</i></a>
+                            <a href="#ModalEditar" id="<?php echo $fabricante['CD_FABRICANTE']; ?>" nome="<?php echo $fabricante['NM_FABRICANTE']; ?>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
+
+                            <a href="#ModalExcluir" id="<?php  echo($fabricante['CD_FABRICANTE']); ?>" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Excluir">&#xE872;</i></a>
                         </td>
                            
                     </tr>
@@ -369,14 +367,14 @@ $(document).ready(function(){
 	<div id="ModalAdicionar" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form action="crudpedidos.php" method="post">
+				<form action="crudfabricante.php" method="post">
 					<div class="modal-header">						
 						<h4 class="modal-title">Adicionar Novo</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">					
 						<div class="form-group">
-							<label>Delivery:</label>
+							<label>FABRICANTE:</label>
 							<input type="text" name="nomepgto" class="form-control" required>
 						</div>
 					<!-- NÃO VAMOS USAR AGORA
@@ -406,9 +404,9 @@ $(document).ready(function(){
 	<div id="ModalEditar" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form action="crudpedidos.php" method="post">
+				<form action="crudfabricante.php" method="post">
 					<div class="modal-header">						
-						<h4 class="modal-title">Ver Registro De Pedidos</h4>
+						<h4 class="modal-title">FABRICANTE</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">					
@@ -427,78 +425,78 @@ $(document).ready(function(){
 		</div>
 	</div>
 	<!-- Check Modal HTML -->
-	<div id="ModalRegistros" class="modal fade">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<form action="crudpedidos.php" method="post" >
-					<div class="modal-header">						
-						<h4 class="modal-title text-center">Mais Informações</h4>
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					</div>
-					<div class="modal-body">					
-						<table class="table  table-striped">
-						    <thead>
-						      <tr>
-						        <th>Nome</th>
-						      </tr>
-						    </thead>
-						    <tbody>
-						      <tr>
-						        <td>
-						        	<p name="nome" id="nomer"></p>
-						        </td>
-						      </tr>
-						    <thead>
-						      <tr>
-						        <th>Endereço</th>
-						      </tr>
-						    </thead>
-						    <tbody>
-						    	<tr>
-						        	<td>
-						        		<p name="endereco" id="endereco" required></p>
-						        	</td>
-						      	</tr>
-						    </tbody>
-						    <thead>
-						    	<tr>
-						    	<th>Bairro</th>
-						        </tr>
-						    </thead>
-						    <tbody>
-						    	<tr>
-						        	<td>
-						        		<p name="bairro" id="bairro" required></p>
-						        	</td>
-						        </tr>
-						    </tbody>
-						    <thead>
-						    	<tr>
-						    	<th>Ponto De Referencia</th>
-						        </tr>
-						    </thead>
-						    <tbody>
-						    	<tr>
-						        	<td>
-						        		<p name="ponto" id="ponto" required></p>
-						        	</td>
-						        </tr>
-						    </tbody>
-						</table>				
-					</div>
-					<div class="modal-footer">
-						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
-						<input type="submit" class="btn btn-info" value="Voltar">
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+	<!--<div id="ModalRegistros" class="modal fade">-->
+	<!--	<div class="modal-dialog">-->
+	<!--		<div class="modal-content">-->
+	<!--			<form action="crudpedidos.php" method="post" >-->
+	<!--				<div class="modal-header">						-->
+	<!--					<h4 class="modal-title text-center">Mais Informações</h4>-->
+	<!--					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+	<!--				</div>-->
+	<!--				<div class="modal-body">					-->
+	<!--					<table class="table  table-striped">-->
+	<!--					    <thead>-->
+	<!--					      <tr>-->
+	<!--					        <th>Nome</th>-->
+	<!--					      </tr>-->
+	<!--					    </thead>-->
+	<!--					    <tbody>-->
+	<!--					      <tr>-->
+	<!--					        <td>-->
+	<!--					        	<p name="nome" id="nomer"></p>-->
+	<!--					        </td>-->
+	<!--					      </tr>-->
+	<!--					    <thead>-->
+	<!--					      <tr>-->
+	<!--					        <th>Endereço</th>-->
+	<!--					      </tr>-->
+	<!--					    </thead>-->
+	<!--					    <tbody>-->
+	<!--					    	<tr>-->
+	<!--					        	<td>-->
+	<!--					        		<p name="endereco" id="endereco" required></p>-->
+	<!--					        	</td>-->
+	<!--					      	</tr>-->
+	<!--					    </tbody>-->
+	<!--					    <thead>-->
+	<!--					    	<tr>-->
+	<!--					    	<th>Bairro</th>-->
+	<!--					        </tr>-->
+	<!--					    </thead>-->
+	<!--					    <tbody>-->
+	<!--					    	<tr>-->
+	<!--					        	<td>-->
+	<!--					        		<p name="bairro" id="bairro" required></p>-->
+	<!--					        	</td>-->
+	<!--					        </tr>-->
+	<!--					    </tbody>-->
+	<!--					    <thead>-->
+	<!--					    	<tr>-->
+	<!--					    	<th>Ponto De Referencia</th>-->
+	<!--					        </tr>-->
+	<!--					    </thead>-->
+	<!--					    <tbody>-->
+	<!--					    	<tr>-->
+	<!--					        	<td>-->
+	<!--					        		<p name="ponto" id="ponto" required></p>-->
+	<!--					        	</td>-->
+	<!--					        </tr>-->
+	<!--					    </tbody>-->
+	<!--					</table>				-->
+	<!--				</div>-->
+	<!--				<div class="modal-footer">-->
+	<!--					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">-->
+	<!--					<input type="submit" class="btn btn-info" value="Voltar">-->
+	<!--				</div>-->
+	<!--			</form>-->
+	<!--		</div>-->
+	<!--	</div>-->
+	<!--</div>-->
 	<!-- Delete Modal HTML -->
 	<div id="ModalExcluir" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form action="crudpedidos.php" method="post">
+				<form action="crudfabricante.php" method="post">
 					<input type="hidden" name="codigo" id="codigo" value="">
 					<div class="modal-header">						
 						<h4 class="modal-title">Excluir Registro</h4>

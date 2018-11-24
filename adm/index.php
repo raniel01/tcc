@@ -125,7 +125,7 @@
             <!--/.col-->
         
          </div> <!-- .content -->
-         <div class="breadcrumbs">
+        <div class="breadcrumbs">
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
@@ -140,13 +140,13 @@
                     <i class="fa fa-facebook"></i>
                     <ul>
                         <li>
-                            <strong><span class="count">40</span> k</strong>
-                            <span>friends</span>
+                            <strong><span>MeuCarrinho </span></strong>
                         </li>
+                        
                         <li>
-                            <strong><span class="count">450</span></strong>
-                            <span>feeds</span>
+                            <strong><span>Seguidores</span></strong>
                         </li>
+
                     </ul>
                 </div>
                 <!--/social-box-->
@@ -157,14 +157,14 @@
                 <div class="social-box twitter">
                     <i class="fa fa-twitter"></i>
                     <ul>
-                        <li>
-                            <strong><span class="count">30</span> k</strong>
-                            <span>friends</span>
+                         <li>
+                            <strong><span>MeuCarrinho </span></strong>
                         </li>
+                        
                         <li>
-                            <strong><span class="count">450</span></strong>
-                            <span>tweets</span>
+                            <strong><span>Seguidores</span></strong>
                         </li>
+
                     </ul>
                 </div>
                 <!--/social-box-->
@@ -176,13 +176,13 @@
                     <i class="fa fa-linkedin"></i>
                     <ul>
                         <li>
-                            <strong><span class="count">40</span> +</strong>
-                            <span>contacts</span>
+                            <strong><span>MeuCarrinho </span></strong>
                         </li>
+                        
                         <li>
-                            <strong><span class="count">250</span></strong>
-                            <span>feeds</span>
+                            <strong><span>Seguidores</span></strong>
                         </li>
+
                     </ul>
                 </div>
                 <!--/social-box-->
@@ -193,55 +193,59 @@
                 <div class="social-box google-plus">
                     <i class="fa fa-youtube-play"></i>
                     <ul>
-                        <li>
-                            <strong><span class="count">94</span> k</strong>
-                            <span>followers</span>
+                         <li>
+                            <strong><span>MeuCarrinho </span></strong>
                         </li>
+                        
                         <li>
-                            <strong><span class="count">92</span></strong>
-                            <span>circles</span>
+                            <strong><span>Seguidores</span></strong>
                         </li>
+
                     </ul>
                 </div>
                 <!--/social-box-->
             </div><!--/.col-->
             
-            <div class="col-xl-4 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="stat-widget-one">
-                            <div class="stat-icon dib"><i class="ti-money text-success border-success"></i></div>
-                            <div class="stat-content dib">
-                                <div class="stat-text">Ganhos Totais</div>
-                                <div class="stat-digit">1,012</div>
-                            </div>
+            <div class="breadcrumbs">
+                <div class="col-sm-4">
+                    <div class="page-header float-left">
+                        <div class="page-title">
+                            <h1>Outros</h1>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-xl-4 col-lg-6">
+            <div class="col-xl-6 col-lg-6">
                 <div class="card">
                     <div class="card-body">
                         <div class="stat-widget-one">
                             <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
                             <div class="stat-content dib">
-                                <div class="stat-text">New Customer</div>
-                                <div class="stat-digit">961</div>
+                                <div class="stat-text">Consumidores</div>
+                                 <?php
+                                     $registros =  QtdRegistrosUsuario();
+                                         while($a = $registros->fetch_array()){
+                                             
+                                  ?>
+                                   <div class="stat-digit count"><?php echo $a ['COUNT(CD_USUARIO)']; ?></div>
+                                 <?php
+                                     }
+                                ?>
+                               
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-xl-4 col-lg-6">
+            <div class="col-xl-6 col-lg-6">
                 <div class="card">
                     <div class="card-body">
                         <div class="stat-widget-one">
                             <div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i></div>
                             <div class="stat-content dib">
-                                <div class="stat-text">Active Projects</div>
-                                <div class="stat-digit">770</div>
+                                <div class="stat-text">Cruds Ativos</div>
+                                <div class="stat-digit count">4</div>
                             </div>
                         </div>
                     </div>
@@ -254,6 +258,12 @@
             
             <!--Lembre-me de colocar no style.css -->
             <style>
+                .modaluser img{
+                    object-fit: cover;
+                    height: 170px;
+                    width: 170px;
+                    border-radius: 50%;
+                }
                 .white-box{
                     background-color: white;
                     padding: 0.3rem 1.5rem 0 1.5rem;
@@ -391,27 +401,27 @@
                                 <tr>
                                     <th class="col-auto">#</th>
                                     <th class="col-auto">Nome</th>
-                                    <th class="col-auto">Sobrenome</th>
-                                    <th class="col-auto">Email</th>
+                                    <th class="col-auto">Fabricante</th>
+                                    <th class="col-auto">Categoria</th>
                                 </tr>
                             </thead>
                             <tbody id="myTable">
                             <?php
-                            $listar = ListarUsuarioAdm();
+                            $listar = ListarUltimosProdutos();
                             while($a = $listar->fetch_array()){
                             ?>
                                         <tr>
                                             <td>
-                                            <?php echo $a['CD_USUARIO'];?>
+                                            <?php echo $a['CD_INTERNO'];?>
                                             </td>
                                             <td>
-                                            <?php echo $a['NM_USUARIO'];?>
+                                            <?php echo $a['NM_PRODUTO'];?>
                                             </td>
                                             <td>
-                                            <?php echo $a['NM_SOBRENOME'];?>
+                                            <?php echo NomeFabricante($a['ID_FABRICANTE']);?>
                                             </td>
                                             <td>
-                                            <?php echo $a['DS_EMAIL'];?>
+                                            <?php echo NomeCategoria($a['ID_CATEGORIA']);?>
                                             </td>
                                         </tr>
                             <?php
@@ -455,7 +465,7 @@
                     
                     ?>
                         <div  class="user" >
-                             <a id="info" titulo="<?php echo $a['NM_USUARIO']; ?>"  data-sobrenome="<?php echo $a['NM_SOBRENOME']; ?>"  data-email="<?php echo $a['DS_EMAIL']; ?>">
+                             <a data-toggle="modal" data-target="#ModalInfo" class="info" titulo="<?php echo $a['NM_USUARIO']; ?>"  sobrenome="<?php echo $a['NM_SOBRENOME']; ?>"  email="<?php echo $a['DS_EMAIL']; ?>" picture="<?php echo $a['DS_FOTO']; ?>">
                                   <img  src = "../<?php echo $a['DS_FOTO'];?>" > 
                               </a>
                             <label class="name-user"><?php echo $a['NM_USUARIO'];?></label>
@@ -474,7 +484,7 @@
             
 </div><!-- /#right-panel -->
 <!--  Modal usuario -->
-  <div class="modal fade modalinfo" id = "exampleModal" tabindex = "-1" role = "dialog" aria-labelledby = "exampleModalLabel" aria-hidden = "true">
+  <div id = "ModalInfo" class="modal fade">
     <div class="modal-dialog" role = "document">
       <div class="modal-content">
       
@@ -485,37 +495,24 @@
         </div>
         
         <!-- Modal body -->
-        <div class="modal-body">
+        <div class="modal-body modaluser ">
             <div class="table-responsive">
+                <div class="text-center">
+                     <img class = "mt-4 mb-2 rounded-circle" id="fotouser" src="">
+                </div>
                 <table class="table">
                     <thead>
                         <tr>
                             <th>Nome</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td><p id="nome"></p></td>
-                      </tr>
-                    </tbody>
-                    <thead>
-                        <tr>
                             <th>Sobrenome</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td><p id="sobrenome"></p></td>
-                      </tr>
-                    </tbody>
-                    <thead>
-                        <tr>
                             <th>Email</th>
                         </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td><p id="email"></p></td>
+                        <td><p id="nomeuser"></p></td>
+                        <td><p id="sobrenomeuser"></p></td>
+                        <td><p id="emailuser"></p></td>
                       </tr>
                     </tbody>
                 </table>
@@ -524,10 +521,12 @@
         
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-dark" data-dismiss="modal">Fechar</button>
         </div>
         
       </div>
     </div>
-    
+  </div> 
+<!--  Modal usuario -->  
+
     <?php include('footer.php'); ?>

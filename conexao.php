@@ -265,6 +265,11 @@ function ListarProduto(){
 	$res=$GLOBALS['con']->query($sql);
 	return $res;
 }
+function ListarUltimosProdutos(){
+	$sql = 'SELECT * FROM TB_PRODUTO ORDER BY CD_INTERNO DESC LIMIT 7';
+	$res = $GLOBALS['con']->query($sql);
+	return $res;
+}
 //------------------------------------------------------------------------------
 function ListarFabricante(){
 	$sql = 'SELECT * FROM TB_FABRICANTE';

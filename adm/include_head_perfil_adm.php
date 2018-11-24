@@ -5,6 +5,7 @@ session_start();
 SairAdm();
 if(isset($_SESSION['id'])){
     $a = $_SESSION['id'];
+    $usuarios = ListarUsuarioCerto($a);
    }else{
        	echo '<script> window.location="loginadm.php";</script>';
    }
@@ -38,6 +39,8 @@ if(isset($_SESSION['nivel'])!= "ADM"){
     <link rel="stylesheet" href="assets/scss/style.css">
     <link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
     
+    <link rel = "stylesheet" href = "info-hover.css">
+    
     
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     <script
@@ -69,44 +72,53 @@ if(isset($_SESSION['nivel'])!= "ADM"){
                         <a href="index.php"> <i class="menu-icon fa fa-dashboard"></i>Inicio </a>
                     </li>
                     <li class="">
-                        <a href="perfil.php"> <i class="menu-icon fa fa-user"></i>Perfil</a>
+                         <?php 
+                          while ($b = $usuarios->fetch_array()){
+                          ?> 
+                    <a href="perfil.php" class ="perfil" nome = "<?php echo $b['NM_USUARIO']; ?>" endereco = "<?php echo $b['NM_ENDERECO']; ?>" sobrenome = "<?php echo $b['NM_SOBRENOME']; ?>" celular = "<?php echo $b['NR_CELULAR']; ?>" email = "<?php echo $b['DS_EMAIL']; ?>">
+                            <i class="menu-icon fa fa-user"></i>
+                             Perfil
+                        </a>
+                        <?php
+                          }
+                        ?>
                     </li>
                     <li class="">
                         <a href="pedidos.php"> <i class="menu-icon fa fa-truck"></i>Pedidos</a>
                     </li>
                     <h3 class="menu-title">Cruds</h3><!-- /.menu-title -->
                     <li>
-                        <a href="#"><i class="menu-icon fa fa-laptop"></i>Produtos</a>
+                        <a href="../crudprodutos.php"><i class="menu-icon fa fa-laptop"></i>Produtos</a>
                     </li>
                     <li>
-                        <a href="#"> <i class="menu-icon fa fa-table"></i>Fabricantes</a>
+                        <a href="../crudfabricante.php"> <i class="menu-icon fa fa-table"></i>Fabricantes</a>
                     </li>
                     <li>
-                        <a href="#"> <i class="menu-icon fa fa-th"></i>Categorias</a>
+                        <a href="../crudcategoria.php"> <i class="menu-icon fa fa-th"></i>Categorias</a>
                     </li>
 
                     <h3 class="menu-title">Redes Sociais</h3><!-- /.menu-title -->
 
                     <li>
-                        <a href="#"> <i class="menu-icon fa fa-tasks"></i>Icons</a>
+                        <a href="#"> <i class="menu-icon fa fa-facebook"></i>Facebook</a>
                     </li>
                     <li>
-                        <a href="#"> <i class="menu-icon ti-email"></i>Widgets </a>
+                        <a href="#"> <i class="menu-icon fa fa-instagram"></i>Instagram</a>
                     </li>
                     <li>
-                        <a href="#"> <i class="menu-icon fa fa-bar-chart"></i>Charts</a>
+                        <a href="#"> <i class="menu-icon fa fa-twitter"></i>Twitter</a>
                     </li>
 
                     <li>
-                        <a href="#"> <i class="menu-icon fa fa-area-chart"></i>Maps</a>
+                        <a href="#"> <i class="menu-icon fa fa-youtube"></i>Youtube</a>
                     </li>
                     <h3 class="menu-title">Contato</h3><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Pages</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-plus-square"></i>Adicionar Um</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">Login</a></li>
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">Register</a></li>
-                            <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Forget Pass</a></li>
+                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">Crud</a></li>
+                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">Tabela</a></li>
+
                         </ul>
                     </li>
                 </ul>
@@ -147,11 +159,11 @@ if(isset($_SESSION['nivel'])!= "ADM"){
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="#"><i class="fa fa- user"></i>Meu Perfil</a>
+                                <a class="nav-link" href="perfil.php"><i class="fa fa- user"></i>Meu Perfil</a>
 
-                                <a class="nav-link" href="#"><i class="fa fa- user"></i>Notificações <span class="count">13</span></a>
+                                <a class="nav-link" href="perfil.php"><i class="fa fa- user"></i>Notificações <span class="count">13</span></a>
 
-                                <a class="nav-link" href="#"><i class="fa fa -cog"></i>Configurações</a>
+                                <a class="nav-link" href="perfil.php"><i class="fa fa -cog"></i>Configurações</a>
 
                                 <a class="nav-link" href="https://meucarrinho-xtranx.c9users.io/rascunho/rascunho-tcc/adm/index.php?Sair"><i class="fa fa-power -off"></i>Sair</a>
                         </div>
