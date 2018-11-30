@@ -25,8 +25,8 @@
    </head>
    <!--colocar uma imagem de fundo grande com carrinhos de fundo-->
    <body>
-      <div class="container-fluid" style="background-image: url('/imgs/fundocarrinho.jpg'); padding-top:50px;">
-         <div class="row login">
+      <div class="container-fluid bg-light">
+         <div class="row login pt-2">
             <div class="col-md-6 offset-3 mx-auto">
                <form action="login.php" method="post">
                   <div class="jumbotron  mx-auto">

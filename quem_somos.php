@@ -34,9 +34,9 @@
                     
                     <p><h2 class = "text-center">Quem Somos?</h2></p>
                     
-                    <p class = "font-weight-bold text-justify">Nós somos o MeuCarrinho.com e nosso projeto se deu origem no curso de Informática para Internet na Etec de Itanhaém, mas especificamente na aula de empreendedorismo no primeiro semestre do curso. Nossa orientadora foi a professora Eliamar que pediu para sermos criativos e criar algo revolucionário ou melhorar uma ideia já existente, algo que contribuísse positivamente com a sociedade de alguma forma. O projeto seria exibido em uma feira de stands aberta ao público, chamada Emprefeira, juntamente com nossos colegas do curso de Adminitrador</p>
+                    <p class = "font-weight-bold text-justify">Nós somos o MeuCarrinho.com e nosso projeto se deu origem no curso de Informática para Internet na Etec de Itanhaém, mais especificamente na aula de Empreendedorismo no primeiro semestre do curso. Nossa orientadora foi a professora Eliamar que pediu para sermos criativos e criar algo revolucionário ou melhorar uma ideia já existente, algo que contribuísse positivamente com a sociedade de alguma forma. O projeto seria exibido em uma feira de stands aberta ao público, chamada Emprefeira, juntamente com nossos colegas do curso de Adminitração.</p>
                     
-                    <p class = "font-weight-bold text-justify">Diante dos conselhos da orientadora, estávamos cientes de que o projeto poderia vir a se tornar o nosso TCC(Trabalho de Conclusão de Curso) e até mesmo uma fonte de trabalho apo´s a conclusão do projeto.</p>
+                    <p class = "font-weight-bold text-justify">Diante dos conselhos da orientadora, estávamos cientes de que o projeto poderia vir a se tornar o nosso TCC (Trabalho de Conclusão de Curso) e até mesmo uma fonte de trabalho após a conclusão deste projeto.</p>
                     
                 </div>
                 
@@ -54,7 +54,7 @@
                     
                     <p><h2 class = "text-center">Objetivo</h2></p>
                     
-                    <p class = "font-weight-bold text-justify">Nosso objetivo é facilitar a vida de todos que costumeiramente vão ao supermercado e devem passar por alguns desafios às vezes, como transito, filhos que você é obrigado a levar por que não pode deixa-los em casa, filas, etc. Com o MeuCarrinho.com você faz as compras em casa, sentado no sofá.</p>
+                    <p class = "font-weight-bold text-justify">Nosso objetivo é facilitar a vida de todos que costumeiramente vão ao supermercado e devem passar por alguns desafios às vezes,como o trânsito, filhos que você é obrigado a levar por que não pode deixa-los em casa, filas, etc. Com o MeuCarrinho.com você faz as compras em casa, sentado no seu sofá!</p>
                     
                 </div>
                 

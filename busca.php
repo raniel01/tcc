@@ -251,9 +251,24 @@
                <!-- Row dos cards de exibição dos produtos -->
                <div class = "row">
                   <!-- Tamanho do Card -->
-                  <?php 
-                     $pesquisas = BuscaProduto($busca);
-                     while ($pesquisa = $pesquisas->fetch_array()){
+                  <?php
+                     $produtos = 'SELECT * FROM TB_PRODUTO WHERE NM_PRODUTO LIKE "%'.$_GET['busca'].'%" ORDER BY CD_INTERNO DESC';
+                     $resultados = $GLOBALS['con']->query($produtos);
+                     
+                     $total = $resultados->num_rows;
+                     $porpagina = 12;
+                     $total_pagina = ceil($total/$porpagina);
+                     
+                     $pagina = isset($_GET['p']) ? $_GET['p'] : 1;
+                     $inicio = ($pagina * $porpagina) - $porpagina;
+                     
+                     $exibicao = 'SELECT * FROM TB_PRODUTO WHERE NM_PRODUTO LIKE "%'.$_GET['busca'].'%" ORDER BY CD_INTERNO DESC LIMIT '.$inicio.', '.$porpagina.'';
+                     $resultado = $GLOBALS['con']->query($exibicao);
+                     
+                     while($pesquisa = $resultado->fetch_array()){
+                     
+                     /*$pesquisas = BuscaProduto($busca);
+                     while ($pesquisa = $pesquisas->fetch_array()){*/
                      ?>
                   <div class = "col-md-4 col-lg-3 col-sm-6 col-12">
                      <!-- Card -->
@@ -301,6 +316,65 @@
                </div>
                <!-- Row dos cards de exibição dos produtos -->
             </form>
+            
+            <nav aria-label="Page navigation example">
+              <ul class="pagination busca-a-pagination">
+                <?php
+                        $cor = ($pagina==$i) ? "#343a40":"#343a40";
+                        $font = ($pagina==$i) ? "white":"#ff7400";
+                        
+                        if($pagina > 2){
+                           echo '<li class="page-item"><a style=" background-color: '.$cor.' ; color:'.$font.'; border: none;" class = "page-link" href="?cd='.$_GET['busca'].'&p='.($pagina - 2).'"  style="color: black;"><<</a></li>';
+                        }
+                        
+                        if($pagina > 1){
+                           echo '<li class = "page-item"><a style=" background-color: '.$cor.' ; color:'.$font.'; border: none;" class = "page-link"  href="?cd='.$_GET['busca'].'&p='.($pagina - 1).'"  style="color: black;">Anterior</a></li>';
+                        }
+                        
+                        for($i=1;$i<=$total_pagina;$i++){
+                           echo '<li class = "page-item"><a style=" background-color: '.$cor.' ; color:'.$font.'; border: none;" class = "page-link"  href="?cd='.$_GET['busca'].'&p='.$i.'" style="background-color: '.$cor.'; color: '.$fonte.';">'.$i.'</a></li>';
+                        }
+                        
+                        if($pagina < $total_pagina){
+                           echo '<li class = "page-item"><a style=" background-color: '.$cor.' ; color:'.$font.'; border: none;" class = "page-link"  href="?cd='.$_GET['busca'].'&p='.($pagina + 1).'" style="color: black;">Próximo</a></li>';
+                        }
+                        
+                        if($pagina < $total_pagina - 1){
+                           echo '<li class = "page-item"><a style=" background-color: '.$cor.' ; color:'.$font.'; border: none;" class = "page-link" href="?cd='.$_GET['busca'].'&p='.($pagina + 2).'" style="color: black;">>></a></li>';
+                        }
+                     ?>
+              </ul>
+            </nav>
+            
+            <!-- <nav aria-label = "Page navigation example">
+            
+                  <ul class="pagination">
+                     <?php
+                        if($pagina > 2){
+                           echo '<li class="page-item"><a class="page-link" href="?cd='.$_GET['busca'].'&p='.($pagina - 2).'"  style="color: black;"><<</a></li>';
+                        }
+                        
+                        if($pagina > 1){
+                           echo '<li class = "page-item"><a href="?cd='.$_GET['busca'].'&p='.($pagina - 1).'"  style="color: black;">Anterior</a></li>';
+                        }
+                        
+                        for($i=1;$i<=$total_pagina;$i++){
+                           $cor = ($pagina == $i) ? "#20B2AA" : "white";
+                           $fonte = ($pagina == $i) ? "white" : "black";
+                           echo '<li class = "page-item"><a href="?cd='.$_GET['busca'].'&p='.$i.'" style="background-color: '.$cor.'; color: '.$fonte.';">'.$i.'</a></li>';
+                        }
+                        
+                        if($pagina < $total_pagina){
+                           echo '<li class = "page-item"><a href="?cd='.$_GET['busca'].'&p='.($pagina + 1).'" style="color: black;">Próximo</a></li>';
+                        }
+                        
+                        if($pagina < $total_pagina - 1){
+                           echo '<li class = "page-item"><a href="?cd='.$_GET['busca'].'&p='.($pagina + 2).'" style="color: black;">>></a></li>';
+                        }
+                     ?>
+                  </ul>
+            
+            </nav> -->
          </div>
          <!-- exibição dos resultados da Busca -->
       </div>

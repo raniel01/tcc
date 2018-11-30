@@ -251,7 +251,7 @@
                                                 
                                                 $string = explode(" ", $string);
                                                 
-                                                echo "$string[0]";
+                                                echo $string[0];
                                                 
                                             ?>
                                             
@@ -408,14 +408,16 @@
             
         </div>
         <!-- /Container -->
+        <button class="col-12 btn  btn-block btn-outline-success finalizar">Finalizar Compra</button>
+        <div class="col-12">&nbsp;</div>
+        <!-- formulario pagseguro lightbox -->
+    	<form id="comprar" action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post" onsubmit="PagSeguroLightbox(this); return false;">
+    		<input type="hidden" name="code" id="code" value="" />
+    	</form>
     <script>
-    // $(document).ready(function(){
-    //    $('input:hidden').css('background', 'black');
-    //   $('input[type=number]').css('color', 'white');
-    //});
-        
+  
     </script>
     </body>
     <!-- Body -->
-    
+    <script type="text/javascript" src="js/scrips.js"></script>  
 </html>

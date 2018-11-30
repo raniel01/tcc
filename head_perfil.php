@@ -153,9 +153,9 @@
             <li>
                <a href = "index.php">Voltar ao site</a>
             </li>
-            <li>
-               <a href = "lista.php">Minha Lista</a>
-            </li>
+            <!--<li>-->
+            <!--   <a href = "lista.php">Minha Lista</a>-->
+            <!--</li>-->
             
             <li>
                <a href = "#homeSubmenu" data-toggle = "collapse" aria-expanded = "false">Configurações</a>
@@ -171,12 +171,12 @@
                </ul>
             </li>
             <li>
-               <a href = "#">Ajuda</a>
+               <a href = "ajuda.php">Ajuda</a>
             </li>
          </ul>
          <ul class = "list-unstyled CTAs">
             <li>
-               <a href="https://meucarrinho-xtranx.c9users.io/rascunho/rascunho-tcc/perfil.php?Sair" class = "hover-none"><button tyle = "button" class = "btn btn-danger col-12">Sair</button></a>
+               <a href="?Sair" class = "hover-none"><button tyle = "button" class = "btn btn-danger col-12">Sair</button></a>
             </li>
          </ul>
       </nav>

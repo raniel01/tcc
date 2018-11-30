@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+
 session_start();
 include ('header_navbar.php');
 ?>
@@ -24,10 +25,27 @@ include ('header_navbar.php');
 */
     </script>
 <div class="container">
+    <form action = "carrinho.php" method="post">
     <div class="row" id="produto">
        
     </div>
+    <div class="container">
+        <div class="col-12">&nbsp;</div>
+        <div class="row">
+            <div class="col-md-12">
+                <input type="submit" class="btn btn-block btn-success finalizar" value='Finalizar Compra'/>
+            </div>
+        </div>
+    </form>
+        <div class="col-12">&nbsp;</div>
+        <!-- formulario pagseguro lightbox -->
+    	<form id="comprar" action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post" onsubmit="PagSeguroLightbox(this); return false;">
+    		<input type="hidden" name="code" id="code" value="" />
+    	</form>
+    </div>
 </div>
+<?php 
+echo implode(' ',$quantidade['quantidade']); ?>
 </body>
 <?php 
 include ('Footer_teste.php');

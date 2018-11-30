@@ -23,7 +23,7 @@
                      <img class = "w-100" src = "imgs/Banner2-1.jpg" alt = "Primeiro slide">
                       <div class = "d-none d-lg-block div-text-slide">
                         <h1 class = "title-slide">Mercado Online é a nova moda!</h1>
-                        <p class = "h6 text-slide">Realize suas compras cotidianas direto do conforto da sua casa. Economize seu tempo</p>
+                        <p class = "h6 text-slide">Realize suas compras cotidianas direto do conforto da sua casa. Economize seu tempo!</p>
                             
                         </div>
                   </div>
@@ -90,7 +90,7 @@
                   <p class = "pt-2 text-center h6">
                      <?php
                         //texto
-                        $descricao = "Site Responsivel em MultiPlataformas Aplicado com PWA";
+                        $descricao = "Site Responsivel em MultiPlataformas Aplicado com PWA.";
                          // Descrição do Produto
                                 $texto = $descricao;
                                 
@@ -120,7 +120,7 @@
                   <p class = "pt-2 text-center h6">
                      <?php
                         //texto
-                        $descricao = "Crie suas listas para não esquecer das suas compas. Facilite sua vida";
+                        $descricao = "Crie suas listas para não esquecer das suas compas. Facilite sua vida!";
                          // Descrição do Produto
                                 $texto = $descricao;
                                 

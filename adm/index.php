@@ -16,7 +16,7 @@
 
 
            <div class="col-sm-6 col-lg-3">
-               <a  href = "../../rascunho-tcc/crudprodutos.php">
+               <a  href = "crudprodutos.php">
                 <div class="card text-white bg-flat-color-1">
                     <?php
                      $registros =  QtdRegistrosProdutos();
@@ -44,7 +44,7 @@
             <!--/.col-->
 
             <div class="col-sm-6 col-lg-3">
-                <a  href = "../../rascunho-tcc/crudusuarios.php">
+                <a  href = "crudusuarios.php">
                 <div class="card text-white bg-flat-color-2">
                      <?php
                      $registros =  QtdRegistrosUsuario();
@@ -71,7 +71,7 @@
             <!--/.col-->
 
             <div class="col-sm-6 col-lg-3">
-                <a  href = "../../rascunho-tcc/crudfabricante.php">
+                <a  href = "crudfabricante.php">
                 <div class="card text-white bg-flat-color-3">
                      <?php
                      $registros =  QtdRegistrosFabricante();
@@ -98,7 +98,7 @@
             <!--/.col-->
 
             <div class="col-sm-6 col-lg-3">
-                <a  href = "../../rascunho-tcc/crudcategoria.php">
+                <a  href = "crudcategoria.php">
                 <div class="card text-white bg-flat-color-4">
                     <?php
                      $registros =  QtdRegistrosCategorias();
@@ -140,11 +140,15 @@
                     <i class="fa fa-facebook"></i>
                     <ul>
                         <li>
+                            <a  href = "https://www.facebook.com/projetomeucarrinho/" target="_blank">
                             <strong><span>MeuCarrinho </span></strong>
+                            </a>
                         </li>
                         
                         <li>
+                            <a  href = "https://www.facebook.com/pg/projetomeucarrinho/community/?mt_nav=0&msite_tab_async=0" target="_blank">
                             <strong><span>Seguidores</span></strong>
+                            </a>
                         </li>
 
                     </ul>
@@ -173,7 +177,7 @@
 
             <div class="col-lg-3 col-md-6">
                 <div class="social-box linkedin">
-                    <i class="fa fa-linkedin"></i>
+                    <i class="fa fa-instagram"></i>
                     <ul>
                         <li>
                             <strong><span>MeuCarrinho </span></strong>

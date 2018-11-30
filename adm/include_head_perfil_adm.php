@@ -12,7 +12,8 @@ if(isset($_SESSION['id'])){
 if(isset($_SESSION['nivel'])!= "ADM"){ 
     alert("Acesso restrito, por favor entre como administrador!");
     echo '<script> window.location="loginadm.php";</script>';
-} 
+}
+
 ?>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -88,19 +89,19 @@ if(isset($_SESSION['nivel'])!= "ADM"){
                     </li>
                     <h3 class="menu-title">Cruds</h3><!-- /.menu-title -->
                     <li>
-                        <a href="../crudprodutos.php"><i class="menu-icon fa fa-laptop"></i>Produtos</a>
+                        <a href="crudprodutos.php"><i class="menu-icon fa fa-laptop"></i>Produtos</a>
                     </li>
                     <li>
-                        <a href="../crudfabricante.php"> <i class="menu-icon fa fa-table"></i>Fabricantes</a>
+                        <a href="crudfabricante.php"> <i class="menu-icon fa fa-table"></i>Fabricantes</a>
                     </li>
                     <li>
-                        <a href="../crudcategoria.php"> <i class="menu-icon fa fa-th"></i>Categorias</a>
+                        <a href="crudcategoria.php"> <i class="menu-icon fa fa-th"></i>Categorias</a>
                     </li>
 
                     <h3 class="menu-title">Redes Sociais</h3><!-- /.menu-title -->
 
                     <li>
-                        <a href="#"> <i class="menu-icon fa fa-facebook"></i>Facebook</a>
+                        <a href="https://www.facebook.com/projetomeucarrinho/" target="_blank"> <i class="menu-icon fa fa-facebook"></i>Facebook</a>
                     </li>
                     <li>
                         <a href="#"> <i class="menu-icon fa fa-instagram"></i>Instagram</a>
@@ -127,6 +128,18 @@ if(isset($_SESSION['nivel'])!= "ADM"){
     </aside><!-- /#left-panel -->
  <!-- Left Panel -->
 <div id="right-panel" class="right-panel">
+    
+    <!-- Não Apaga -->
+    
+    <style>
+        
+        .user-avatar{
+            height: 50px;
+            width: 50px;
+            object-fit: cover;
+        }
+        
+    </style>
     
     <!-- Header-->
         <header id="header" class="header">
@@ -165,7 +178,7 @@ if(isset($_SESSION['nivel'])!= "ADM"){
 
                                 <a class="nav-link" href="perfil.php"><i class="fa fa -cog"></i>Configurações</a>
 
-                                <a class="nav-link" href="https://meucarrinho-xtranx.c9users.io/rascunho/rascunho-tcc/adm/index.php?Sair"><i class="fa fa-power -off"></i>Sair</a>
+                                <a class="nav-link" href="?Sair"><i class="fa fa-power -off"></i>Sair</a>
                         </div>
                     </div>
 

@@ -31,6 +31,10 @@ $(document).ready(function(){
                 });
             }
           
+        setInterval(function(){
+            let car = JSON.parse(localStorage.getItem('car')) || [];
+            $('.contador').text(car.length);
+        },100);
   
 });
 $(document).on("click",".rCar",function(){
@@ -49,4 +53,19 @@ $(document).on("click",".rCar",function(){
     $('#produto'+id).slideUp(600).clear();
   
 });
+$(document).ready(function(){
+    $(document).on("click",".finalizar",function(){
+    //chamando light box e enviando dados
+  	        $.ajax({
+				url:'pag.php',
+				type:'POST'
+			}).done(function(resp){
+				$("#code").val(resp);
+				$("#comprar").submit();
+			}).fail(function(){
+				alert("erro ao finalizar compra");
+			});
+    });
      
+});
+

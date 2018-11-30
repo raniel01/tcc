@@ -111,7 +111,7 @@
                </a>
                <div id="nada" class="dropdown-content d-none d-lg-none d-md-none">
                    <a href="perfil.php">Perfil</a>
-                   <a href="carrinho.php">Carrinho</a>
+                   <a href="carrinho.php">Carrinho <div class="contador"></div></a>
                    <a href="?Sair">Sair</a>
                </div>
             </div>

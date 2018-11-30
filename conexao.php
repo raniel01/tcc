@@ -8,7 +8,6 @@ switch($func){
 	case 'session':
 			PaginaCarrinho($_GET['carrinho']);
 	break;
-	
 }
 //--conexao
 /*
@@ -110,12 +109,13 @@ function ExcluirUsuario($cd){
 }
 //------------------------------------------------------------------------------
 function ExcluirProduto($cd){
-	$sql = 'DELETE FROM TB_PRODUTO WHERE CD_PRODUTO ='.$cd;
+	$sql = 'DELETE FROM TB_PRODUTO WHERE CD_INTERNO ='.$cd;
 	$res = $GLOBALS['con']->query($sql);
 	if($res){
 		alert("Produto Excluido com sucesso");
 	}else{
 		alert("Erro ao Excluir o Produto");
+		alert($sql);
 	}
 }
 //------------------------------------------------------------------------------
@@ -167,7 +167,7 @@ function AtualizarFormaPgto($cd, $nome){
 }
 //------------------------------------------------------------------------------
 function AtualizarFabricante($cd, $nm_fabricante){
-	$sql= 'UPDATE TB_PRODUTO SET NM_PRODUTO = "'.$nm_fabricante.'" WHERE CD_INTERNO ='.$cd;
+	$sql= 'UPDATE TB_FABRICANTE SET NM_FABRICANTE = "'.$nm_fabricante.'" WHERE CD_FABRICANTE ='.$cd;
 	$res = $GLOBALS['con']->query($sql);
 	if ($res) {
 		alert("Atualizado!");
@@ -195,6 +195,38 @@ function AtualizarUsuario($cd, $nome, $sobrenome, $email, $cpf,   $nascimento, $
 			alert("Erro ao atualizar usuario");
 		}
 		
+}
+function AtualizarUsuarioTodos($cd,$status){
+/*	echo var_dump($cd);
+	echo var_dump($status);*/
+	$sql="";
+	for($i=0; $i<sizeof($cd);$i++){
+		if($status[$i] == "ADM")
+		$sql.='UPDATE TB_USUARIO SET DS_NIVEL = "'.$status[$i].'" WHERE CD_USUARIO = '.$cd[$i].'; ';
+	}
+	/*echo $sql ;*/
+	$GLOBALS['con']->query($sql);
+	// if ($res) {
+	// 		alert("Atualizado!");
+	// 	}else{
+	// 		alert("Erro ao atualizar usuario");
+	// 	}
+}
+function AtualizarAdmTodos($cd,$status){
+/*	echo var_dump($cd);
+	echo var_dump($status);*/
+	$sql="";
+	for($i=0; $i<sizeof($cd);$i++){
+		if($status[$i] == "USU")
+		$sql.='UPDATE TB_USUARIO SET DS_NIVEL = "'.$status[$i].'" WHERE CD_USUARIO = '.$cd[$i].'; ';
+	}
+	/*echo $sql ;*/
+	$GLOBALS['con']->query($sql);
+	// if ($res) {
+	// 		alert("Atualizado!");
+	// 	}else{
+	// 		alert("Erro ao atualizar usuario");
+	// 	}
 }
 //------------------------------------------------------------------------------
 function AtualizarSenha($cd, $senha){
@@ -238,12 +270,34 @@ function ListarUsuario(){
 	$res= $GLOBALS['con']->query($sql);
  	return $res;
  	  }
+function ListarUsuarioUsu(){
+	$sql='SELECT * FROM TB_USUARIO 
+WHERE  DS_NIVEL = "USU"
+ORDER BY TB_USUARIO.CD_USUARIO DESC limit 0,7';
+	$res= $GLOBALS['con']->query($sql);
+ 	return $res;
+ 	  }
+ function ListarUsuarioTodos(){
+	$sql="SELECT CONCAT(NM_USUARIO,' ',NM_SOBRENOME) AS 'NOME', CD_USUARIO, DS_FOTO, DS_NIVEL  FROM TB_USUARIO 
+WHERE  DS_NIVEL = 'USU'
+ORDER BY TB_USUARIO.CD_USUARIO DESC";
+	$res= $GLOBALS['con']->query($sql);
+ 	return $res;
+ 	  }
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 function ListarUsuarioAdm(){
 	$sql='SELECT * FROM TB_USUARIO 
-WHERE  DS_NIVEL = "USU"
-ORDER BY TB_USUARIO.CD_USUARIO DESC limit 0,7';
+WHERE  DS_NIVEL = "ADM"
+ORDER BY TB_USUARIO.CD_USUARIO DESC limit 0,8';
+	$res= $GLOBALS['con']->query($sql);
+ 	return $res;
+}
+
+function ListarUsuarioAdmTodos(){
+	$sql='SELECT * FROM TB_USUARIO 
+WHERE  DS_NIVEL = "ADM"
+ORDER BY TB_USUARIO.CD_USUARIO DESC';
 	$res= $GLOBALS['con']->query($sql);
  	return $res;
 }
@@ -295,6 +349,7 @@ function ListarCarrinho(){
 	$res = $GLOBALS['con']->query($sql);
 	return $res;	
 }
+
 /*==============================================================================
 						FIM DAS FUNÇÕES DE LISTAR
 ==============================================================================*/
@@ -326,7 +381,28 @@ function Login($email,$senha){
 //------------------------------------------------------------------------------
 function LoginAdm($email,$senha){
 	$sql ='SELECT * FROM  TB_USUARIO WHERE DS_EMAIL =  "'.$email.'"
-		   AND DS_SENHA =  "'.md5($senha).'" AND DS_NIVEL =  "ADM" ';
+		   AND DS_SENHA =  "'.md5($senha).'" AND DS_NIVEL =  "ADM" OR  DS_EMAIL =  "'.$email.'"
+		   AND DS_SENHA =  "'.md5($senha).'" AND DS_NIVEL =  "GES" ';
+	$res = $GLOBALS['con']->query($sql);
+	//alert($sql);
+	if($res->num_rows > 0){
+		$usuario = $res->fetch_array();
+		$_SESSION['id']=$usuario['CD_USUARIO'];
+		$_SESSION['nome']=$usuario['NM_USUARIO'];
+		$_SESSION['foto']=$usuario['DS_FOTO'];
+		$_SESSION['nivel']=$usuario['DS_NIVEL'];
+		echo '<script> window.location="index.php";</script>';
+		
+	}else{
+		alert("Dados Incorretos");
+	}
+	
+}
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+function LoginGes($email,$senha){
+	$sql ='SELECT * FROM  TB_USUARIO WHERE DS_EMAIL =  "'.$email.'"
+		   AND DS_SENHA =  "'.md5($senha).'" AND DS_NIVEL =  "GES" ';
 	$res = $GLOBALS['con']->query($sql);
 	//alert($sql);
 	if($res->num_rows > 0){
@@ -488,6 +564,7 @@ function PaginaCarrinho($carrinho){
 	$carrinho = str_replace(']', '', $carrinho);
 	$carrinho =explode(",", $carrinho);
 	
+	$_SESSION['newCar'] = $carrinho;
 	
 	if(count($carrinho>0)){
 			foreach($carrinho as $id){
@@ -500,13 +577,22 @@ function PaginaCarrinho($carrinho){
 							$nome = $mostrar['NM_PRODUTO'];
 							$img = $mostrar['DS_FOTO_PRODUTO'];
 							$valor = $mostrar['VL_PRODUTO'];
+							$quantidade['quantidade'] = $_REQUEST['valor'];
 							
-							echo '<div class = "col-md-4 col-lg-3 col-sm-12 mt-3 mt-md-0" id="produto'.$id.'">
+							echo '<div class = "col-md-4 col-lg-4 col-sm-12 mt-3 mt-md-0" id="produto'.$id.'">
 			         <div class = "card">
 			            <img class = "card-img-top" src = "'.$img.'" alt = "Card image cap">
 			            <div class = "card-body">
 			               <h5 class = "card-title">'.$nome.'</h5>
 			               <p class = "card-text text-center">'.$valor.'</p>
+			               <!-- Div quantidade -->
+                            <div class = "qtde">
+                                
+                                <!-- Quantidade -->
+                                <input type = "number"  name="valor[]" class = "form-control" value = "1">
+                                
+                            </div>
+                            <!-- /Div quantidade -->
 			               <button id ="remove" class = "rCar btn btn-danger"
 			               data-codigo="'.$cd.'" data-produto="'.$nome.'">Remover do carrinho</button>
 			            </div>
@@ -547,6 +633,7 @@ function ExcluirItemLista($cd){
 		echo $res;
 	}
 }
+
 /*function AdicionarAoCarrinho()
 $sql = */
 					/*Excluir VARIOS Item da lista (CONSTRUÇÃO DO COMANDO)*/
