@@ -21,7 +21,7 @@ $quantidade = $_REQUEST['valor'];
 $i++;
 
 $data['itemId'.$i]=$id;
-$data['itemQuantity'.$i]=$quantidade.$i;
+$data['itemQuantity'.$i]=$quantidade[$id];
 $data['itemDescription'.$i]=$nome;
 $data['itemAmount'.$i]=$valor;	
 }
