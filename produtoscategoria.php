@@ -1,4 +1,4 @@
-<?php include('header_navbar.php');
+<?php $title = " Produtos"; include('header_navbar.php');
 $idcategoria = $_GET['p'];
 ?>
 <!-- Conteúdo -->
@@ -38,7 +38,7 @@ $idcategoria = $_GET['p'];
          <!-- Tamanho -->
          <div class = "col-12">
             <!-- Exibiçao dos resultados da busca -->
-            <form action="produto.php" method="get" >
+           <!-- <form action="produto.php" method="get" >-->
                <div class = "col-lg-12 pt-2">
                   <!-- Row dos cards de exibição dos produtos -->
                   <div class = "row">
@@ -82,7 +82,8 @@ $idcategoria = $_GET['p'];
                               </p>
                               <!-- Descrição do produto -->
                               <!-- Botão -->
-                              <a href = "<?php echo 'produto.php?cd='.$produto['CD_INTERNO'];?>" class = "btn-block btn busca-bg-card">Ver Mais...</a>
+                              <button data-session="<?php
+                     echo $s;?>" data-cd="<?php echo $produto['CD_INTERNO']; ?>" class = "addCar btn-block btn busca-bg-card">Ver Mais...</button>
                            </div>
                            <!-- Corpo do Card -->
                         </div>
@@ -96,7 +97,7 @@ $idcategoria = $_GET['p'];
                   <!-- Row dos cards de exibição dos produtos -->
                </div>
                <!-- exibição dos resultados da Busca -->
-            </form>
+          <!--  </form>-->
          </div>
          <!-- Row principal da página -->
       </div>
@@ -178,6 +179,57 @@ $idcategoria = $_GET['p'];
       <!-- Row da paginação -->
    </div>
    <!-- Container -->
+    <!-- Modal Login -->
+      <!-- Modal -->
+      <div class = "modal fade modallogin" id = "exampleModal" tabindex = "-1" role = "dialog" aria-labelledby = "exampleModalLabel" aria-hidden = "true">
+         <div class = "modal-dialog" role = "document">
+            <!-- Conteudo do Modal -->
+            <div class = "modal-content">
+               <!-- Header do Modal - Título do Modal -->
+               <div class = "modal-header bg-dark">
+                  <h4 class = "modal-title text-light">Necessário Login</h4>
+                  <button type = "button" class = "close" data-dismiss = "modal" aria-label = "Close"><span aria-hidden="true">&times;</span></button>
+               </div>
+               <!-- Fim do Header do Modal -->
+               <!-- Body do Modal - Conteúdo do Login -->
+               <div class = "modal-body pb-0" id = "modal-body">
+                  <div class = "tab-pane fade show" id = "cadastro" role = "tabpanel" aria-labelledby = "cadastro-tab">
+                     <div class = "row register-form pt-0">
+                        <div class = "col-md-12">
+                           <form action="cadastro.php" method="post">
+                              <div class = "form-group">
+                                 <!-- Email -->
+                                 <input type = "text" name="email" class = "form-control" placeholder = "Email" value = "">
+                              </div>
+                              <div class = "form-group">
+                                 <!-- Senha -->
+                                 <input type = "password" name="senha" class = "form-control" placeholder = "Senha" value = "">
+                              </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- Fim do Body do Modal -->
+               <!-- Footer do Modal - Botões de ação -->
+               <div class = "modal-footer bg-dark">
+               <!-- Cancelar -->
+               <button type = "button" class = "btn btn-outline-light" data-dismiss = "modal">Cancelar</button>
+               <!-- Login -->
+               <button type = "submit" class = "btn btn-light">Login</button>
+               </form>
+               <?php 
+                  if (isset($_POST['email'])) {
+                  Login($_POST['email'],$_POST['senha']);
+                  }
+                  ?>
+               </div>
+               <!-- Fim do Footer do Modal -->
+            </div>
+            <!-- Fim do conteúdo do Modal -->
+         </div>
+      </div>
+      <!-- Fim do Modal -->
+      <!-- fim Modal Login -->
 </body>
 <!-- Conteúdo -->
 <?php include('Footer_teste.php'); ?>

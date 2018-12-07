@@ -1,4 +1,4 @@
-<?php include('header_navbar.php');
+<?php $title = " Login"; include('header_navbar.php');
    session_start();
    //include("conexao.php");
    ?> 
@@ -10,6 +10,11 @@
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="css/estilo.css">
       <title>Login</title>
+      <style>
+         html{
+            background: white;
+         }
+      </style>
       <script type="text/javascript">
          function formatar(mascara, documento){
          var i = documento.value.length;

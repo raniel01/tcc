@@ -14,7 +14,12 @@
   <script src="assets/js/dashboard.js"></script>
   <script src="assets/js/widgets.js"></script>
     
-      <script src="info-hover.js"></script>
+    <script type="text/javascript" src="">
+        function hoverInfo() {
+            document.getElementById("dados").style.display="block";
+        }
+        hoverInfo();
+    </script>
     
     </body>
     </html>

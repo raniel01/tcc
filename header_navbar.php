@@ -1,14 +1,25 @@
 <?php
-   //verificando se o usuario fez uma busca
-   include('conexao.php');
-   session_start();
-   Sair();
+      //verificando se o usuario fez uma busca
+      include('conexao.php');
+      //Ativando a Sessao
+      session_start();
+      //Função Para Destruir a Sessao
+      Sair();
+      //Pagina Busca
    	if (isset($_REQUEST['busca'])) {
    		$busca=$_GET['busca'];
    		BuscaProduto($busca);
    		echo '<script> window.location="busca.php?busca="'.$busca.'"";</script>';
    	}
-   	
+   	//Pagina Carrinho
+   	else if(isset($_REQUEST['atualizar'])){
+         AtualizarCarrinho($_REQUEST['quantidade'],$_SESSION['id'],$_REQUEST['id']);
+      }
+      //Pagina Carrinho
+      else if(isset($_REQUEST['remover'])){
+         ExcluirCarrinho($_REQUEST['id']);
+      }
+      //Pagina Cadastro
    	if (isset($_POST['nome'])) {
    		 
    		 if($_POST['sexo'] == "M"){
@@ -19,29 +30,35 @@
    			}
    	CadastrarUsuario($_POST['nome'], $_POST['sobrenome'], $_POST['email'], $_POST['sexo'],"", $_POST['nascimento'],"","","","","","","", $_POST['cel'],"","$foto",0,"", md5($_POST['senha']));
       }
-      if(isset($SESSION['id'])){
-         $s = $SESSION['id'];
+      //Capturando Session
+      if(isset($_SESSION['id'])){
+         $s = $_SESSION['id'];
       }
-   ?>
+?>
+<!DOCTYPE html>
 <html lang = "pt-br">
    <head>
       <!-- Links -->
-      <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
-      <link rel="icon" href="imgs/favicon.ico" type="image/x-icon">
-      <?php echo "<title>Meu Carrinho | Aqui sua compra fica mais facil!".$title."</title>";?>
+      <link rel="shortcut icon" href="imgs/logo1.png" type="image/x-icon">
+      <link rel="icon" href="imgs/logo1.png" type="image/x-icon">
+      <?php 
+     
+      echo "<title>Meu Carrinho |".$title."</title>";
+      ?>
       <!-- imgs carrousel wrapper :250x200 -->
       <!-- Required meta tags -->
       <meta charset = "utf-8">
       <meta name = "viewport" content = "width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="application-name" content="MeuCarrinho">
+      <meta name="theme-color" content="#ff7400"/>
+      <meta name="Description" content="As Melhores Compras Online No Litoral">
       <!--css-->
       <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity = "sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-      <script type = "text/javascript" src = "https://raw.githubusercontent.com/frexy/svg-icon-webcomponent/master/build/iconwc.js"></script>
       <!-- Font Awesome -->
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
       <!--css off-->
       <link rel="manifest" href="manifest.json">
       <link rel = "stylesheet" type = "text/css" href = "css/style.css">
-      
       <style>
          @media only screen and (max-width: 425px){
 
@@ -85,34 +102,25 @@
            
         }
       </style>
-      
    </head>
    <header class = "header">
       <!--nav-->
       <nav class = "navbar navbar-expand-lg bg-dark navbar-dark rounded-0 navbar-transparent">
          <div class="container">
-         <!-- Brand/logo -->
-            <!-- <div class="dropdown">
-                 <button class="btn btn-danger dropdown-toggle drop" type="button" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                 <div class="dropdown-menu drop-menu" aria-labelledby="dropdownMenuButton">
-                   <a class="dropdown-item" href="#">Action</a>
-                   <a class="dropdown-item" href="#">Another action</a>
-                   <a class="dropdown-item" href="#">Something else here</a>
-                 </div>
-               </div> -->
             <div class="dropdown" data-sessao="<?php
                $foto = (isset($_SESSION['foto']));
                echo $foto; ?>">
-               <a class = "navbar-brand" href = "#">
+               <a class = "navbar-brand" href = "#" rel="noopener">
                <img src = "<?php
                $foto = (isset($_SESSION['foto'])) ? $_SESSION['foto'] : "imgs/logo1.png";
                echo $foto;
                ?>" id="imagem" class="foto-perfil" alt="logo">
                </a>
+               <span class="badge badge-danger">10</span>
                <div id="nada" class="dropdown-content d-none d-lg-none d-md-none">
-                   <a href="perfil.php">Perfil</a>
-                   <a href="carrinho.php">Carrinho <div class="contador"></div></a>
-                   <a href="?Sair">Sair</a>
+                   <a href="perfil.php" rel="noopener">Perfil</a>
+                   <a href="carrinho.php" rel="noopener">Carrinho<span class="badge badge-danger float-right"></span></a>
+                   <a href="?Sair" rel="noopener">Sair</a>
                </div>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="#navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
@@ -121,19 +129,19 @@
             <div class = "collapse navbar-collapse" id = "navbarsExample07">
                <ul class = "navbar-nav mr-auto">
                   <li class = "nav-item">
-                     <a class = "nav-link text-white" href = "index.php">Home</a>
+                     <a class = "nav-link text-white" href = "index.php" rel="noopener">Home</a>
                   </li>
                   <li class = "nav-item">
-                     <a class = "nav-link text-white" href = "categoria.php">Categorias</a>
+                     <a class = "nav-link text-white" href = "categoria.php" rel="noopener">Categorias</a>
                   </li>
                   <li class = "nav-item">
-                     <a class = "nav-link text-white" href = "quem_somos.php">Quem Somos</a>
+                     <a class = "nav-link text-white" href = "quem_somos.php" rel="noopener">Quem Somos</a>
                   </li>
                   <li class = "nav-item">
-                     <a class = "nav-link text-white" href = "cadastro.php">Cadastro</a>
+                     <a class = "nav-link text-white" href = "cadastro.php" rel="noopener">Cadastro</a>
                   </li>
                   <li class = "nav-item">
-                     <a class = "nav-link text-white" href = "login.php">Login</a>
+                     <a class = "nav-link text-white" href = "login.php" rel="noopener">Login</a>
                   </li>
                </ul>
                <form class = "form-inline my-0 my-md-0" action="busca.php"  method="get" >

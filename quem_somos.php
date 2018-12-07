@@ -1,25 +1,7 @@
-<html lang = "pt-br" style = "background-color: #ff7400;">
-    
-    <head>
-        <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="imgs/favicon.ico" type="image/x-icon">
-        <meta charset = "UTF-8">
-        <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
-        <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
-        
-        <title>Quem Somos</title>
-        
-        <!-- Bootstrap CSS CDN -->
-        <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity = "sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin = "anonymous">
-        <!-- Our Custom CSS -->
-        <link rel = "stylesheet" href = "css/style.css">
-        
-    </head>
-    
+<?php
+$title = " Quem Somos";
+include('header_navbar.php'); ?>
     <body>
-        
-        <?php include('header_navbar.php'); ?>
-        
         <div class = "container">
             
             <div class = "row pt-5 align-items-center">

@@ -1,3 +1,3 @@
 <?php  include('head_perfil.php'); ?>
-<iframe src="manual-usuario.pdf" width="100%" height="780" style="border: none;"></iframe>
+<iframe width="100%" height="500px" src="https://sway.office.com/s/Oa1vHKSCePQb3gRs/embed" frameborder="0" marginheight="0" marginwidth="0" max-width="100%" sandbox="allow-forms allow-modals allow-orientation-lock allow-popups allow-same-origin allow-scripts" scrolling="no" style="border: none; max-width: 100%; max-height: 100vh" allowfullscreen mozallowfullscreen msallowfullscreen webkitallowfullscreen></iframe>
 <?php include('footer_perfil.php'); ?>

@@ -85,7 +85,7 @@ $(document).ready(function(){
 						<h2>CRUD <b>FABRICANTE</b></h2>
 					</div>
 					<div class="col-sm-6">
-						<a href="#ModalAdicionar" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Adicionar Usuario</span></a>
+						<a href="#ModalAdicionar" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Adicionar Fabricante</span></a>
 						<a href="#ModalExcluir" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Apagar</span></a>						
 					</div>
                 </div>

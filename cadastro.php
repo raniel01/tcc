@@ -6,9 +6,9 @@
    ?>
 <!--..Conexão com Banco de Dados-->
 <!-- Nosso CSS -->
-<link rel = "stylesheet" type = "text/css" href = "cadastro.css">
+<link rel = "stylesheet" type = "text/css" href = "css/cadastro.css">
 <!-- Header -->
-<?php include('header_navbar.php'); ?>
+<?php $title = " Cadastro"; include('header_navbar.php'); ?>
 <!-- Modal -->
 <div class = "modal fade" id = "exampleModal" tabindex = "-1" role = "dialog" aria-labelledby = "exampleModalLabel" aria-hidden = "true">
    <div class = "modal-dialog" role = "document">

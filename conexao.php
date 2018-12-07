@@ -8,6 +8,9 @@ switch($func){
 	case 'session':
 			PaginaCarrinho($_GET['carrinho']);
 	break;
+	case 'quantid':
+			PegandoQuantidade($_GET['qt']);
+	break;
 }
 //--conexao
 /*
@@ -31,12 +34,18 @@ switch($func){
 }*/
 //------------------------------------------------------------------------------
 function CadastrarUsuario($nome, $sobrenome, $email, $sexo, $cpf, $nascimento, $endereco, $bairro, $cidade, $cep, $estado, $referencia, $telefone, $celular, $nivel, $foto, $saldo=0, $status="", $senha){
-	$sql = 'INSERT INTO TB_USUARIO (NM_USUARIO, NM_SOBRENOME, DS_EMAIL, DS_SEXO, DT_NASCIMENTO, NR_CELULAR, DS_FOTO, DS_SENHA ) VALUES ("'.$nome.'", "'.$sobrenome.'", "'.$email.'", "'.$sexo.'", "'.$nascimento.'", "'.$celular.'","'.$foto.'","'.$senha.'")';
+	$sql = 'SELECT * FROM TB_USUARIO WHERE DS_EMAIL ="'.$email.'";';
 	$res = $GLOBALS['con']->query($sql);
-	if($res){
-		alert("Cadastrado com sucesso");
+	if($res->num_rows >= 1){
+		alert('Este Email ja foi cadastrado');
 	}else{
-		alert("Erro ao cadastrar");
+		$sql = 'INSERT INTO TB_USUARIO (NM_USUARIO, NM_SOBRENOME, DS_EMAIL, DS_SEXO, DT_NASCIMENTO, NR_CELULAR, DS_FOTO, DS_SENHA ) VALUES ("'.$nome.'", "'.$sobrenome.'", "'.$email.'", "'.$sexo.'", "'.$nascimento.'", "'.$celular.'","'.$foto.'","'.$senha.'");';
+		$res = $GLOBALS['con']->query($sql);
+		if($res){
+			alert("Cadastrado com sucesso");
+		}else{
+			alert("Erro ao cadastrar");
+		}
 	}
 }
 //------------------------------------------------------------------------------
@@ -71,13 +80,19 @@ function CadastrarCategoria($nm_categoria){
 	}
 }
 //------------------------------------------------------------------------------
-function CadastrarCarrinho($qt_produto, $ds_status){
-	$sql = 'INSERT INTO TB_CARRINHO VALUES (null,"'.$qt_produto."','".$ds_descricao.'")';
+function CadastrarCarrinho($qt_produto,$produto,$id_usuario){
+	$sql = 'SELECT * FROM TB_CARRINHO WHERE ID_USUARIO = '.$id_usuario.' AND ID_INTERNO ='.$produto.';';
 	$res = $GLOBALS['con']->query($sql);
-	if($res){
-		alert("Cadastrado com sucesso");
+	if($res->num_rows >= 1){
+		alert("Este Produto Já Está Em Seu Carrinho");
 	}else{
-		("Erro ao cadastrar");
+		$sql = 'INSERT INTO TB_CARRINHO (QT_PRODUTO, ID_INTERNO, ID_USUARIO) VALUES ("'.$qt_produto.'","'.$produto.'","'.$id_usuario.'");';
+		$res = $GLOBALS['con']->query($sql);
+			if($res){
+				alert("Cadastrado com sucesso");
+			}else{
+				("Erro ao cadastrar");
+			}
 	}
 }
 /*==============================================================================
@@ -139,8 +154,8 @@ function ExcluirCategoria($nm_categoria){
 	}
 }
 //------------------------------------------------------------------------------
-function ExcluirCarrinho($qt_produto, $ds_status){
-	$sql = 'INSERT INTO TB_CARRINHO VALUES (null,"'.$qt_produto."','".$ds_status.'")';
+function ExcluirCarrinho($cd){
+	$sql = 'DELETE FROM TB_CARRINHO WHERE ID_INTERNO = '.$cd;
 	$res = $GLOBALS['con']->query($sql);
 	if($res){
 		alert("Excluido com sucesso");
@@ -183,6 +198,15 @@ function AtualizarCategoria($cd, $nm_categoria){
 		alert("Atualizado!");
 	}else{
 		alert("Erro ao atualizar categoria");
+	}
+}
+function AtualizarCarrinho($qt_produto,$id_usuario,$id_interno){
+	$sql= 'UPDATE TB_CARRINHO SET QT_PRODUTO = '.$qt_produto.' WHERE ID_USUARIO = '.$id_usuario.' AND ID_INTERNO= '.$id_interno;
+	$res = $GLOBALS['con']->query($sql);
+	if ($res) {
+		alert("Atualizado!");
+	}else{
+		alert("Erro ao atualizar carrinho");
 	}
 }
 //------------------------------------------------------------------------------
@@ -426,9 +450,9 @@ function Sair(){
 	}
 }
 function SairAdm(){
-	if(isset($_GET['Sair'])){
+	if(isset($_GET['SairAdm'])){
 		session_destroy();
-			echo '<script> window.location="loginadm.php";</script>';
+			echo '<script> window.location="index.php";</script>';
 	}
 }
 //------------------------------------------------------------------------------
@@ -497,9 +521,25 @@ function ListaFabricanteProduto($idfabricante){
 	$res=$GLOBALS['con']->query($sql);
 	return $res;
 }
-/*function toArray($str){
-		$aux = explode("]",explode("[",$str)[1])[0];
-	}*/
+function PegandoQuantidade($quantidade){
+		$_SESSION['NewQuant'] = $quantidade;
+		echo 'foi';
+		echo $_SESSION['NewQuant'];
+		alert($_SESSION['NewQuant']);
+	}
+function MostrandoCarrinho($id_usuario){
+		$sql = "SELECT C.CD_CARRINHO AS 'CD',C.ID_USUARIO AS 'USUARIO',C.ID_INTERNO AS 'CODIGO',P.NM_PRODUTO AS 'PRODUTO', P.DS_FOTO_PRODUTO    AS 'FOTO',C.QT_PRODUTO AS 'QUANTIDADE DO PRODUTO',
+				P.DS_DESCRIÇÃO AS 'DESCRICAO DO PRODUTO',
+				P.VL_PRODUTO   AS 'VALOR DO PRODUTO' FROM TB_PRODUTO P , TB_CARRINHO C WHERE
+                C.ID_INTERNO = P.CD_INTERNO AND C.ID_USUARIO =".$_SESSION['id'];
+        $res = $GLOBALS['con']->query($sql);
+        return $res;
+	}
+function MostrarCarrinhoUsuario($id_usuario){
+	$sql = 'SELECT * FROM  TB_USUARIO_CARRINHO WHERE USUARIO ='.$id_usuario;
+	$res = $GLOBALS['con']->query($sql);
+	return $res;
+}
 //------------------------------------------------------------------------------
 function alert($msg){
 	echo '<script>alert("'.$msg.'");</script>';
@@ -563,7 +603,6 @@ function PaginaCarrinho($carrinho){
 	$carrinho = str_replace('[', '', $carrinho);
 	$carrinho = str_replace(']', '', $carrinho);
 	$carrinho =explode(",", $carrinho);
-	
 	$_SESSION['newCar'] = $carrinho;
 	
 	if(count($carrinho>0)){
@@ -577,7 +616,7 @@ function PaginaCarrinho($carrinho){
 							$nome = $mostrar['NM_PRODUTO'];
 							$img = $mostrar['DS_FOTO_PRODUTO'];
 							$valor = $mostrar['VL_PRODUTO'];
-							$quantidade['quantidade'] = $_REQUEST['valor'];
+							$quantidade= $_SESSION['NewQuant'];
 							
 							echo '<div class = "col-md-4 col-lg-4 col-sm-12 mt-3 mt-md-0" id="produto'.$id.'">
 			         <div class = "card">
@@ -585,14 +624,8 @@ function PaginaCarrinho($carrinho){
 			            <div class = "card-body">
 			               <h5 class = "card-title">'.$nome.'</h5>
 			               <p class = "card-text text-center">'.$valor.'</p>
-			               <!-- Div quantidade -->
-                            <div class = "qtde">
-                                
-                                <!-- Quantidade -->
-                                <input type = "number"  name="valor[]" class = "form-control" value = "1">
-                                
-                            </div>
-                            <!-- /Div quantidade -->
+			               <p class = "card-text text-center">'.$quantidade.'</p>
+			              
 			               <button id ="remove" class = "rCar btn btn-danger"
 			               data-codigo="'.$cd.'" data-produto="'.$nome.'">Remover do carrinho</button>
 			            </div>

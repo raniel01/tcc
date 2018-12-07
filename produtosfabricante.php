@@ -1,4 +1,4 @@
-<?php include('header_navbar.php'); 
+<?php $title = " Fabricantes"; include('header_navbar.php'); 
   //pegando o fabricante do produto e enviando nessa variavel
 $idfabricante = $_GET['f'];
 ?>

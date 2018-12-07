@@ -298,6 +298,7 @@
 </div>
 <!-- /Modal Editar -->
 <!-- /Modals -->
+
 <!-- Card gerenciar Admin -->
 <div class = "col-12">
    <div class = "box-adm">
@@ -332,9 +333,9 @@
                while ($pokemon = $c->fetch_array()){
                ?>
             <!-- Tamanho -->
-            <div class = "col-3">
+            <div class = "col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
                <!-- Card -->
-               <div class = "card py-4">
+               <div class = "card py-4 col-12">
                   <!-- Div Imagem -->
                   <div class = "img-card-adm text-center">
                      <!-- Foto de perfil do administrador -->

@@ -2,29 +2,50 @@
   "convertGET": "1",
   "lang":"pt-BR",
   "short_name": "MeuCarrinho",
-  "name": "MeuCarrinho",
+  "name": "MeuCarrinho.com",
   "description": "Aqui Sua Compra Fica Mais Fácil!",
   "icons": [
     {
-      "platform": "android",
-      "purpose": "badge",
-      "src":"imgs/logonova.png",
+      "src": "imgs/logo1.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "imgs/logo1.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "imgs/logo1.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "imgs/logo1.png",
+      "type": "image/png",
+      "sizes": "168x168"
+    },
+    {
+      "src":"imgs/logo1.png",
       "sizes": "192x192",
       "type": "image/png"
-    },{
-    "purpose": "badge",
-    "src": "imgs/logonova.png",
-    "type": "image/png"
+    },
+    {
+      "src": "imgs/logo1.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
+    
   ],
    "serviceworker": {
     "src": "serviceworker.js",
     "scope": "/",
     "update_via_cache": "none"
   },
-  "start_url": "index.php",
+  "categories":"Marketplace online,Market,Supermercados,Mercados Online",
+  "start_url": "index.php?launcher=homescreen",
   "background_color": "#ff7400",
-  "theme_color": "#fff",
+  "theme_color": "#ff7400",
   "orientation": "portrait-primary",
-  "display": "standalone"
+  "display": "fullscreen"
 }

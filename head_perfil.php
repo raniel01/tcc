@@ -6,7 +6,7 @@
    if(isset($_POST['cd1'])){
       
       AtualizarUsuario($_POST['cd1'], $_POST['nome'], $_POST['sobrenome'], $_POST['email'], $_POST['cpf'], $_POST['data_nasc'], $_POST['sexo'], $_POST['endereco'], $_POST['bairro'], $_POST['cidade'], $_POST['cep'], $_POST['estado'], $_POST['ponto'], $_POST['telefone'], $_POST['celular']);
-
+   
    }
    
    if(isset($_SESSION['id'])){
@@ -55,7 +55,7 @@
       <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity = "sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin = "anonymous">
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
       <!-- Our Custom CSS -->
-      <link rel = "stylesheet" href = "style-slidenav.css">
+      <link rel = "stylesheet" href = "css/style-slidenav.css">
       <style type="text/css">
          .btn-mc{
          background-color: orange;
@@ -102,7 +102,7 @@
          .lista{
          font-size: 18pt;
          }
-         </style>
+      </style>
       <!-- Font Awesome JS -->
       <script defer src = "https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity = "sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin = "anonymous"></script>
       <script defer src = "https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity = "sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin = "anonymous"></script>
@@ -156,7 +156,6 @@
             <!--<li>-->
             <!--   <a href = "lista.php">Minha Lista</a>-->
             <!--</li>-->
-            
             <li>
                <a href = "#homeSubmenu" data-toggle = "collapse" aria-expanded = "false">Configurações</a>
                <ul class = "collapse list-unstyled" id = "homeSubmenu">
@@ -264,10 +263,6 @@
       <div id = "content">
       <nav class = "navbar navbar-expand-lg navbar-light bg-light">
          <div class = "container-fluid">
-            <button type = "button" id = "sidebarCollapse" class = "mb-2 m-md-0 btn btn-outline-warning"><img class = "foto-perfil" width="30" height="30" style="border-radius:50%" src = "<?php echo $foto?>" alt = "Imagem de perfil"></button>
-            <form class = "form-inline">
-               <input class = "form-control mr-2 mr-sm-2" type = "search" placeholder = "Pesquisar no Carrinho...">
-               <button class = "d-none d-sm-block btn btn-outline-warning my-2" type = "submit"><img src = "https://image.flaticon.com/icons/svg/34/34097.svg" height = "27" widht = "25"></button>
-            </form>
+            <button type = "button" id = "sidebarCollapse" class = "mb-2 m-md-0 btn btn-outline-warning"><img class = "foto-perfil" width="30" height="30" style="border-radius:50%" src = "<?php echo $foto;?>" alt = "Imagem de perfil"></button>
          </div>
       </nav>

@@ -169,10 +169,10 @@
                             <input type = "email" class = "form-control border-gray mb-3" name="email" id="email">
                             
                             <!-- Indicador -->
-                            <label class = "mb-1">Senha</label>
+                            <label class = "mb-1">Cidade</label>
                             
                             <!-- Input -->
-                            <input type = "password" class = "form-control border-gray mb-3" placeholder="Digite Sua Senha" name="senha" required>
+                            <input type = "text" class = "form-control border-gray mb-3"  name="city" id="cidade">
                             
                             <!-- Indicador -->
                             <label class = "mb-1">Telefone</label>

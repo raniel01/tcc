@@ -1,24 +1,36 @@
 <?php
 // array com dados nescessarios a serem enviados
-$data=[
-	'token'=>'C5AACBC184564B8C92B0C51AE22DFFA0',
-	'email'=>'gabrielleiteolimpio@gmail.com',
-	'currency'=>'BRL',
-	'itemId1'=>'1',
-	'itemQuantity1'=>'1',
-	'itemDescription1'=>'Produto de Teste',
-	'itemAmount1'=>'20.00'
-];
+// array com dados nescessarios a serem enviados
+header('Content-Type: text/html; charset=utf-8');
+include_once('../conexao.php');
+session_start();
+$i=0;
+$data['token']='A23DC63E423F469C9F7679833B2C8881';
+$data['email']='joaoeuno2011@gmail.com';
+$data['currency']='BRL';
+ $a = MostrarCarrinhoUsuario($_SESSION['id']);
+	while($mostrar = $a->fetch_array()){
+		$id = $mostrar['CD'];
+		$nome = $mostrar['PRODUTO'];
+		$quantidade = $mostrar['QUANTIDADE DO PRODUTO'];
+		$valor = $mostrar['VALOR DO PRODUTO'];
+		$i++;
+		$data['itemId'.$i]=$id;
+		$data['itemQuantity'.$i]=$quantidade;
+		$data['itemDescription'.$i]=$nome;
+		$data['itemAmount'.$i]=$valor;	
+	}
+
 
 // url do pagseguro
 
-$url = 'https://ws.pagseguro.uol.com.br/v2/checkout';
+$http = 'https://ws.pagseguro.uol.com.br/v2/checkout';
 
 // strig de consulta
 $data = http_build_query($data);
 
 // inicia sessao curl
-$curl = curl_init($url);
+$curl = curl_init($http);
 
 // enia opções para tranferencia curl
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);

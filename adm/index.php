@@ -1,4 +1,5 @@
-<?php include('include_head_perfil_adm.php'); ?>
+<?php
+include('include_head_perfil_adm.php'); ?>
 
         <div class="breadcrumbs">
             <div class="col-sm-4">
@@ -124,7 +125,7 @@
             </div>
             <!--/.col-->
         
-         </div> <!-- .content -->
+        </div> <!-- .content -->
         <div class="breadcrumbs">
             <div class="col-sm-4">
                 <div class="page-header float-left">
@@ -223,7 +224,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="stat-widget-one">
-                            <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
+                            <div class="stat-icon dib"><i class="fas fa-users"></i></div>
                             <div class="stat-content dib">
                                 <div class="stat-text">Consumidores</div>
                                  <?php
@@ -246,7 +247,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="stat-widget-one">
-                            <div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i></div>
+                            <div class="stat-icon dib"><i class="fas fa-table"></i></div>
                             <div class="stat-content dib">
                                 <div class="stat-text">Cruds Ativos</div>
                                 <div class="stat-digit count">4</div>
@@ -463,14 +464,14 @@
                     <hr class = "p-0 m-0">
                     <div class="usuarios ">
                         <?php
-                    $listar = ListarUsuarioAdm();
+                    $listar = ListarUsuarioUsu();
 
                     while($a = $listar->fetch_array()){
                     
                     ?>
                         <div  class="user" >
                              <a data-toggle="modal" data-target="#ModalInfo" class="info" titulo="<?php echo $a['NM_USUARIO']; ?>"  sobrenome="<?php echo $a['NM_SOBRENOME']; ?>"  email="<?php echo $a['DS_EMAIL']; ?>" picture="<?php echo $a['DS_FOTO']; ?>">
-                                  <img  src = "../<?php echo $a['DS_FOTO'];?>" > 
+                                  <img  src = "<?php echo "../".$a['DS_FOTO'];?>" > 
                               </a>
                             <label class="name-user"><?php echo $a['NM_USUARIO'];?></label>
                         </div>

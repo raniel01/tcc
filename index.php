@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<?php $title = ""; include('header_navbar.php'); ?>
+
+<?php $title = " Aqui sua compra fica mais facil!"; include('header_navbar.php'); ?>
 <body>
    <!-- Container -->
    <div class = "container-fluid">
@@ -374,10 +374,10 @@
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                <div class="showcase-block">
                   <div class="display-logo ">
-                     <a href="#"> <img src="imgs/Qualitá.png" class="img-fluid" alt=""></a>
+                     <a href="produtosfabricante.php?f=16"> <img src="imgs/ajinomoto.png" class="img-fluid" alt=""></a>
                   </div>
                   <div class="showcase-img">
-                     <a href="#"> <img src="imgs/qualitaproducts.png" class="img-fluid" alt=""></a>
+                     <a href="produtosfabricante.php?f=16"> <img src="imgs/produtos-ajinomoto.png" class="img-fluid" alt=""></a>
                   </div>
                </div>
             </div>
@@ -451,44 +451,22 @@
       <!-- Row Imagens -->
       <div class = "d-none d-lg-block">
          <div class = "row align-items-center bg-light h-40">
-            <!-- Tamanho -->
-            <div class = "col-6 px-0">
-               <!-- Div -->
-               <div class = "py-5 padding-left-15">
-                  <h1 class = "text-dark">
-                  Meu Carrinho</h3>
-                  <p class = "text-dark">Suas Compras estão Aqui , Aproveie a facilidade do nosso site.</p>
+               <!-- Tamanho -->
+               <div class = "col-6 px-0">
+                     <!-- Div -->
+                     <div class = "py-5 padding-left-15">
+                        <h3
+                        class = "text-dark">Meu Carrinho</h3>
+                        <p class = "text-dark">Suas Compras estão Aqui , Aproveie a facilidade do nosso site.</p>
+                     </div>
+                     <!-- Div -->
                </div>
-               <!-- Div -->
-            </div>
-            <!-- Tamanho -->
-            <!-- Tamanho -->
-            <div class = "col-6 p-0">
-               <div class = "bg-success img-background-1"></div>
-            </div>
-            <!-- Tamanho -->
-         </div>
-      </div>
-      <!-- Row Imagens -->
-      <!-- Row Imagens -->
-      <div class = "d-none d-lg-block">
-         <div class = "row align-items-center bg-dark box-shadow-large-top h-40 bg-gradient-top-black">
-            <!-- Tamanho -->
-            <div class = "col-6 p-0">
-               <div class = "bg-success img-background-2"></div>
-            </div>
-            <!-- Tamanho -->
-            <!-- Tamanho -->
-            <div class = "col-6 px-0">
-               <!-- Div -->
-               <div class = "py-5 padding-left-20">
-                  <h1 class = "text-white">
-                  Facilidade </h3>
-                  <p class = "text-white">Site Simples , Rápido e Facil Para Suas Compras. </p>
+               <!-- Tamanho -->
+               <!-- Tamanho -->
+               <div class = "col-6 p-0">
+                  <div class = "bg-success img-background-1"></div>
                </div>
-               <!-- Div -->
-            </div>
-            <!-- Tamanho -->
+               <!-- Tamanho -->
          </div>
       </div>
       <!-- Row Imagens -->

@@ -1,23 +1,6 @@
-<!DOCTYPE html>
-<html>
-    
+<?php $title = " Carrinho"; include('header_navbar.php'); ?>
     <!-- Head -->
-    <head>
-        
-        <!-- Título da página -->
-        <title>Card Horizontal</title>
-        
-        <!-- Meta tags -->
-        <meta charset = "UTF-8">
-        <meta name = "viewport" content = "width=device-width, initial-scale=1, shrink-to-fit=no">
-        
-        <!-- Bootstrap -->
-        <link rel = "stylesheet" href= " https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity = "sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin = "anonymous">
-        <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-        <!-- Style -->
+    <!-- Style -->
         <style>
             
             /* Style do Card horizontal da exibição da lista - parecido com o do site Extra */
@@ -206,10 +189,6 @@
             
         </style>
         <!-- Style -->
-        
-    </head>
-    <!-- Head -->
-    
     <!-- Body -->
     <body>
         
@@ -414,10 +393,8 @@
     	<form id="comprar" action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post" onsubmit="PagSeguroLightbox(this); return false;">
     		<input type="hidden" name="code" id="code" value="" />
     	</form>
-    <script>
-  
-    </script>
+    	 <!-- script do pagseguro -->	
+    	<script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
+       
     </body>
-    <!-- Body -->
-    <script type="text/javascript" src="js/scrips.js"></script>  
-</html>
+<?php include('Footer_teste.php');?>

@@ -1,6 +1,7 @@
 <!-- AVISO! Algumas tags estão com o style modificado diretamente por este documento devido aos bugs do Cloud 9 em linkar o style.css (João sabe do que eu estou falando) -->
 <!-- Navbar -->
 <?php 
+   $title = " Busca";
    include('header_navbar.php');
    
    ?>
@@ -17,237 +18,9 @@
                 echo '<h5 class="text-center col-md-12">Exibindo Os Resultados em <b>'.$busca.'</b></h5>';
             } 
             ?>
-         <!-- Formulário de busca -->
-         <div class = "col-lg-3 pt-3">
-            <!-- div para espaçamento - NÃO MEXER -->
-            <div class = "pb-3 d-none d-lg-block">
-               <!-- Card de busca(usado para organizar dentro de um bloco) -->
-               <div class = "card">
-                  <!-- conteúdo do formulário de busca -->
-                  <div class = "card-body">
-                     <!-- Row Título -->
-                     <div class = "row">
-                        <!-- Tamanho -->
-                        <div class = "col-md-12">
-                           <!-- Título -->
-                           <h3 class = "card-title text-center pt-1">Busca Avançada</h3>
-                        </div>
-                        <!-- Tamanho -->
-                     </div>
-                     <!-- Row Título -->
-                     <!-- Row Subtítulo - Categoria -->
-                     <div class = "row pt-3">
-                        <!-- Tamanho -->
-                        <div class = "col-md-12">
-                           <!-- Subtítulo -->
-                           <h5 class = "text-center pb-2">Categoria</h5>
-                        </div>
-                        <!-- tamanho -->
-                     </div>
-                     <!-- Row Subtítulo - Categoria -->
-                     <!-- Row Buscador -->
-                     <div class = "row">
-                        <!-- Tamanho -->
-                        <div class = "col-md-12">
-                           <!-- Buscador -->
-                           <form class = "form-inline pt-2">
-                              <!-- Conteúdo Form -->
-                              <div class = "input-group mx-auto">
-                                 <!-- Campo de pesquisa -->
-                                 <input type = "text" class = "form-control" placeholder = "Pesquisar produto">
-                                 <!-- Botão -->
-                                 <div class = "input-group-append">
-                                    <button class = "btn btn-secondary" type = "button" id = "button-addon2">Busca</button>
-                                 </div>
-                                 <!-- Botão -->
-                              </div>
-                              <!-- Conteúdo Form -->
-                           </form>
-                           <!-- Buscador -->
-                        </div>
-                     </div>
-                     <!-- Row Buscador -->
-                     <!-- Row Checkbox -->
-                     <div class = "row">
-                        <!-- Tamanho -->
-                        <div class = "col-md-12">
-                           <!--puxando as categorias do banco de dados-->
-                           <?php
-                              $categorias =ListarCategoria();
-                              while ($categoria = $categorias->fetch_array()){
-                              
-                              
-                              ?>
-                           <!-- Checkbox - Alimentos Básicos -->
-                           <div class = "form-group form-check">
-                              <!-- Checkbox -->
-                              <input type = "checkbox" class = "form-check-input" id = "<?php echo $categoria['CD_CATEGORIA']; ?>">
-                              <!-- Nome -->
-                              <label class = "form-check-label" for = "<?php echo $categoria['NM_CATEGORIA']; ?>"><?php echo $categoria['NM_CATEGORIA']; ?></label>
-                           </div>
-                           <?php
-                              }
-                              ?>
-                        </div>
-                        <!--Tamanho -->
-                     </div>
-                     <!-- Row Checkbox -->
-                     <!-- Row Subtítulo - Preço -->
-                     <div class = "row pt-3">
-                        <!-- tamanho -->
-                     </div>
-                     <!-- Row Subtítulo - Preço -->
-                     <!-- Row Buscador -->
-                     <div class = "row">
-                     </div>
-                     <!-- Row Buscador -->
-                     <!-- Row Checkbox -->
-                     <div class = "row">
-                        <!-- Tamanho -->
-                        <div class = "col-md-12">
-                        </div>
-                        <!--Tamanho -->
-                     </div>
-                     <!-- Row Checkbox -->
-                     <!-- Row Subtítulo - FABRICANTE -->
-                     <div class = "row pt-3">
-                        <!-- Tamanho -->
-                        <div class = "col-md-12">
-                           <!-- Subtítulo -->
-                           <h5 class = "text-center pb-2">Fabricante</h5>
-                        </div>
-                        <!-- tamanho -->
-                     </div>
-                     <!-- Row Subtítulo - Marca -->
-                     <!-- Row Buscador -->
-                     <div class = "row">
-                        <!-- Tamanho -->
-                        <div class = "col-md-12">
-                           <!-- Buscador -->
-                           <form class = "form-inline pt-2">
-                              <!-- Conteúdo Form -->
-                              <div class = "input-group mx-auto">
-                                 <!-- Campo de pesquisa -->
-                                 <input type = "text" class = "form-control" placeholder = "Fabricante">
-                                 <!-- Botão -->
-                                 <div class = "input-group-append">
-                                    <button class = "btn btn-secondary" type = "button" id = "button-addon2">Busca</button>
-                                 </div>
-                                 <!-- Botão -->
-                              </div>
-                              <!-- Conteúdo Form -->
-                           </form>
-                           <!-- Buscador -->
-                        </div>
-                     </div>
-                     <!-- Row Buscador -->
-                     <!-- Row Checkbox -->
-                     <div class = "row">
-                        <!-- Tamanho -->
-                        <div class = "col-md-12">
-                           <div class = "form-group form-check">
-                              <!-- Checkbox -->
-                              <input type = "checkbox" class = "form-check-input" id = "0">
-                              <!-- Nome -->
-                              <label class = "form-check-label" for = "Todos Os Fabricantes">Todos</label>
-                           </div>
-                           <?php
-                              $fabricantes = ListarFabricanteBusca();
-                              while($fabricante = $fabricantes->fetch_array()){
-                              
-                              ?>
-                           <!-- Checkbox - Mais famosas -->
-                           <div class = "form-group form-check">
-                              <!-- Checkbox -->
-                              <input type = "checkbox" class = "form-check-input" id = "<?php echo $fabricante['CD_FABRICANTE']; ?>">
-                              <!-- Nome -->
-                              <label class = "form-check-label" for = "<?php echo $fabricante['NM_FABRICANTE']; ?>"><?php echo $fabricante['NM_FABRICANTE']; ?></label>
-                           </div>
-                           <?php
-                              }
-                              ?>
-                           <!-- Checkbox - Mais famosas -->
-                        </div>
-                        <!--Tamanho -->
-                     </div>
-                     <!-- Row Checkbox -->
-                  </div>
-                  <!-- conteúdo do formulário de busca -->
-               </div>
-               <!-- Card de busca -->
-            </div>
-            <!-- div para espaçamento - não mexer -->
-            <!-- Versão Mobile do formulário de Busca - "Essa versão é mais simples que a versão de PC para não ficar algo massante e enorme na tela do usuário" -->
-            <div class = "d-lg-none">
-               <!-- Navbar -->
-               <nav class = "navbar navbar-expand-lg navbar-light">
-                  <!-- Título -->
-                  <a class = "navbar-brand">Categorias</a>
-                  <!-- Ícone -->
-                  <button class = "navbar-toggler" type = "button" data-toggle = "collapse" data-target = "#navbarSupportedContent" aria-controls = "navbarSupportedContent" aria-expanded = "false" aria-label = "Toggle navigation">
-                  <span class = "navbar-toggler-icon"></span>
-                  </button>
-                  <!-- Ícone -->
-                  <!-- Conteúdo do formulário de busca(Versão Mobile) -->
-                  <div class = "collapse navbar-collapse left-float" id = "navbarSupportedContent">
-                     <!-- Row Buscador -->
-                     <div class = "row">
-                        <!-- Tamanho -->
-                        <div class = "col-md-12">
-                           <!-- Buscador -->
-                           <form class = "form-inline pt-2">
-                              <!-- Conteúdo Form -->
-                              <div class = "input-group mx-auto pt-3">
-                                 <!-- Campo de pesquisa -->
-                                 <input type = "text" class = "form-control" name="buscacategoria" placeholder = "Pesquisar Categoria">
-                                 <!-- Botão -->
-                                 <div class = "input-group-append">
-                                    <button class = "btn btn-success" type = "button" id = "button-addon2">Busca</button>
-                                 </div>
-                                 <!-- Botão -->
-                              </div>
-                              <!-- Conteúdo Form -->
-                           </form>
-                           <!-- Buscador -->
-                        </div>
-                     </div>
-                     <!-- Row Buscador -->
-                     <!-- Row Checkbox -->
-                     <div class = "row">
-                        <!-- Tamanho -->
-                        <div class = "col-md-12">
-                           <!--puxando as categorias do banco de dados-->
-                           <?php
-                              $categorias =ListarCategoria();
-                              while ($categoria = $categorias->fetch_array()){
-                              
-                              
-                              ?>
-                           <!-- Checkbox - Alimentos Básicos -->
-                           <div class = "form-group form-check">
-                              <!-- Checkbox -->
-                              <input type = "checkbox" class = "form-check-input" id = "<?php echo $categoria['CD_CATEGORIA']; ?>">
-                              <!-- Nome -->
-                              <label class = "form-check-label" for = "<?php echo $categoria['NM_CATEGORIA']; ?>"><?php echo $categoria['NM_CATEGORIA']; ?></label>
-                           </div>
-                           <?php
-                              }
-                              ?>
-                        </div>
-                        <!--Tamanho -->
-                     </div>
-                     <!-- Row Checkbox -->
-                  </div>
-                  <!-- Conteúdo do formulário de busca(Versão Mobile) -->
-               </nav>
-               <!-- Navbar -->
-            </div>
-            <!-- Versão Mobile do formulário de Busca -->
-         </div>
-         <!-- Formulário de busca -->
          <!-- Exibiçao dos resultados da busca -->
-         <div class = "col-lg-9 pt-2">
-            <form action="produto.php" method="get" >
+         <div class = "col-lg-12 pt-2">
+            <!--<form action="produto.php" method="get" >-->
                <!-- Row dos cards de exibição dos produtos -->
                <div class = "row">
                   <!-- Tamanho do Card -->
@@ -303,7 +76,8 @@
                            </p>
                            <!-- Descrição do produto -->
                            <!-- Botão -->
-                           <a href = "<?php echo 'produto.php?cd='.$pesquisa['CD_INTERNO'];?>" class = "btn-block btn busca-bg-card">Ver Mais...</a>
+                           <button data-session="<?php
+                     echo $s;?>" data-cd="<?php echo $pesquisa['CD_INTERNO']; ?>"  class = "addCar btn-block btn busca-bg-card">Ver Mais...</button>
                         </div>
                         <!-- Corpo do Card -->
                      </div>
@@ -315,66 +89,77 @@
                      ?>
                </div>
                <!-- Row dos cards de exibição dos produtos -->
-            </form>
+           <!-- </form>
+            -->
+            <div class="row">
+               <div class = "col-auto mx-auto pt-2">
+                  <!--Paginação desktop-->
+                  <div class="d-none d-lg-block">
+                     <nav aria-label="Page navigation example">
+                       <ul class="pagination busca-a-pagination">
+                      <?php
+                              $cor = ($pagina==$i) ? "#343a40":"#343a40";
+                              $font = ($pagina==$i) ? "white":"#ff7400";
+                              
+                              if($pagina > 2){
+                                 echo '<li class="page-item"><a style=" background-color: '.$cor.' ; color:'.$font.'; border: none;" class = "page-link" href="?cd='.$_GET['busca'].'&p='.($pagina - 2).'"  style="color: black;"><<</a></li>';
+                              }
+                              
+                              if($pagina > 1){
+                                 echo '<li class = "page-item"><a style=" background-color: '.$cor.' ; color:'.$font.'; border: none;" class = "page-link"  href="?cd='.$_GET['busca'].'&p='.($pagina - 1).'"  style="color: black;">Anterior</a></li>';
+                              }
+                              
+                              for($i=1;$i<=$total_pagina;$i++){
+                                 echo '<li class = "page-item"><a style=" background-color: '.$cor.' ; color:'.$font.'; border: none;" class = "page-link"  href="?cd='.$_GET['busca'].'&p='.$i.'" style="background-color: '.$cor.'; color: '.$fonte.';">'.$i.'</a></li>';
+                              }
+                              
+                              if($pagina < $total_pagina){
+                                 echo '<li class = "page-item"><a style=" background-color: '.$cor.' ; color:'.$font.'; border: none;" class = "page-link"  href="?cd='.$_GET['busca'].'&p='.($pagina + 1).'" style="color: black;">Próximo</a></li>';
+                              }
+                              
+                              if($pagina < $total_pagina - 1){
+                                 echo '<li class = "page-item"><a style=" background-color: '.$cor.' ; color:'.$font.'; border: none;" class = "page-link" href="?cd='.$_GET['busca'].'&p='.($pagina + 2).'" style="color: black;">>></a></li>';
+                              }
+                           ?>
+                    </ul>
+                     </nav>
+                  </div>
+                  <!--Paginação desktop-->
+                  <!--Paginação Mobile -->
+                  <div class="d-lg-none">
+                     <nav aria-label = "Page navigation example">
+                        <ul class="pagination busca-a-pagination">
+                        <?php
+                          $cor = ($pagina==$i) ? "#343a40":"#343a40";
+                           $font = ($pagina==$i) ? "white":"#ff7400";
+                           if($pagina > 2){
+                               echo '<li class = "page-item"><a style=" background-color: '.$cor.' ; color:'.$font.'; border: none;" class = "page-link" href="?cd='.$_GET['busca'].'&p='.($pagina - 2).'"> << </a></li>';
+                           }
+                           if($pagina > 1){
+                               echo '<li class = "page-item"><a style=" background-color: '.$cor.' ; color:'.$font.'; border: none;" class = "page-link" href="?cd='.$_GET['busca'].'&p='.($pagina - 1).'"> Anterior </a></li>';
+                           }
+                              /*for($i=1;$i<=$total_pagina;$i++){
+                                  if($pagina<10 && $pagina>15){
+                              $cor = ($pagina==$i) ? "#343a40":"#ff7400";
+                              $font = ($pagina==$i) ? "#343a40":"White";
+                               echo '<li class = "page-item"><a class = "page-link" href="?p='.$i.'" style="background-color: '.$cor.' ; color:'.$font.';">'.$i.'</a></li>';
+                                  }*/
+                           
+                           if($pagina < $total_pagina){
+                              echo '<li class = "page-item"><a style=" background-color: '.$cor.' ; color:'.$font.'; border: none;" class = "page-link"  href="?cd='.$_GET['busca'].'&p='.($pagina + 1).'"> Próximo </a></li>';
+                           }
+                           if($pagina < $total_pagina - 1){
+                               echo '<li class = "page-item"><a style=" background-color: '.$cor.' ; color:'.$font.'; border: none;" class = "page-link" href="?cd='.$_GET['busca'].'&p='.($pagina + 2).'"> >> </a></li>';
+                           }
+                           
+                           ?>
+                     </ul>
+                     </nav>
+                  </div>
+                  <!--Paginação Mobile -->
+               </div>
+            </div>
             
-            <nav aria-label="Page navigation example">
-              <ul class="pagination busca-a-pagination">
-                <?php
-                        $cor = ($pagina==$i) ? "#343a40":"#343a40";
-                        $font = ($pagina==$i) ? "white":"#ff7400";
-                        
-                        if($pagina > 2){
-                           echo '<li class="page-item"><a style=" background-color: '.$cor.' ; color:'.$font.'; border: none;" class = "page-link" href="?cd='.$_GET['busca'].'&p='.($pagina - 2).'"  style="color: black;"><<</a></li>';
-                        }
-                        
-                        if($pagina > 1){
-                           echo '<li class = "page-item"><a style=" background-color: '.$cor.' ; color:'.$font.'; border: none;" class = "page-link"  href="?cd='.$_GET['busca'].'&p='.($pagina - 1).'"  style="color: black;">Anterior</a></li>';
-                        }
-                        
-                        for($i=1;$i<=$total_pagina;$i++){
-                           echo '<li class = "page-item"><a style=" background-color: '.$cor.' ; color:'.$font.'; border: none;" class = "page-link"  href="?cd='.$_GET['busca'].'&p='.$i.'" style="background-color: '.$cor.'; color: '.$fonte.';">'.$i.'</a></li>';
-                        }
-                        
-                        if($pagina < $total_pagina){
-                           echo '<li class = "page-item"><a style=" background-color: '.$cor.' ; color:'.$font.'; border: none;" class = "page-link"  href="?cd='.$_GET['busca'].'&p='.($pagina + 1).'" style="color: black;">Próximo</a></li>';
-                        }
-                        
-                        if($pagina < $total_pagina - 1){
-                           echo '<li class = "page-item"><a style=" background-color: '.$cor.' ; color:'.$font.'; border: none;" class = "page-link" href="?cd='.$_GET['busca'].'&p='.($pagina + 2).'" style="color: black;">>></a></li>';
-                        }
-                     ?>
-              </ul>
-            </nav>
-            
-            <!-- <nav aria-label = "Page navigation example">
-            
-                  <ul class="pagination">
-                     <?php
-                        if($pagina > 2){
-                           echo '<li class="page-item"><a class="page-link" href="?cd='.$_GET['busca'].'&p='.($pagina - 2).'"  style="color: black;"><<</a></li>';
-                        }
-                        
-                        if($pagina > 1){
-                           echo '<li class = "page-item"><a href="?cd='.$_GET['busca'].'&p='.($pagina - 1).'"  style="color: black;">Anterior</a></li>';
-                        }
-                        
-                        for($i=1;$i<=$total_pagina;$i++){
-                           $cor = ($pagina == $i) ? "#20B2AA" : "white";
-                           $fonte = ($pagina == $i) ? "white" : "black";
-                           echo '<li class = "page-item"><a href="?cd='.$_GET['busca'].'&p='.$i.'" style="background-color: '.$cor.'; color: '.$fonte.';">'.$i.'</a></li>';
-                        }
-                        
-                        if($pagina < $total_pagina){
-                           echo '<li class = "page-item"><a href="?cd='.$_GET['busca'].'&p='.($pagina + 1).'" style="color: black;">Próximo</a></li>';
-                        }
-                        
-                        if($pagina < $total_pagina - 1){
-                           echo '<li class = "page-item"><a href="?cd='.$_GET['busca'].'&p='.($pagina + 2).'" style="color: black;">>></a></li>';
-                        }
-                     ?>
-                  </ul>
-            
-            </nav> -->
          </div>
          <!-- exibição dos resultados da Busca -->
       </div>

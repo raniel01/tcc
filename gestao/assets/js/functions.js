@@ -3,6 +3,7 @@ $(document).ready(function(){
     $(document).on('click','.atualizar',function(){
         var nome = $('.perfil').attr('nome');
         var sobre = $('.perfil').attr('sobrenome');
+        var cid   = $('.perfil').attr('cidade');
         var endere = $('.perfil').attr('endereco');
         var mail  = $('.perfil').attr('email');
         var cel   = $('.perfil').attr('celular');
@@ -10,6 +11,7 @@ $(document).ready(function(){
         /*manipulating values to update in form*/
     	$('#nome').val(nome);
     	$('#sobrenome').val(sobre);
+    	$('#cidade').val(cid);
     	$('#celular').val(cel);
     	$('#email').val(mail);
     	$('#endereco').val(endere);

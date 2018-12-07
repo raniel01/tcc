@@ -84,9 +84,6 @@ if(isset($_SESSION['nivel'])!= "ADM"){
                           }
                         ?>
                     </li>
-                    <li class="">
-                        <a href="pedidos.php"> <i class="menu-icon fa fa-truck"></i>Pedidos</a>
-                    </li>
                     <h3 class="menu-title">Cruds</h3><!-- /.menu-title -->
                     <li>
                         <a href="crudprodutos.php"><i class="menu-icon fa fa-laptop"></i>Produtos</a>
@@ -98,27 +95,13 @@ if(isset($_SESSION['nivel'])!= "ADM"){
                         <a href="crudcategoria.php"> <i class="menu-icon fa fa-th"></i>Categorias</a>
                     </li>
 
-                    <h3 class="menu-title">Redes Sociais</h3><!-- /.menu-title -->
-
-                    <li>
-                        <a href="https://www.facebook.com/projetomeucarrinho/" target="_blank"> <i class="menu-icon fa fa-facebook"></i>Facebook</a>
-                    </li>
-                    <li>
-                        <a href="#"> <i class="menu-icon fa fa-instagram"></i>Instagram</a>
-                    </li>
-                    <li>
-                        <a href="#"> <i class="menu-icon fa fa-twitter"></i>Twitter</a>
-                    </li>
-
-                    <li>
-                        <a href="#"> <i class="menu-icon fa fa-youtube"></i>Youtube</a>
-                    </li>
+                   
                     <h3 class="menu-title">Contato</h3><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-plus-square"></i>Adicionar Um</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">Crud</a></li>
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">Tabela</a></li>
+                            <li><i class="menu-icon fa fa-sign-in"></i><a href="manutencao.php">Crud</a></li>
+                            <li><i class="menu-icon fa fa-sign-in"></i><a href="manutencao.php">Tabela</a></li>
 
                         </ul>
                     </li>
@@ -137,6 +120,9 @@ if(isset($_SESSION['nivel'])!= "ADM"){
             height: 50px;
             width: 50px;
             object-fit: cover;
+        }
+        .fa-table{
+            color:orange;
         }
         
     </style>
@@ -172,13 +158,11 @@ if(isset($_SESSION['nivel'])!= "ADM"){
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="perfil.php"><i class="fa fa- user"></i>Meu Perfil</a>
-
-                                <a class="nav-link" href="perfil.php"><i class="fa fa- user"></i>Notificações <span class="count">13</span></a>
+                                <a class="nav-link" href="../index.php">Voltar Para o Site</a>
 
                                 <a class="nav-link" href="perfil.php"><i class="fa fa -cog"></i>Configurações</a>
 
-                                <a class="nav-link" href="?Sair"><i class="fa fa-power -off"></i>Sair</a>
+                                <a class="nav-link" href="?SairAdm"><i class="fa fa-power -off"></i>Sair</a>
                         </div>
                     </div>
 

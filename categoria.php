@@ -1,4 +1,4 @@
-<?php include('header_navbar.php'); ?>
+<?php $title = " Categoria";  include('header_navbar.php'); ?>
 
 <body>
     <!--formulario para puxar o id-->

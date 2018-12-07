@@ -12,7 +12,8 @@
    <!--colocar uma imagem de fundo grande com carrinhos de fundo-->
    <body>
      
-      <div class="container-fluid" style="background-image: url('/imgs/fundocarrinho.jpg'); padding-top:50px;">
+      <div class="container-fluid" >
+         <div class="row">&nbsp;</div>
          <div class="row login">
             <div class="col-md-6 offset-3 mx-auto">
                <form action="recuperar-senha.php" method="post">
@@ -39,8 +40,8 @@
                            </div>
                         </div>
                         <div class="row">
-                        <div class="form-group col-md-6">
-                           <button type="submit" class="btn btn-success" style="border:2px solid black">Atualizar</button>
+                        <div class="form-group col-md-12">
+                           <button type="submit" class="btn btn-block btn-success" style="border:2px solid black">Atualizar</button>
                         </div>
                      </div>
                      </div>
@@ -51,7 +52,7 @@
             </div>
            
          </div>
-      </div>
+      
     </body>
     <!-- jQuery CDN - Slim version (=without AJAX) -->
 <script src = "https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity = "sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin = "anonymous"></script>

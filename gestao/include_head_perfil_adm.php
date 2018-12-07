@@ -68,8 +68,7 @@ if(isset($_REQUEST['botaoeditar'])){
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="./">Adm</a>
-                <a class="navbar-brand hidden" href="./"><img src="images/logo2.png"
-            alt="Logo"></a>
+                <a class="navbar-brand hidden" href="./">M</a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -81,7 +80,7 @@ if(isset($_REQUEST['botaoeditar'])){
                          <?php 
                           while ($b = $usuarios->fetch_array()){
                           ?> 
-                    <a href="perfil.php" class ="perfil" nome = "<?php echo $b['NM_USUARIO']; ?>" endereco = "<?php echo $b['NM_ENDERECO']; ?>" sobrenome = "<?php echo $b['NM_SOBRENOME']; ?>" celular = "<?php echo $b['NR_CELULAR']; ?>" email = "<?php echo $b['DS_EMAIL']; ?>">
+                    <a href="perfil.php" class ="perfil" nome = "<?php echo $b['NM_USUARIO']; ?>"  cidade = "<?php echo $b['NM_CIDADE']; ?>" endereco = "<?php echo $b['NM_ENDERECO']; ?>" sobrenome = "<?php echo $b['NM_SOBRENOME']; ?>" celular = "<?php echo $b['NR_CELULAR']; ?>" email = "<?php echo $b['DS_EMAIL']; ?>">
                             <i class="menu-icon fa fa-user"></i>
                              Perfil
                         </a>
@@ -96,23 +95,14 @@ if(isset($_REQUEST['botaoeditar'])){
                         <a href="https://www.facebook.com/projetomeucarrinho/" target="_blank"> <i class="menu-icon fa fa-facebook"></i>Facebook</a>
                     </li>
                     <li>
-                        <a href="#"> <i class="menu-icon fa fa-instagram"></i>Instagram</a>
+                        <a href="https://www.instagram.com/sitemeucarrinho/"> <i class="menu-icon fa fa-instagram"></i>Instagram</a>
                     </li>
                     <li>
                         <a href="#"> <i class="menu-icon fa fa-twitter"></i>Twitter</a>
                     </li>
 
                     <li>
-                        <a href="#"> <i class="menu-icon fa fa-youtube"></i>Youtube</a>
-                    </li>
-                    <h3 class="menu-title">Contato</h3><!-- /.menu-title -->
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-plus-square"></i>Adicionar Um</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">Crud</a></li>
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">Tabela</a></li>
-
-                        </ul>
+                        <a href="https://www.instagram.com/sitemeucarrinho/"> <i class="menu-icon fa fa-youtube"></i>Youtube</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -161,13 +151,12 @@ if(isset($_REQUEST['botaoeditar'])){
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="perfil.php"><i class="fa fa- user"></i>Meu Perfil</a>
 
-                                <a class="nav-link" href="perfil.php"><i class="fa fa- user"></i>Notificações <span class="count">13</span></a>
+                                <a class="nav-link" href="perfil.php"><i class="fa fa- user"></i>Usuários <span class="count">100</span></a>
 
                                 <a class="nav-link" href="perfil.php"><i class="fa fa -cog"></i>Configurações</a>
 
-                                <a class="nav-link" href="?Sair"><i class="fa fa-power -off"></i>Sair</a>
+                                <a class="nav-link" href="?SairAdm"><i class="fa fa-power -off"></i>Sair</a>
                         </div>
                     </div>
 
