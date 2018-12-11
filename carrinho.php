@@ -1,7 +1,5 @@
 <!-- Head -->
 <?php $title = " Carrinho"; include('header_navbar.php'); ?>
-
-
 <!-- Head -->
         <!--Style-->
         <link rel = "stylesheet" type = "text/css" href = "css/carrinho.css">
@@ -25,7 +23,7 @@
                           $res = $GLOBALS['con']->query($sql);
                           
                           $total = $res->num_rows;
-                          $porpagina = 10;
+                          $porpagina = 12;
                           $total_pagina = ceil($total/$porpagina);
                           
                           $pagina = isset($_GET['c']) ? $_GET['c'] : 1;
@@ -138,13 +136,13 @@
                                          </div>
                                      <!-- /Div quantidade -->
                                      <!-- Div preço -->
-                                     <div class = "preco bg-dark">
+                                     <div class = "preco">
                                         <!-- Preço -->
                                         <label class = "font-weight-bold"> Preço : R$<?php echo $b['VALOR DO PRODUTO']; ?></label>
                                      </div>
                                      <!-- /Div preço -->
                                      <!--Total-->
-                                     <div class = "preco bg-dark">
+                                     <div class = "preco">
                                         <!-- total -->
                                         <label class = "font-weight-bold"> 
                                         Total: R$

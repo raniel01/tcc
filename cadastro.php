@@ -70,14 +70,6 @@
          <button type = "button" class = "btnRegister btn-dark" data-toggle = "modal" data-target = "#exampleModal">Login</button>
       </div>
       <div class = "col-md-9 register-right">
-         <ul class = "nav nav-tabs nav-justified" id = "myTab" role = "tablist">
-            <!--<li class="nav-item">-->
-            <!--    <a class="nav-link" id="cadastro-tab" class="btn-dark" data-toggle="tab" href="#cadastro" role="tab" aria-controls="cadastro" aria-selected="true">Cadastro</a>-->
-            <!--</li>-->
-            <!--<li class="nav-item">-->
-            <!--    <a class="nav-link active" id="login-tab"    class="btn-dark" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="false">Login</a>-->
-            <!--</li>-->
-         </ul>
          <!-- Login -->
          <div class = "tab-content" id = "myTabContent">
             <div class = "tab-pane fade show active" id = "login" role = "tabpanel" aria-labelledby = "login-tab">
@@ -125,9 +117,48 @@
                                  <span style="color: white; font-weight:bold;"> * </span> <input type="radio" name="sexo" value="M"><span style="color: white; font-weight:bold;"> Masculino</span> &nbsp;&nbsp;&nbsp;<input type="radio" name="sexo" value="F"> <span style="color: white; font-weight:bold;">Feminino</span>
                               </div>
                            </div>
-                        </div>
-                        <input type="submit"  id="atualizar" class="btnRegister btn-dark float-right"  value="Register" />
+                           <!-- Modal -->
+                           <div class = "modal fade" id = "termosUso" tabindex = "-1" role = "dialog" aria-labelledby = "exampleModalLabel" aria-hidden = "true">
+                              <div class = "modal-dialog" role = "document">
+                                 <!-- Conteudo do Modal -->
+                                 <div class = "modal-content">
+                                    <!-- Header do Modal - Título do Modal -->
+                                    <div class = "modal-header bg-dark">
+                                       <h4 class = "modal-title text-light">TERMOS E CONDIÇÕES GERAIS DE USO</h4>
+                                       <button type = "button" class = "close" data-dismiss = "modal" aria-label = "Close">
+                                       <span aria-hidden="true">&times;</span>
+                                       </button>
+                                    </div>
+                                    <!-- Fim do Header do Modal -->
+                                    <!-- Body do Modal - Conteúdo do Login -->
+                                    <div class = "modal-body pb-0" id = "modal-body">
+                                       <div class = "tab-pane fade show" id = "cadastro" role = "tabpanel" aria-labelledby = "cadastro-tab">
+                                          <div class = "row register-form pt-0">
+                                             <div class = "col-md-12">
+                                                <p class="text-justify">LEIA COM ATENÇÃO OS TERMOS E CONDIÇÕES GERAIS DE USO, POIS CONSTAM DELES TODAS AS INFORMAÇÕES IMPORTANTES SOBRE OS SEUS DIREITOS E OBRIGAÇÕES LEGAIS, INCLUINDO LIMITAÇÕES, EXCLUSÕES E UM FORO PARA DIRIMIR EVENTUAIS CONFLITOS RELATIVOS AO PRESENTE CONTRATO. </p>
+                                                <div class="form-group pt-1" style="color: white; ">
+                                                   <input type="checkbox" name="termo" required> &nbsp;&nbsp; Aceito os <i><u><b><a href="termo-uso.php">Termos de Uso</a></i></u></b>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <!-- Fim do Body do Modal -->
+                                    <!-- Footer do Modal - Botões de ação -->
+                                    <div class = "modal-footer bg-dark">
+                                       <!-- Cancelar -->
+                                       <button type = "button" class = "btn btn-outline-light" data-dismiss = "modal">Cancelar</button>
+                                       <!-- Login -->
+                                       <input type="submit"   class="btn btn-light"  value="Registrar" />
+                                    </div>
+                                    <!-- Fim do Footer do Modal -->
+                                 </div>
+                                 <!-- Fim do conteúdo do Modal -->
+                              </div>
+                           </div>
                </form>
+               <button class = " btn-dark btnRegister float-right" data-toggle="modal" data-target="#termosUso">Cadastrar</button>
+               </div>
                </div>
                </div>
             </div>
@@ -142,9 +173,9 @@
 <!-- Bootstrap JS -->
 <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity = "sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin = "anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
-    <script type="text/javascript" src="js/function.js"></script>
-    <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+<script type="text/javascript" src="js/function.js"></script>
+<script type="text/javascript" src="js/jquery.mask.min.js"></script>
 <script type="text/javascript">
    jQuery(document).ready(function(){
        	jQuery("#password").keyup(function() {

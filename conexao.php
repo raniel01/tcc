@@ -639,6 +639,11 @@ function PaginaCarrinho($carrinho){
 		echo $carrinho;
 	}
 }
+function ContadorCarrinho($idusuario){
+	$sql = 'SELECT COUNT(ID_INTERNO) FROM  TB_CARRINHO WHERE ID_USUARIO ='.$idusuario;
+	$res = $GLOBALS['con']->query($sql);
+	return $res;
+}
 					/*Adicionar item a lista*/
 function AdicionarItem($cd, $conteudo){
 	$sql = 'INSERT INTO TB_LISTA VALUES (null,"'.$conteudo.'", "'.$cd.'")';

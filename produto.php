@@ -7,7 +7,7 @@
    }
    if(isset($_REQUEST['botao'])){
       CadastrarCarrinho($_REQUEST['quantidade'],$_REQUEST['cd'],$_SESSION['id']);
-         	echo '<script> window.location="categoria.php";</script>';
+         	echo '<script> window.location="carrinho.php?c=1";</script>';
    }
    ?>
 <body>

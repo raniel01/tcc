@@ -20,7 +20,7 @@
          ExcluirCarrinho($_REQUEST['id']);
       }
       //Pagina Cadastro
-   	if (isset($_POST['nome'])) {
+   	if (isset($_POST['termo'])) {
    		 
    		 if($_POST['sexo'] == "M"){
    			$foto = "imgs/imgp/homem.png";
@@ -101,25 +101,59 @@
         @media only screen and (max-width: 992px){
            
         }
+        
+        .not{
+           position: relative;
+           top: 10px;
+           left: -30px;
+        }
+        
       </style>
    </head>
    <header class = "header">
       <!--nav-->
       <nav class = "navbar navbar-expand-lg bg-dark navbar-dark rounded-0 navbar-transparent">
          <div class="container">
-            <div class="dropdown" data-sessao="<?php
-               $foto = (isset($_SESSION['foto']));
-               echo $foto; ?>">
+            <div class="dropdown" data-sessao="<?php $foto = (isset($_SESSION['foto'])); echo $foto; ?>" data-test="<?php echo $s; ?>">
                <a class = "navbar-brand" href = "#" rel="noopener">
                <img src = "<?php
                $foto = (isset($_SESSION['foto'])) ? $_SESSION['foto'] : "imgs/logo1.png";
                echo $foto;
                ?>" id="imagem" class="foto-perfil" alt="logo">
                </a>
-               <span class="badge badge-danger">10</span>
+               <!--Contador de Carrinho-->
+               <span id="conta" class="badge badge-danger  not">
+                  <?php
+                     $pokemon  = ContadorCarrinho($s);
+                     if($pokemon->num_rows ==0){
+                        echo '';
+                     }else{
+                           while($car = $pokemon->fetch_array()){
+                              echo $car['COUNT(ID_INTERNO)'];
+                           }
+                     }
+                  ?>
+               </span>
                <div id="nada" class="dropdown-content d-none d-lg-none d-md-none">
                    <a href="perfil.php" rel="noopener">Perfil</a>
-                   <a href="carrinho.php" rel="noopener">Carrinho<span class="badge badge-danger float-right"></span></a>
+                   <a href="carrinho.php?c=1" rel="noopener">
+                      Carrinho
+                      <?php
+                         $pokemon  = ContadorCarrinho($s);
+                           if($pokemon->num_rows ==0){
+                              echo '0';
+                           }else{
+                              while($car = $pokemon->fetch_array()){
+                        ?>
+                      <span class="badge badge-danger float-right">
+                        <?php echo $car['COUNT(ID_INTERNO)']; ?>
+                      
+                      </span>
+                      <?php
+                              }
+                           }
+                     ?>
+                   </a>
                    <a href="?Sair" rel="noopener">Sair</a>
                </div>
             </div>

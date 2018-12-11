@@ -1,4 +1,4 @@
-<?php include_once('include_head_perfil_adm.php'); ?>
+<?php include('include_head_perfil_adm.php'); ?>
 
  <div class="breadcrumbs">
     <div class="col-sm-4">

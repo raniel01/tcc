@@ -472,8 +472,8 @@ include('include_head_perfil_adm.php'); ?>
                         <div  class="user" >
                              <a data-toggle="modal" data-target="#ModalInfo" class="info" titulo="<?php echo $a['NM_USUARIO']; ?>"  sobrenome="<?php echo $a['NM_SOBRENOME']; ?>"  email="<?php echo $a['DS_EMAIL']; ?>" picture="<?php echo $a['DS_FOTO']; ?>">
                                   <img  src = "<?php echo "../".$a['DS_FOTO'];?>" > 
-                              </a>
-                            <label class="name-user"><?php echo $a['NM_USUARIO'];?></label>
+                             
+                            <label class="name-user"><?php echo $a['NM_USUARIO'];?></label> </a>
                         </div>
                       <?php
                         

@@ -34,8 +34,10 @@
 	  function Drop(){
 	      if(session == ''){
 	         $("#nada").removeClass("dropdown-content");
+	         $("#conta").removeClass("badge-danger");
 	      }
 	      else{
+	           $("#conta").addClass("badge-danger");
 	           $("#nada").addClass("dropdown-content");
 	           $("#nada").removeClass("d-none d-lg-none d-md-none");
 	      }

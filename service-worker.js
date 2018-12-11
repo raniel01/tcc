@@ -1,7 +1,9 @@
-/*var CACHE_NAME = 'teste-cache';
+var CACHE_NAME = 'teste-cache';
 var urlsToCache = [
   '/',
-  'css/style-slidenav.css'
+  'css/style-slidenav.css',
+  'css/carrinho.css',
+  'css/style.css'
 ];
 
 self.addEventListener('install', function(event) {
@@ -52,4 +54,4 @@ self.addEventListener('fetch', function(event) {
         );
       })
     );
-});*/
+});

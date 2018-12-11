@@ -30,7 +30,7 @@
                      <a href="quem_somos.php" rel="noopener">Sobre</a>
                   </li>
                   <li>
-                     <a href="contato.php"rel="noopener">FAQ</a>
+                     <a href="termo-uso.php"rel="noopener">Termos de Uso</a>
                   </li>
                   <li>
                      <a href="contato.php" rel="noopener">Contato</a>
