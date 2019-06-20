@@ -1,5 +1,5 @@
 <?php
-include('con.php');
+include('conn.php');
 session_start();
 $func = $_GET['func'];
 /*seletor de função*/
