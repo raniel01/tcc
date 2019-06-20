@@ -1,6 +1,6 @@
 <?php
 //conexão
-$user = "xtranx";
+$user = "raniel01";
 $pass= "";
 $server = "localhost";
 $banco = "MEUCARRINHO";
